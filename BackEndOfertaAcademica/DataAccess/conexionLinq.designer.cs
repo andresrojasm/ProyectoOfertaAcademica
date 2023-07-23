@@ -22,6 +22,7 @@ namespace BackEndOfertaAcademica.DataAccess
 	using System;
 	
 	
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="SISTEMA_GESTION_ACADEMICA")]
 	public partial class conexionLinqDataContext : System.Data.Linq.DataContext
 	{
 		
@@ -30,6 +31,12 @@ namespace BackEndOfertaAcademica.DataAccess
     #region Extensibility Method Definitions
     partial void OnCreated();
     #endregion
+		
+		public conexionLinqDataContext() : 
+				base(global::BackEndOfertaAcademica.Properties.Settings.Default.SISTEMA_GESTION_ACADEMICAConnectionString, mappingSource)
+		{
+			OnCreated();
+		}
 		
 		public conexionLinqDataContext(string connection) : 
 				base(connection, mappingSource)
@@ -53,6 +60,13 @@ namespace BackEndOfertaAcademica.DataAccess
 				base(connection, mappingSource)
 		{
 			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.NEW_USER")]
+		public int NEW_USER([global::System.Data.Linq.Mapping.ParameterAttribute(Name="CEDULA", DbType="Int")] System.Nullable<int> cEDULA, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NOMBRE", DbType="VarChar(20)")] string nOMBRE, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="APELLIDOS", DbType="VarChar(30)")] string aPELLIDOS, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EDAD", DbType="Int")] System.Nullable<int> eDAD, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CORREO", DbType="VarChar(100)")] string cORREO, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CLAVE", DbType="NVarChar(MAX)")] string cLAVE, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CODIGODOCENTE", DbType="VarChar(10)")] string cODIGODOCENTE, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FECHA", DbType="DateTime")] System.Nullable<System.DateTime> fECHA, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID_ROLLES", DbType="Int")] System.Nullable<int> iD_ROLLES, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ACTIVO", DbType="Bit")] System.Nullable<bool> aCTIVO)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), cEDULA, nOMBRE, aPELLIDOS, eDAD, cORREO, cLAVE, cODIGODOCENTE, fECHA, iD_ROLLES, aCTIVO);
+			return ((int)(result.ReturnValue));
 		}
 	}
 }
