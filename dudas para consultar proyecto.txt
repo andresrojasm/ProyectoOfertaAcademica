@@ -1,0 +1,28 @@
+preguntas diagrama crow
+1) entidad grupo: como se conforma la entidad de grupo, indicar los elementos que la conforman.
+2) entidad grupo: debe identificarse por cuatrimestre y año.
+3) entidad oferta: es necesario un estado de aceptación o rechazo ante un oferta.
+4) entidad curso: es necesario un estado de curso activo o inactivo.
+5) entidad plan: es necesario un estado de curso activo o inactivo.
+6) entidad docente: es necesario un estado de aceptación o rechazo ante un oferta.
+7) entidad docente: es necesario un estado de curso activo o inactivo.
+8) entidad academica: tiene la posibilidad de editar la oferta previamente creada.
+9) entidad docente: debido a la estructura del sistema seria deceable una entidad blacklist.
+10) entidad curso/grupo: cual de las dos entidades debe almacenar la modalidad.
+11) entidad faltante(1): en seudo tipo de curso, se refiere a cursos de carreo y libres.
+12) entidad faltante(2): es necesario tener una entidad para la metodologias. si (cuales).
+13) atributo capacidad grupo: es necesario tener un atributo para la entidad grupo.
+14) entidad faltante(3): es necesario la entidad aula o laboratorio.
+15) atributo faltante(4): el estado del grupo debe de respetar las condiciones si y no de la oferta, las condiciones se mantiene y nuevo. que en que momento el estado es inactivo.
+16) entidad rolles: los rolles al momento de hacer el levantamiento de analisis, se sugiere tener un roll de administrador, un roll super usuario, roll de mantenimiento y un roll de usuario.
+
+consultas extras:
+las columnas en amarillo del excel son requerimientos o no lo son.
+
+
+control de accesos:
+1)administrador(director): administra usuarios, gestiona dosentes, generar reporte, (gestionar usuario)
+2)coordinador: agregar la oferta//asignar docentes, generar reporte, 
+
+
+preguntas casos de uso:
