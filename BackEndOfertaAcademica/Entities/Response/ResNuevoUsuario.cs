@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BackEndOfertaAcademica.Entities.Response
+namespace BackEndOfertaAcademica.Entities
 {
-    internal class ResNuevoUsuario
+    public class ResNuevoUsuario : ResBase
     {
     }
 }
