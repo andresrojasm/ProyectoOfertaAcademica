@@ -9,15 +9,15 @@ namespace BackEndOfertaAcademica.Entities
 {
     public class Usuario
     {
-        private int cedula { get; set; }
-        private string nombre { get; set; }
-        private string apellidos { get; set; }
-        private int edad { get; set; }
-        private string correo { get; set; }
-        private string clave { get; set; }
-        private string codigoDocente { get; set; }
-        private SqlDateTime fechaCreacion { get; set; }
-        private string rol { get; set; }
-        private bool activo { get; set; }
+        public int cedula { get; set; }
+        public string nombre { get; set; }
+        public string apellidos { get; set; }
+        public int edad { get; set; }
+        public string correo { get; set; }
+        public string clave { get; set; }
+        public string codigoDocente { get; set; }
+        public SqlDateTime fechaCreacion { get; set; }
+        public string rol { get; set; }
+        public bool activo { get; set; }
     }
 }
