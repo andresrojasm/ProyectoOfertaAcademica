@@ -22,11 +22,11 @@ namespace BackEndOfertaAcademica.Logic
                 if (request == null)
                 {
                     response.result = false;
-                    response.errorList.Add("El request esta nulo.");
+                    response.errorList.Add("re");
                 }
                 else
                 {
-                    if (String.IsNullOrEmpty(request.usuario.cedula.ToString()))
+                    if (request.usuario.cedula == 0)
                     {
                         response.result = false;
                         response.errorList.Add("Cedula no ingresada");
