@@ -54,6 +54,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>conexionLinq.dbml</DependentUpon>
     </Compile>
+    <Compile Include="Entities\Model\Curso.cs" />
     <Compile Include="Entities\Model\OfertaAcademica.cs" />
     <Compile Include="Entities\Model\RelacionCP.cs" />
     <Compile Include="Entities\Model\PlanCurso.cs" />
@@ -68,6 +69,7 @@
     <Compile Include="Entities\Model\Usuario.cs" />
     <Compile Include="Entities\Model\SolicitudUsuario.cs" />
     <Compile Include="Entities\Request\ReqBase.cs" />
+    <Compile Include="Entities\Request\ReqCurso.cs" />
     <Compile Include="Entities\Request\ReqNuevoUsuario.cs" />
     <Compile Include="Entities\Request\ReqOfertaAcademica.cs" />
     <Compile Include="Entities\Request\ReqSolicitudUsuario.cs" />
@@ -79,6 +81,7 @@
     <Compile Include="Entities\Request\ReqSolicitudUsuario.cs" />
 	<Compile Include="Entities\Request\ReqSolicitudUsuario.cs" />
     <Compile Include="Entities\Request\ReqRelacionSedeFAcultad.cs" />
+    <Compile Include="Entities\Response\ResCurso.cs" />
     <Compile Include="Entities\Response\ResOfertaAcademica.cs" />
     <Compile Include="Entities\Response\ResRelacionCP.cs" />
     <Compile Include="Entities\Request\ReqTelefono.cs" />
@@ -99,6 +102,7 @@
     <Compile Include="Logic\LogicaRelacionSedeFacultad.cs" />
     <Compile Include="Entities\Response\ResRelacionSD.cs" />
     <Compile Include="Entities\Response\ResRelacionCD.cs" />
+    <Compile Include="Logic\LogicCurso.cs" />
     <Compile Include="Logic\LogicOfertaAcademica.cs" />
     <Compile Include="Entities\Response\ResRelacionCD.cs" />
     <Compile Include="Entities\Response\ResRelacionCD.cs" />
