@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BackEndOfertaAcademica.Entities
 {
-    public class ResRelacionSD : ResBase
+    public class ResOfertaAcademica : ResBase
     {
 
     }

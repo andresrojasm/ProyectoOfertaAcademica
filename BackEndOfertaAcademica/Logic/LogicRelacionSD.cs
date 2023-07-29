@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BackEndOfertaAcademica.Logic
 {
-    internal class LogicRelacionSD
+    public class LogicRelacionSD
     {
         //Metodo para ingresar usuario nuevo (De front a Backend)
         public ResRelacionSD nuevaRelacionSD(ReqRelacionSD request)
@@ -50,14 +50,33 @@ namespace BackEndOfertaAcademica.Logic
                         conexionLinqDataContext conexionLinq = new conexionLinqDataContext();
 
                         //Uso del SP
-                        conexionLinq.NEWSEDEDOCENTE(request.relacionSD.idResd,)
+                        conexionLinq.NEWSEDEDOCENTE(request.relacionSD.idResd,
+                            request.relacionSD.idSede,
+                            request.relacionSD.cedula);
+
+                        //Validacion de las acciones de la BASE DE DATOS
+
+                        if (idResd > 0)
+                        {
+                            response.result = true;
+                        }
+                        else
+                        {
+                            response.result = false;
+                            response.errorList.Add(listaErroresBD);
+                        }
                     }
+
                 }
             }
-            catch 
-            { 
-            
+            catch (Exception ex)
+            {
+                response.result = false;
+                response.errorList.Add(ex.ToString());
             }
+            //Iria un finally si hay un log de errores
+
+            return response;
         }
     }
 }

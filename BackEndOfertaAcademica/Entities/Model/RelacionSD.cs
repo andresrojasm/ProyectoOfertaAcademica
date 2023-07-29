@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BackEndOfertaAcademica.Entities
 {
-    internal class RelacionSD
+    public class RelacionSD
     {
         public int idResd { get; set; }
         public int idSede { get; set; }
