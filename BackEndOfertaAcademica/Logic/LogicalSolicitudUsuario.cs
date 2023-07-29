@@ -55,6 +55,15 @@ namespace BackEndOfertaAcademica.Logic
                         conexionLinqDataContext conexionLinq = new conexionLinqDataContext();
 
                         //Uso del SP
+                        conexionLinq.NEW_USER(request.solicitudUsuario.cedula,
+                            request.solicitudUsuario.nombre,
+                            request.solicitudUsuario.apellidos,
+                            request.solicitudUsuario.edad,
+                            request.solicitudUsuario.correo,
+                            request.solicitudUsuario.clave,
+                            request.solicitudUsuario.codigoDocente,
+                            request.solicitudUsuario.rol,
+                            request.solicitudUsuario.activo;
                         conexionLinq.NEW_USER(request.solicitudUsuario.idSolicitudUsuario,
                             request.solicitudUsuario.cedula,
                             request.solicitudUsuario.idEstado);
