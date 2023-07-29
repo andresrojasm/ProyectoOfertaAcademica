@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace BackEndOfertaAcademica.Entities
 {
-    public class ReqRelacionCD : ReqBase
+    public class Telefono
     {
-        public RelacionCDcs relacionCD { get; set; }
+        public int idTelefono { get; set; }
+        public int numero { get; set; } 
+        public int cedula { get; set; }
     }
 }

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -54,28 +54,36 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>conexionLinq.dbml</DependentUpon>
     </Compile>
+    <Compile Include="Entities\Model\PlanCurso.cs" />
     <Compile Include="Entities\Model\RelacionSedeFacultad.cs" />
     <Compile Include="Entities\Model\RelacionSD.cs" />
-	<Compile Include="Entities\Model\RelacionCD.cs" />
+    <Compile Include="Entities\Model\RelacionCD.cs" />
+    <Compile Include="Entities\Model\Telefono.cs" />
     <Compile Include="Entities\Model\Usuario.cs" />
-	<Compile Include="Entities\Model\SolicitudUsuario.cs" />
+    <Compile Include="Entities\Model\SolicitudUsuario.cs" />
     <Compile Include="Entities\Request\ReqBase.cs" />
     <Compile Include="Entities\Request\ReqNuevoUsuario.cs" />
-	<Compile Include="Entities\Request\ReqSolicitudUsuario.cs" />
+    <Compile Include="Entities\Request\ReqPlanCurso.cs" />
+    <Compile Include="Entities\Request\ReqSolicitudUsuario.cs" />
     <Compile Include="Entities\Request\ReqRelacionSedeFAcultad.cs" />
+    <Compile Include="Entities\Request\ReqTelefono.cs" />
+    <Compile Include="Entities\Response\ResPlanCurso.cs" />
     <Compile Include="Entities\Response\ResRelacionSedeFacultad.cs" />
     <Compile Include="Entities\Request\ReqRelacionSD.cs" />
-	<Compile Include="Entities\Request\ReqRelacionCD.cs" />
+    <Compile Include="Entities\Request\ReqRelacionCD.cs" />
     <Compile Include="Entities\Response\ResBase.cs" />
     <Compile Include="Entities\Response\ResNuevoUsuario.cs" />
-	<Compile Include="Entities\Response\ResSolicitudUsuario.cs" />
+    <Compile Include="Entities\Response\ResSolicitudUsuario.cs" />
+    <Compile Include="Entities\Response\ResTelefono.cs" />
     <Compile Include="Logic\LogicaRelacionSedeFacultad.cs" />
     <Compile Include="Entities\Response\ResRelacionSD.cs" />
-	<Compile Include="Entities\Response\ResRelacionCD.cs" />
+    <Compile Include="Entities\Response\ResRelacionCD.cs" />
+    <Compile Include="Logic\LogicPlanCurso.cs" />
     <Compile Include="Logic\LogicRelacionSD.cs" />
-	<Compile Include="Logic\LogicRelacionCD.cs" />
+    <Compile Include="Logic\LogicRelacionCD.cs" />
+    <Compile Include="Logic\LogicTelefono.cs" />
     <Compile Include="Logic\LogicUsuario.cs" />
-	<Compile Include="Logic\LogicalSolicitudUsuario.cs" />
+    <Compile Include="Logic\LogicalSolicitudUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
