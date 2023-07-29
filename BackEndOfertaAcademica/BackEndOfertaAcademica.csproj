@@ -73,6 +73,7 @@
     <Compile Include="Entities\Request\ReqSolicitudUsuario.cs" />
     <Compile Include="Entities\Request\ReqOfertaAcademica.cs" />
     <Compile Include="Entities\Request\ReqSolicitudUsuario.cs" />
+	<Compile Include="Entities\Request\ReqSolicitudUsuario.cs" />
     <Compile Include="Entities\Request\ReqRelacionSedeFAcultad.cs" />
     <Compile Include="Entities\Response\ResRelacionCP.cs" />
     <Compile Include="Entities\Request\ReqTelefono.cs" />
@@ -88,6 +89,7 @@
     <Compile Include="Entities\Response\ResSolicitudUsuario.cs" />
     <Compile Include="Entities\Response\ResTelefono.cs" />
     <Compile Include="Entities\Response\ResSolicitudUsuario.cs" />
+	<Compile Include="Entities\Response\ResSolicitudUsuario.cs" />
     <Compile Include="Logic\LogicaRelacionSedeFacultad.cs" />
     <Compile Include="Entities\Response\ResRelacionSD.cs" />
     <Compile Include="Entities\Response\ResRelacionCD.cs" />
@@ -114,6 +116,9 @@
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>conexionLinq.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+    </None>
+    <None Include="DataAccess\conexionLinq.dbml.layout">
+      <DependentUpon>conexionLinq.dbml</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
