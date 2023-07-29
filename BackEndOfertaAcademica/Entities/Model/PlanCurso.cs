@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace BackEndOfertaAcademica.Entities
 {
-    public class ReqRelacionCD : ReqBase
+    public class PlanCurso
     {
-        public RelacionCDcs relacionCD { get; set; }
+        public string codigoPlan { get; set; }
+        public string nombrePlan { get; set; }
+        public string idCarrera { get; set; }
     }
 }
