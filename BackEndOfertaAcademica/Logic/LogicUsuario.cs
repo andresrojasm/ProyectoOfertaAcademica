@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BackEndOfertaAcademica.Logic
 {
-    internal class LogicUsuario
+    public class LogicUsuario
     {
         //Metodo para ingresar usuario nuevo (De front a Backend)
         public ResNuevoUsuario nuevoUsuario(ReqNuevoUsuario request)

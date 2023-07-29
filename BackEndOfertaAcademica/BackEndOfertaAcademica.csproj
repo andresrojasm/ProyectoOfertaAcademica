@@ -54,10 +54,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>conexionLinq.dbml</DependentUpon>
     </Compile>
+    <Compile Include="Entities\Model\RelacionCP.cs" />
     <Compile Include="Entities\Model\PlanCurso.cs" />
     <Compile Include="Entities\Model\OfertaAcademica.cs" />
     <Compile Include="Entities\Model\RelacionSedeFacultad.cs" />
     <Compile Include="Entities\Model\RelacionSD.cs" />
+    <Compile Include="Entities\Model\RelacionCD.cs" />
     <Compile Include="Entities\Model\RelacionCD.cs" />
     <Compile Include="Entities\Model\Telefono.cs" />
     <Compile Include="Entities\Model\RelacionCD.cs" />
@@ -65,11 +67,14 @@
     <Compile Include="Entities\Model\SolicitudUsuario.cs" />
     <Compile Include="Entities\Request\ReqBase.cs" />
     <Compile Include="Entities\Request\ReqNuevoUsuario.cs" />
+    <Compile Include="Entities\Request\ReqRelacionCP.cs" />
+    <Compile Include="Entities\Request\ReqSolicitudUsuario.cs" />
     <Compile Include="Entities\Request\ReqPlanCurso.cs" />
     <Compile Include="Entities\Request\ReqSolicitudUsuario.cs" />
     <Compile Include="Entities\Request\ReqOfertaAcademica.cs" />
     <Compile Include="Entities\Request\ReqSolicitudUsuario.cs" />
     <Compile Include="Entities\Request\ReqRelacionSedeFAcultad.cs" />
+    <Compile Include="Entities\Response\ResRelacionCP.cs" />
     <Compile Include="Entities\Request\ReqTelefono.cs" />
     <Compile Include="Entities\Response\ResPlanCurso.cs" />
     <Compile Include="Entities\Response\ResOfertaAcademica.cs" />
@@ -79,15 +84,19 @@
     <Compile Include="Entities\Response\ResBase.cs" />
     <Compile Include="Entities\Response\ResNuevoUsuario.cs" />
     <Compile Include="Entities\Response\ResSolicitudUsuario.cs" />
+    <Compile Include="Logic\LogicalRelacionCP.cs" />
+    <Compile Include="Entities\Response\ResSolicitudUsuario.cs" />
     <Compile Include="Entities\Response\ResTelefono.cs" />
     <Compile Include="Entities\Response\ResSolicitudUsuario.cs" />
     <Compile Include="Logic\LogicaRelacionSedeFacultad.cs" />
     <Compile Include="Entities\Response\ResRelacionSD.cs" />
     <Compile Include="Entities\Response\ResRelacionCD.cs" />
+    <Compile Include="Entities\Response\ResRelacionCD.cs" />
     <Compile Include="Logic\LogicPlanCurso.cs" />
     <Compile Include="Entities\Response\ResRelacionCD.cs" />
     <Compile Include="Logic\LogicOfertaAcademica.cs" />
     <Compile Include="Logic\LogicRelacionSD.cs" />
+    <Compile Include="Logic\LogicRelacionCD.cs" />
     <Compile Include="Logic\LogicRelacionCD.cs" />
     <Compile Include="Logic\LogicTelefono.cs" />
     <Compile Include="Logic\LogicUsuario.cs" />
@@ -106,9 +115,6 @@
       <LastGenOutput>conexionLinq.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="DataAccess\conexionLinq.dbml.layout">
-      <DependentUpon>conexionLinq.dbml</DependentUpon>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -119,5 +125,10 @@
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
   <ItemGroup />
+  <ItemGroup>
+    <None Include="DataAccess\conexionLinq.dbml.layout">
+      <DependentUpon>conexionLinq.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
