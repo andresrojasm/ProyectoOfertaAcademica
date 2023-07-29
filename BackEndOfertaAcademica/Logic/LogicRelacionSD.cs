@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BackEndOfertaAcademica.Logic
 {
-    internal class LogicRelacionSD
+    public class LogicRelacionSD
     {
         //Metodo para ingresar usuario nuevo (De front a Backend)
         public ResRelacionSD nuevaRelacionSD(ReqRelacionSD request)
@@ -50,7 +50,7 @@ namespace BackEndOfertaAcademica.Logic
                         conexionLinqDataContext conexionLinq = new conexionLinqDataContext();
 
                         //Uso del SP
-                        conexionLinq.NEWSEDEDOCENTE(request.relacionSD.idResd,)
+                        conexionLinq.NEWSEDEDOCENTE(request.relacionSD.idResd);
                     }
                 }
             }

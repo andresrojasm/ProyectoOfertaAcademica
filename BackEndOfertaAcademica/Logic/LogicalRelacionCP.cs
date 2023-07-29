@@ -10,81 +10,70 @@ using System.Threading.Tasks;
 
 namespace BackEndOfertaAcademica.Logic
 {
-    public class LogicSolicitudUsuario
+    public class LogicRelacionCP
     {
-        //Metodo para ingresar una solicitud de usuario nuevo (De front a Backend)
-        public ResSolicitudUsuario nuevoSolicitudUsuario(ReqSolicitudUsuario request)
+        //Metodo para la relacion entre la tabla usuario/docente 
+        public ResRelacionCP nuevaRCP(ReqRelacionCP request)
         {
-            ResSolicitudUsuario response = new ResSolicitudUsuario();
+            ResRelacionCP response = new ResRelacionCP();
             response.errorList = new List<string>();
 
             try
             {
-                //Evaluamos el Request que viene desde el Front
                 if (request == null)
                 {
                     response.result = false;
-                    response.errorList.Add("re");
+                    response.errorList.Add("El request esta nulo.");
                 }
                 else
                 {
-                    if (request.solicitudUsuario.idSolicitudUsuario == 0)
+                    //Hacemos 
+                    if (String.IsNullOrEmpty(request.relacionCP.idRecp.ToString()))
                     {
                         response.result = false;
-                        response.errorList.Add("Id de usuario no ingresada");
+                        response.errorList.Add("Id no ingresada");
                     }
-
-                    if (request.solicitudUsuario.cedula == 0)
+                    if (String.IsNullOrEmpty(request.relacionCP.idCurso.ToString()))
                     {
                         response.result = false;
-                        response.errorList.Add("Cedula no ingresado");
+                        response.errorList.Add("Id del curso no ingresada");
                     }
-
-                    if (request.solicitudUsuario.idEstado == 0)
+                    if (String.IsNullOrEmpty(request.relacionCP.codigoPlan.ToString()))
                     {
                         response.result = false;
-                        response.errorList.Add("Rol no ingresado");
+                        response.errorList.Add("Cedula de usuario no ingresada");
                     }
-
                     if (!response.errorList.Any())
                     {
-                        //Inicializamos las variables necesarias
+                        //Inicializamos las variables necesarias  
                         int? cedulaBD = 0;
                         string listaErroresBD = "";
                         //Instancia LINQ
                         conexionLinqDataContext conexionLinq = new conexionLinqDataContext();
 
-                        //Uso del SP
-                        conexionLinq.NEW_USER(request.solicitudUsuario.idSolicitudUsuario,
-                            request.solicitudUsuario.cedula,
-                            request.solicitudUsuario.idEstado);
+                        //Uso del SP 
+                        conexionLinq.NEW_RCP(request.relacionCP.idRecp,
+                            request.relacionCP.idCurso,
+                            request.relacionCP.codigoPlan);
 
                         /*
-                         --STORE PROCEDURE PARA SOLICITUD USUARIO
-CREATE PROCEDURE NEW_USUARIO_SOLICITUD
-    @CEDULA INT,
-    @FECHA_SOLICITUD DATETIME,
-    @ID_ESTADO INT
+                         --STORE PROCEDURE PARA RELACION CURSO PLAN
+CREATE PROCEDURE NEW_RCP @ID_CURSO VARCHAR(10),@CODIGOPLAN VARCHAR(10)
 AS
 BEGIN
-    SET NOCOUNT ON;
-
-    IF NOT EXISTS(SELECT 1 FROM SOLICITUD_USUARIO WHERE CEDULA = @CEDULA AND FECHA_SOLICITUD = @FECHA_SOLICITUD)
+    IF NOT EXISTS(SELECT 1 FROM RELACION_CURSO_PLAN WHERE ID_CURSO = @ID_CURSO AND CODIGOPLAN = @CODIGOPLAN)
     BEGIN
-        INSERT INTO SOLICITUD_USUARIO (CEDULA, FECHA_SOLICITUD, ID_ESTADO)
-        VALUES (@CEDULA, @FECHA_SOLICITUD, @ID_ESTADO);
+        INSERT INTO RELACION_CURSO_PLAN (ID_CURSO, CODIGOPLAN)
+        VALUES (@ID_CURSO, @CODIGOPLAN);
     END
     ELSE
     BEGIN
-        PRINT 'LA SOLICITUD DE USUARIO YA EXISTE';
+        PRINT 'LA RELACIÓN CURSO-PLAN YA EXISTE';
     END
 END
 GO
                          
-                         
                          */
-                        // ref cedulaBD,
-                        // ref listaErroresBD)
 
                         //Validacion de las acciones de la BASE DE DATOS
 
@@ -97,8 +86,8 @@ GO
                             response.result = false;
                             response.errorList.Add(listaErroresBD);
                         }
-
                     }
+
                 }
             }
             catch (Exception ex)
@@ -106,8 +95,6 @@ GO
                 response.result = false;
                 response.errorList.Add(ex.ToString());
             }
-            //Iria un finally si hay un log de errores
-
             return response;
         }
     }
