@@ -8,12 +8,12 @@ using System.Threading.Tasks;
 
 namespace BackEndOfertaAcademica.Logic
 {
-    internal class LogicUsuario
+    internal class LogicSolicitudUsuario
     {
-        //Metodo para ingresar usuario nuevo (De front a Backend)
-        public ResNuevoUsuario nuevoUsuario(ReqNuevoUsuario request)
+        //Metodo para ingresar una solicitud de usuario nuevo (De front a Backend)
+        public ResSolicitudUsuario nuevoSolicitudUsuario(ReqSolicitudUsuario request)
         {
-            ResNuevoUsuario response = new ResNuevoUsuario();
+            ResSolicitudUsuario response = new ResSolicitudUsuario();
             response.errorList = new List<string>();
 
             try
@@ -26,43 +26,19 @@ namespace BackEndOfertaAcademica.Logic
                 }
                 else
                 {
-                    if (request.usuario.cedula == 0)
+                    if (request.solicitudUsuario.idSolicitudUsuario == 0)
                     {
                         response.result = false;
-                        response.errorList.Add("Cedula no ingresada");
+                        response.errorList.Add("Id de usuario no ingresada");
                     }
 
-                    if (String.IsNullOrEmpty(request.usuario.nombre))
+                    if (String.IsNullOrEmpty(request.solicitudUsuario.cedula))
                     {
                         response.result = false;
-                        response.errorList.Add("Nombre no ingresado");
+                        response.errorList.Add("Cedula no ingresado");
                     }
 
-                    if (String.IsNullOrEmpty(request.usuario.apellidos))
-                    {
-                        response.result = false;
-                        response.errorList.Add("Apellidos no ingresados");
-                    }
-
-                    if (String.IsNullOrEmpty(request.usuario.edad.ToString()))
-                    {
-                        response.result = false;
-                        response.errorList.Add("Edad no ingresada");
-                    }
-
-                    if (String.IsNullOrEmpty(request.usuario.correo))
-                    {
-                        response.result = false;
-                        response.errorList.Add("Correo no ingresado");
-                    }
-
-                    if (String.IsNullOrEmpty(request.usuario.clave))
-                    {
-                        response.result = false;
-                        response.errorList.Add("Clave no ingresada");
-                    }
-
-                    if (String.IsNullOrEmpty(request.usuario.rol))
+                    if (String.IsNullOrEmpty(request.solicitudUsuario.idEstado))
                     {
                         response.result = false;
                         response.errorList.Add("Rol no ingresado");
@@ -77,15 +53,15 @@ namespace BackEndOfertaAcademica.Logic
                         conexionLinqDataContext conexionLinq = new conexionLinqDataContext();
 
                         //Uso del SP
-                        conexionLinq.NEW_USER(request.usuario.cedula,
-                            request.usuario.nombre,
-                            request.usuario.apellidos,
-                            request.usuario.edad,
-                            request.usuario.correo,
-                            request.usuario.clave,
-                            request.usuario.codigoDocente,
-                            request.usuario.rol,
-                            request.usuario.activo);
+                        conexionLinq.NEW_USER(request.solicitudUsuario.cedula,
+                            request.solicitudUsuario.nombre,
+                            request.solicitudUsuario.apellidos,
+                            request.solicitudUsuario.edad,
+                            request.solicitudUsuario.correo,
+                            request.solicitudUsuario.clave,
+                            request.solicitudUsuario.codigoDocente,
+                            request.solicitudUsuario.rol,
+                            request.solicitudUsuario.activo;
                         // ref cedulaBD,
                         // ref listaErroresBD)
 
@@ -103,10 +79,10 @@ namespace BackEndOfertaAcademica.Logic
 
                     }
                 }
-            } 
+            }
             catch (Exception ex)
             {
-                response.result=false;
+                response.result = false;
                 response.errorList.Add(ex.ToString());
             }
             //Iria un finally si hay un log de errores
