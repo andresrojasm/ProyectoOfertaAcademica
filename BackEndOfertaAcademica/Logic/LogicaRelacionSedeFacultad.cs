@@ -27,10 +27,10 @@ namespace BackEndOfertaAcademica.Logic
                     if (string.IsNullOrEmpty(request.RelacionSedeFacultad.idFacultad.ToString()))
                     {
                         response.result = false;
-                        response.errorList = 
+                        response.errorList.Add("");
                     }
                 }
-            }catch (Exception e)
+            }catch (Exception)
             {
 
             }

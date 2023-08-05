@@ -33,5 +33,26 @@ namespace BackEndOfertaAcademica.Properties {
                 return ((string)(this["SISTEMA_GESTION_ACADEMICAConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=10.20.16.14;Initial Catalog=Esteban;User ID=sistemas;Password=sistema" +
+            "s")]
+        public string EstebanConnectionString {
+            get {
+                return ((string)(this["EstebanConnectionString"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=10.20.16.14;Initial Catalog=Esteban;User ID=sistemas")]
+        public string EstebanConnectionString1 {
+            get {
+                return ((string)(this["EstebanConnectionString1"]));
+            }
+        }
     }
 }

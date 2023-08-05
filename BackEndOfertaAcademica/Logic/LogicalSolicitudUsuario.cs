@@ -1,5 +1,7 @@
 ﻿using BackEndOfertaAcademica.DataAccess;
 using BackEndOfertaAcademica.Entities;
+using BackEndOfertaAcademica.Entities.Response;
+using BackEndOfertaAcademica.Entities.Request;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace BackEndOfertaAcademica.Logic
 {
-    internal class LogicSolicitudUsuario
+    public class LogicSolicitudUsuario
     {
         //Metodo para ingresar una solicitud de usuario nuevo (De front a Backend)
         public ResSolicitudUsuario nuevoSolicitudUsuario(ReqSolicitudUsuario request)
@@ -32,13 +34,13 @@ namespace BackEndOfertaAcademica.Logic
                         response.errorList.Add("Id de usuario no ingresada");
                     }
 
-                    if (String.IsNullOrEmpty(request.solicitudUsuario.cedula))
+                    if (request.solicitudUsuario.cedula == 0)
                     {
                         response.result = false;
                         response.errorList.Add("Cedula no ingresado");
                     }
 
-                    if (String.IsNullOrEmpty(request.solicitudUsuario.idEstado))
+                    if (request.solicitudUsuario.idEstado == 0)
                     {
                         response.result = false;
                         response.errorList.Add("Rol no ingresado");
@@ -62,6 +64,34 @@ namespace BackEndOfertaAcademica.Logic
                             request.solicitudUsuario.codigoDocente,
                             request.solicitudUsuario.rol,
                             request.solicitudUsuario.activo;
+                        conexionLinq.NEW_USER(request.solicitudUsuario.idSolicitudUsuario,
+                            request.solicitudUsuario.cedula,
+                            request.solicitudUsuario.idEstado);
+
+                        /*
+                         --STORE PROCEDURE PARA SOLICITUD USUARIO
+CREATE PROCEDURE NEW_USUARIO_SOLICITUD
+    @CEDULA INT,
+    @FECHA_SOLICITUD DATETIME,
+    @ID_ESTADO INT
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    IF NOT EXISTS(SELECT 1 FROM SOLICITUD_USUARIO WHERE CEDULA = @CEDULA AND FECHA_SOLICITUD = @FECHA_SOLICITUD)
+    BEGIN
+        INSERT INTO SOLICITUD_USUARIO (CEDULA, FECHA_SOLICITUD, ID_ESTADO)
+        VALUES (@CEDULA, @FECHA_SOLICITUD, @ID_ESTADO);
+    END
+    ELSE
+    BEGIN
+        PRINT 'LA SOLICITUD DE USUARIO YA EXISTE';
+    END
+END
+GO
+                         
+                         
+                         */
                         // ref cedulaBD,
                         // ref listaErroresBD)
 

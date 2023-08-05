@@ -9,6 +9,6 @@ namespace BackEndOfertaAcademica.Entities
 {
     public class ReqSolicitudUsuario : ReqBase
     {
-        public SolicitudUsuario SolicitudUsuario { get; set; }
+        public SolicitudUsuario solicitudUsuario { get; set; }
     }
 }

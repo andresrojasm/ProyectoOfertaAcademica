@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BackEndOfertaAcademica.Entities
 {
-    internal class RelacionCDcs
+    public class RelacionCDcs
     {
         public int id { get; set; }
         public string idCurso { get; set; }

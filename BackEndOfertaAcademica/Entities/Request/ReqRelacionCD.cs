@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BackEndOfertaAcademica.Entities
 {
-    internal class ReqRelacionCD : ReqBase
+    public class ReqRelacionCD : ReqBase
     {
         public RelacionCDcs relacionCD { get; set; }
     }
