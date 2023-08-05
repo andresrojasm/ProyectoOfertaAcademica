@@ -28,22 +28,11 @@ namespace BackEndOfertaAcademica.Logic
                 }
                 else
                 {
-                    if (request.solicitudUsuario.idSolicitudUsuario == 0)
-                    {
-                        response.result = false;
-                        response.errorList.Add("Id de usuario no ingresada");
-                    }
 
                     if (request.solicitudUsuario.cedula == 0)
                     {
                         response.result = false;
                         response.errorList.Add("Cedula no ingresado");
-                    }
-
-                    if (request.solicitudUsuario.idEstado == 0)
-                    {
-                        response.result = false;
-                        response.errorList.Add("Rol no ingresado");
                     }
 
                     if (!response.errorList.Any())
@@ -55,18 +44,14 @@ namespace BackEndOfertaAcademica.Logic
                         conexionLinqDataContext conexionLinq = new conexionLinqDataContext();
 
                         //Uso del SP
-                        conexionLinq.NEW_USER(request.solicitudUsuario.cedula,
+                        conexionLinq.NEW_USER_REQUEST(request.solicitudUsuario.cedula,
                             request.solicitudUsuario.nombre,
                             request.solicitudUsuario.apellidos,
                             request.solicitudUsuario.edad,
                             request.solicitudUsuario.correo,
                             request.solicitudUsuario.clave,
                             request.solicitudUsuario.codigoDocente,
-                            request.solicitudUsuario.rol,
-                            request.solicitudUsuario.activo;
-                        conexionLinq.NEW_USER(request.solicitudUsuario.idSolicitudUsuario,
-                            request.solicitudUsuario.cedula,
-                            request.solicitudUsuario.idEstado);
+                            request.solicitudUsuario.rol);
 
                         /*
                          --STORE PROCEDURE PARA SOLICITUD USUARIO

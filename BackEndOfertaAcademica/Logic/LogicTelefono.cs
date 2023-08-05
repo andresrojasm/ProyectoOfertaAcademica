@@ -50,7 +50,7 @@ namespace BackEndOfertaAcademica.Logic
                         conexionLinqDataContext conexionLinq = new conexionLinqDataContext();
 
                         //Uso del SP 
-                        conexionLinq.NEW_T(request.telefono.idTelefono,
+                        conexionLinq.NEW_PHONE(
                             request.telefono.numero,
                             request.telefono.cedula);
 

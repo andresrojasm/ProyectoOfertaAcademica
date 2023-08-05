@@ -16,7 +16,7 @@ namespace BackEndOfertaAcademica.Entities
         public int idSede { get; set; }
         public int idCuatrimestre { get; set; }
         public int cedulaDocente { get; set; }
-        public  SqlDateTime año { get; set; }
+        public  DateTime año { get; set; }
         public int idHorario { get; set; }
         public int grupo { get; set; }
         public bool estado { get; set; }

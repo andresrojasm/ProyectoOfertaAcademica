@@ -1,1 +1,154 @@
-﻿
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="SISTEMA_GESTION_ACADEMICA" Class="conexionLinqDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DEADMACHINETWO\SQLEXPRESS;Initial Catalog=SISTEMA_GESTION_ACADEMICA;Integrated Security=True" SettingsObjectName="BackEndOfertaAcademica.Properties.Settings" SettingsPropertyName="SISTEMA_GESTION_ACADEMICAConnectionString1" Provider="System.Data.SqlClient" />
+  <Function Name="dbo.NEW_ACADEMICOFFER" Method="NEW_ACADEMICOFFER">
+    <Parameter Name="NOMBREOFERTA" Parameter="nOMBREOFERTA" Type="System.String" DbType="VarChar(15)" />
+    <Parameter Name="ID_CURSO" Parameter="iD_CURSO" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ID_SEDE" Parameter="iD_SEDE" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ID_CUATRIMESTRE" Parameter="iD_CUATRIMESTRE" Type="System.Int32" DbType="Int" />
+    <Parameter Name="CEDULA_DOCENTE" Parameter="cEDULA_DOCENTE" Type="System.Int32" DbType="Int" />
+    <Parameter Name="AÑO" Parameter="aÑO" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="ID_HORARIO" Parameter="iD_HORARIO" Type="System.Int32" DbType="Int" />
+    <Parameter Name="GRUPO" Parameter="gRUPO" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ESTADO" Parameter="eSTADO" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="USUARIO" Parameter="uSUARIO" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_ActualizarUsuario" Method="sp_ActualizarUsuario">
+    <Parameter Name="CEDULA" Parameter="cEDULA" Type="System.Int32" DbType="Int" />
+    <Parameter Name="NOMBRE" Parameter="nOMBRE" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="APELLIDOS" Parameter="aPELLIDOS" Type="System.String" DbType="VarChar(30)" />
+    <Parameter Name="EDAD" Parameter="eDAD" Type="System.Int32" DbType="Int" />
+    <Parameter Name="CORREO" Parameter="cORREO" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="CLAVE" Parameter="cLAVE" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="CODIGODOCENTE" Parameter="cODIGODOCENTE" Type="System.String" DbType="VarChar(10)" />
+    <Parameter Name="FECHA" Parameter="fECHA" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="ID_ROLLES" Parameter="iD_ROLLES" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ACTIVO" Parameter="aCTIVO" Type="System.Boolean" DbType="Bit" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.NEW_ADDRESS" Method="NEW_ADDRESS">
+    <Parameter Name="DIRECCION" Parameter="dIRECCION" Type="System.String" DbType="VarChar(150)" />
+    <Parameter Name="CEDULA" Parameter="cEDULA" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.NEW_CAREER" Method="NEW_CAREER">
+    <Parameter Name="ID_CARRERA" Parameter="iD_CARRERA" Type="System.String" DbType="VarChar(15)" />
+    <Parameter Name="NOMBRECARRERA" Parameter="nOMBRECARRERA" Type="System.String" DbType="VarChar(15)" />
+    <Parameter Name="ID_FACULTAD" Parameter="iD_FACULTAD" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ID_GRADO" Parameter="iD_GRADO" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.NEW_PHONE" Method="NEW_PHONE">
+    <Parameter Name="NUMERO" Parameter="nUMERO" Type="System.Int32" DbType="Int" />
+    <Parameter Name="CEDULA" Parameter="cEDULA" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.NEW_RCP" Method="NEW_RCP">
+    <Parameter Name="ID_CURSO" Parameter="iD_CURSO" Type="System.String" DbType="VarChar(10)" />
+    <Parameter Name="CODIGOPLAN" Parameter="cODIGOPLAN" Type="System.String" DbType="VarChar(10)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.NEW_SUBJECT" Method="NEW_SUBJECT">
+    <Parameter Name="ID_CURSO" Parameter="iD_CURSO" Type="System.String" DbType="VarChar(10)" />
+    <Parameter Name="NOMBRECURSO" Parameter="nOMBRECURSO" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="CREDITO" Parameter="cREDITO" Type="System.Int32" DbType="Int" />
+    <Parameter Name="BLOQUE" Parameter="bLOQUE" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.NEW_SUBJECTPLAN" Method="NEW_SUBJECTPLAN">
+    <Parameter Name="CODIGOPLAN" Parameter="cODIGOPLAN" Type="System.String" DbType="VarChar(10)" />
+    <Parameter Name="NOMBREPLAN" Parameter="nOMBREPLAN" Type="System.String" DbType="VarChar(10)" />
+    <Parameter Name="ID_CARRERA" Parameter="iD_CARRERA" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.NEW_TEACHER" Method="NEW_TEACHER">
+    <Parameter Name="CEDULA" Parameter="cEDULA" Type="System.Int32" DbType="Int" />
+    <Parameter Name="NOMBRE" Parameter="nOMBRE" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="APELLIDOS" Parameter="aPELLIDOS" Type="System.String" DbType="VarChar(30)" />
+    <Parameter Name="EDAD" Parameter="eDAD" Type="System.Int32" DbType="Int" />
+    <Parameter Name="CORREO" Parameter="cORREO" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="CLAVE" Parameter="cLAVE" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="CODIGODOCENTE" Parameter="cODIGODOCENTE" Type="System.String" DbType="VarChar(10)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.NEW_USER" Method="NEW_USER">
+    <Parameter Name="CEDULA" Parameter="cEDULA" Type="System.Int32" DbType="Int" />
+    <Parameter Name="NOMBRE" Parameter="nOMBRE" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="APELLIDOS" Parameter="aPELLIDOS" Type="System.String" DbType="VarChar(30)" />
+    <Parameter Name="EDAD" Parameter="eDAD" Type="System.Int32" DbType="Int" />
+    <Parameter Name="CORREO" Parameter="cORREO" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="CLAVE" Parameter="cLAVE" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="CODIGODOCENTE" Parameter="cODIGODOCENTE" Type="System.String" DbType="VarChar(10)" />
+    <Parameter Name="FECHA" Parameter="fECHA" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="ID_ROLLES" Parameter="iD_ROLLES" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ACTIVO" Parameter="aCTIVO" Type="System.Boolean" DbType="Bit" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.NEW_USER_REQUEST" Method="NEW_USER_REQUEST">
+    <Parameter Name="CEDULA" Parameter="cEDULA" Type="System.Int32" DbType="Int" />
+    <Parameter Name="NOMBRE" Parameter="nOMBRE" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="APELLIDOS" Parameter="aPELLIDOS" Type="System.String" DbType="VarChar(30)" />
+    <Parameter Name="EDAD" Parameter="eDAD" Type="System.Int32" DbType="Int" />
+    <Parameter Name="CORREO" Parameter="cORREO" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="CLAVE" Parameter="cLAVE" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="CODIGODOCENTE" Parameter="cODIGODOCENTE" Type="System.String" DbType="VarChar(10)" />
+    <Parameter Name="ID_ROLLES" Parameter="iD_ROLLES" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.NEW_USUARIO_SOLICITUD" Method="NEW_USUARIO_SOLICITUD">
+    <Parameter Name="CEDULA" Parameter="cEDULA" Type="System.Int32" DbType="Int" />
+    <Parameter Name="FECHA_SOLICITUD" Parameter="fECHA_SOLICITUD" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="ID_ESTADO" Parameter="iD_ESTADO" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_ActualizarCurso" Method="sp_ActualizarCurso">
+    <Parameter Name="ID_CURSO" Parameter="iD_CURSO" Type="System.String" DbType="VarChar(10)" />
+    <Parameter Name="NOMBRECURSO" Parameter="nOMBRECURSO" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="CREDITO" Parameter="cREDITO" Type="System.Int32" DbType="Int" />
+    <Parameter Name="BLOQUE" Parameter="bLOQUE" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_ActualizarDireccion" Method="sp_ActualizarDireccion">
+    <Parameter Name="ID_DIRECCION" Parameter="iD_DIRECCION" Type="System.Int32" DbType="Int" />
+    <Parameter Name="DIRECCION" Parameter="dIRECCION" Type="System.String" DbType="VarChar(150)" />
+    <Parameter Name="CEDULA" Parameter="cEDULA" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_ActualizarOfertaAcademica" Method="sp_ActualizarOfertaAcademica">
+    <Parameter Name="ID_OFERTA" Parameter="iD_OFERTA" Type="System.Int32" DbType="Int" />
+    <Parameter Name="NOMBREOFERTA" Parameter="nOMBREOFERTA" Type="System.String" DbType="VarChar(15)" />
+    <Parameter Name="ID_CURSO" Parameter="iD_CURSO" Type="System.String" DbType="VarChar(10)" />
+    <Parameter Name="ID_SEDE" Parameter="iD_SEDE" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ID_CUATRIMESTRE" Parameter="iD_CUATRIMESTRE" Type="System.Int32" DbType="Int" />
+    <Parameter Name="CEDULA_DOCENTE" Parameter="cEDULA_DOCENTE" Type="System.Int32" DbType="Int" />
+    <Parameter Name="AÑO" Parameter="aÑO" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="ID_HORARIO" Parameter="iD_HORARIO" Type="System.Int32" DbType="Int" />
+    <Parameter Name="GRUPO" Parameter="gRUPO" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ESTADO" Parameter="eSTADO" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="USUARIO" Parameter="uSUARIO" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_ActualizarPlanCurso" Method="sp_ActualizarPlanCurso">
+    <Parameter Name="CODIGOPLAN" Parameter="cODIGOPLAN" Type="System.String" DbType="VarChar(10)" />
+    <Parameter Name="NOMBREPLAN" Parameter="nOMBREPLAN" Type="System.String" DbType="VarChar(10)" />
+    <Parameter Name="ID_CARRERA" Parameter="iD_CARRERA" Type="System.String" DbType="VarChar(15)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_ActualizarTelefono" Method="sp_ActualizarTelefono">
+    <Parameter Name="ID_TELEFONO" Parameter="iD_TELEFONO" Type="System.Int32" DbType="Int" />
+    <Parameter Name="NUMERO" Parameter="nUMERO" Type="System.Int32" DbType="Int" />
+    <Parameter Name="CEDULA" Parameter="cEDULA" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.SP_RELACION_CD" Method="SP_RELACION_CD">
+    <Parameter Name="ID_RECD" Parameter="iD_RECD" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ID_CURSO" Parameter="iD_CURSO" Type="System.String" DbType="VarChar(1)" />
+    <Parameter Name="CEDULA" Parameter="cEDULA" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.NEWSEDEDOCENTE" Method="NEWSEDEDOCENTE">
+    <Parameter Name="ID_SEDE" Parameter="iD_SEDE" Type="System.Int32" DbType="Int" />
+    <Parameter Name="CEDULA" Parameter="cEDULA" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>

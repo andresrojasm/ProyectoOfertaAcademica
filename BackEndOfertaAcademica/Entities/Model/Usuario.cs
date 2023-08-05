@@ -16,8 +16,8 @@ namespace BackEndOfertaAcademica.Entities
         public string correo { get; set; }
         public string clave { get; set; }
         public string codigoDocente { get; set; }
-        public SqlDateTime fechaCreacion { get; set; }
-        public string rol { get; set; }
+        public DateTime fechaCreacion { get; set; }
+        public int rol { get; set; }
         public bool activo { get; set; }
     }
 }

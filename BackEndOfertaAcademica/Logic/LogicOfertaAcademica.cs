@@ -74,13 +74,13 @@ namespace BackEndOfertaAcademica.Logic
                     if (!response.errorList.Any())
                     {
                         //Inicializamos las variables necesarias
-                        int? idResdBD = 0;
+                        string idResdBD = null;
                         string listaErroresBD = "";
                         //Instancia LINQ
                         conexionLinqDataContext conexionLinq = new conexionLinqDataContext();
 
                         //Uso del SP
-                        conexionLinq.NEWOFERTAACADEMICA(request.ofertaAcademica.idOferta,
+                        conexionLinq.sp_ActualizarOfertaAcademica(request.ofertaAcademica.idOferta,
                             request.ofertaAcademica.nombreOferta,
                             request.ofertaAcademica.idCurso,
                             request.ofertaAcademica.idSede,
@@ -93,7 +93,7 @@ namespace BackEndOfertaAcademica.Logic
                             request.ofertaAcademica.usuario);
 
                         //Validacion de las acciones de la BASE DE DATOS
-                        if (idResd > 0)
+                        if (idResdBD == null)
                         {
                             response.result = true;
                         }

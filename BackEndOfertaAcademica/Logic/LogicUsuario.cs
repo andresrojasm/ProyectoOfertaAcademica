@@ -62,7 +62,7 @@ namespace BackEndOfertaAcademica.Logic
                         response.errorList.Add("Clave no ingresada");
                     }
 
-                    if (String.IsNullOrEmpty(request.usuario.rol))
+                    if(request.usuario.rol== 0)
                     {
                         response.result = false;
                         response.errorList.Add("Rol no ingresado");
@@ -84,6 +84,7 @@ namespace BackEndOfertaAcademica.Logic
                             request.usuario.correo,
                             request.usuario.clave,
                             request.usuario.codigoDocente,
+                            request.usuario.fechaCreacion,
                             request.usuario.rol,
                             request.usuario.activo);
                         // ref cedulaBD,

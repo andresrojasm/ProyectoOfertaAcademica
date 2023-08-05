@@ -50,19 +50,19 @@ namespace BackEndOfertaAcademica.Logic
                     if (!response.errorList.Any())
                     {
                         //Inicializamos las variables necesarias
-                        int? idResdBD = 0;
+                        string idResdBD = null;
                         string listaErroresBD = "";
                         //Instancia LINQ
                         conexionLinqDataContext conexionLinq = new conexionLinqDataContext();
 
                         //Uso del SP
-                        conexionLinq.NEWCURSO(request.curso.idCurso,
+                        conexionLinq.sp_ActualizarCurso(request.curso.idCurso,
                             request.curso.nombreCurso,
                             request.curso.credito,
                             request.curso.bloque);
 
                         //Validacion de las acciones de la BASE DE DATOS
-                        if (idCurso > 0)
+                        if (idResdBD == null)
                         {
                             response.result = true;
                         }

@@ -22,6 +22,7 @@ namespace BackEndOfertaAcademica.DataAccess
 	using System;
 	
 	
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="SISTEMA_GESTION_ACADEMICA")]
 	public partial class conexionLinqDataContext : System.Data.Linq.DataContext
 	{
 		
@@ -30,6 +31,12 @@ namespace BackEndOfertaAcademica.DataAccess
     #region Definiciones de métodos de extensibilidad
     partial void OnCreated();
     #endregion
+		
+		public conexionLinqDataContext() : 
+				base(global::BackEndOfertaAcademica.Properties.Settings.Default.SISTEMA_GESTION_ACADEMICAConnectionString1, mappingSource)
+		{
+			OnCreated();
+		}
 		
 		public conexionLinqDataContext(string connection) : 
 				base(connection, mappingSource)
@@ -53,6 +60,139 @@ namespace BackEndOfertaAcademica.DataAccess
 				base(connection, mappingSource)
 		{
 			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.NEW_ACADEMICOFFER")]
+		public int NEW_ACADEMICOFFER([global::System.Data.Linq.Mapping.ParameterAttribute(Name="NOMBREOFERTA", DbType="VarChar(15)")] string nOMBREOFERTA, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID_CURSO", DbType="Int")] System.Nullable<int> iD_CURSO, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID_SEDE", DbType="Int")] System.Nullable<int> iD_SEDE, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID_CUATRIMESTRE", DbType="Int")] System.Nullable<int> iD_CUATRIMESTRE, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CEDULA_DOCENTE", DbType="Int")] System.Nullable<int> cEDULA_DOCENTE, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="AÑO", DbType="DateTime")] System.Nullable<System.DateTime> aÑO, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID_HORARIO", DbType="Int")] System.Nullable<int> iD_HORARIO, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="GRUPO", DbType="Int")] System.Nullable<int> gRUPO, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ESTADO", DbType="Bit")] System.Nullable<bool> eSTADO, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="USUARIO", DbType="Int")] System.Nullable<int> uSUARIO)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), nOMBREOFERTA, iD_CURSO, iD_SEDE, iD_CUATRIMESTRE, cEDULA_DOCENTE, aÑO, iD_HORARIO, gRUPO, eSTADO, uSUARIO);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_ActualizarUsuario")]
+		public int sp_ActualizarUsuario([global::System.Data.Linq.Mapping.ParameterAttribute(Name="CEDULA", DbType="Int")] System.Nullable<int> cEDULA, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NOMBRE", DbType="VarChar(20)")] string nOMBRE, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="APELLIDOS", DbType="VarChar(30)")] string aPELLIDOS, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EDAD", DbType="Int")] System.Nullable<int> eDAD, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CORREO", DbType="VarChar(100)")] string cORREO, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CLAVE", DbType="NVarChar(MAX)")] string cLAVE, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CODIGODOCENTE", DbType="VarChar(10)")] string cODIGODOCENTE, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FECHA", DbType="DateTime")] System.Nullable<System.DateTime> fECHA, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID_ROLLES", DbType="Int")] System.Nullable<int> iD_ROLLES, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ACTIVO", DbType="Bit")] System.Nullable<bool> aCTIVO)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), cEDULA, nOMBRE, aPELLIDOS, eDAD, cORREO, cLAVE, cODIGODOCENTE, fECHA, iD_ROLLES, aCTIVO);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.NEW_ADDRESS")]
+		public int NEW_ADDRESS([global::System.Data.Linq.Mapping.ParameterAttribute(Name="DIRECCION", DbType="VarChar(150)")] string dIRECCION, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CEDULA", DbType="Int")] System.Nullable<int> cEDULA)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), dIRECCION, cEDULA);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.NEW_CAREER")]
+		public int NEW_CAREER([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID_CARRERA", DbType="VarChar(15)")] string iD_CARRERA, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NOMBRECARRERA", DbType="VarChar(15)")] string nOMBRECARRERA, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID_FACULTAD", DbType="Int")] System.Nullable<int> iD_FACULTAD, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID_GRADO", DbType="Int")] System.Nullable<int> iD_GRADO)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iD_CARRERA, nOMBRECARRERA, iD_FACULTAD, iD_GRADO);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.NEW_PHONE")]
+		public int NEW_PHONE([global::System.Data.Linq.Mapping.ParameterAttribute(Name="NUMERO", DbType="Int")] System.Nullable<int> nUMERO, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CEDULA", DbType="Int")] System.Nullable<int> cEDULA)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), nUMERO, cEDULA);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.NEW_RCP")]
+		public int NEW_RCP([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID_CURSO", DbType="VarChar(10)")] string iD_CURSO, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CODIGOPLAN", DbType="VarChar(10)")] string cODIGOPLAN)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iD_CURSO, cODIGOPLAN);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.NEW_SUBJECT")]
+		public int NEW_SUBJECT([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID_CURSO", DbType="VarChar(10)")] string iD_CURSO, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NOMBRECURSO", DbType="VarChar(20)")] string nOMBRECURSO, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CREDITO", DbType="Int")] System.Nullable<int> cREDITO, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="BLOQUE", DbType="Int")] System.Nullable<int> bLOQUE)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iD_CURSO, nOMBRECURSO, cREDITO, bLOQUE);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.NEW_SUBJECTPLAN")]
+		public int NEW_SUBJECTPLAN([global::System.Data.Linq.Mapping.ParameterAttribute(Name="CODIGOPLAN", DbType="VarChar(10)")] string cODIGOPLAN, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NOMBREPLAN", DbType="VarChar(10)")] string nOMBREPLAN, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID_CARRERA", DbType="Int")] System.Nullable<int> iD_CARRERA)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), cODIGOPLAN, nOMBREPLAN, iD_CARRERA);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.NEW_TEACHER")]
+		public int NEW_TEACHER([global::System.Data.Linq.Mapping.ParameterAttribute(Name="CEDULA", DbType="Int")] System.Nullable<int> cEDULA, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NOMBRE", DbType="VarChar(20)")] string nOMBRE, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="APELLIDOS", DbType="VarChar(30)")] string aPELLIDOS, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EDAD", DbType="Int")] System.Nullable<int> eDAD, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CORREO", DbType="VarChar(100)")] string cORREO, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CLAVE", DbType="NVarChar(MAX)")] string cLAVE, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CODIGODOCENTE", DbType="VarChar(10)")] string cODIGODOCENTE)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), cEDULA, nOMBRE, aPELLIDOS, eDAD, cORREO, cLAVE, cODIGODOCENTE);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.NEW_USER")]
+		public int NEW_USER([global::System.Data.Linq.Mapping.ParameterAttribute(Name="CEDULA", DbType="Int")] System.Nullable<int> cEDULA, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NOMBRE", DbType="VarChar(20)")] string nOMBRE, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="APELLIDOS", DbType="VarChar(30)")] string aPELLIDOS, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EDAD", DbType="Int")] System.Nullable<int> eDAD, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CORREO", DbType="VarChar(100)")] string cORREO, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CLAVE", DbType="NVarChar(MAX)")] string cLAVE, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CODIGODOCENTE", DbType="VarChar(10)")] string cODIGODOCENTE, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FECHA", DbType="DateTime")] System.Nullable<System.DateTime> fECHA, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID_ROLLES", DbType="Int")] System.Nullable<int> iD_ROLLES, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ACTIVO", DbType="Bit")] System.Nullable<bool> aCTIVO)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), cEDULA, nOMBRE, aPELLIDOS, eDAD, cORREO, cLAVE, cODIGODOCENTE, fECHA, iD_ROLLES, aCTIVO);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.NEW_USER_REQUEST")]
+		public int NEW_USER_REQUEST([global::System.Data.Linq.Mapping.ParameterAttribute(Name="CEDULA", DbType="Int")] System.Nullable<int> cEDULA, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NOMBRE", DbType="VarChar(20)")] string nOMBRE, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="APELLIDOS", DbType="VarChar(30)")] string aPELLIDOS, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EDAD", DbType="Int")] System.Nullable<int> eDAD, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CORREO", DbType="VarChar(100)")] string cORREO, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CLAVE", DbType="NVarChar(MAX)")] string cLAVE, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CODIGODOCENTE", DbType="VarChar(10)")] string cODIGODOCENTE, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID_ROLLES", DbType="Int")] System.Nullable<int> iD_ROLLES)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), cEDULA, nOMBRE, aPELLIDOS, eDAD, cORREO, cLAVE, cODIGODOCENTE, iD_ROLLES);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.NEW_USUARIO_SOLICITUD")]
+		public int NEW_USUARIO_SOLICITUD([global::System.Data.Linq.Mapping.ParameterAttribute(Name="CEDULA", DbType="Int")] System.Nullable<int> cEDULA, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FECHA_SOLICITUD", DbType="DateTime")] System.Nullable<System.DateTime> fECHA_SOLICITUD, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID_ESTADO", DbType="Int")] System.Nullable<int> iD_ESTADO)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), cEDULA, fECHA_SOLICITUD, iD_ESTADO);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_ActualizarCurso")]
+		public int sp_ActualizarCurso([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID_CURSO", DbType="VarChar(10)")] string iD_CURSO, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NOMBRECURSO", DbType="VarChar(20)")] string nOMBRECURSO, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CREDITO", DbType="Int")] System.Nullable<int> cREDITO, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="BLOQUE", DbType="Int")] System.Nullable<int> bLOQUE)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iD_CURSO, nOMBRECURSO, cREDITO, bLOQUE);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_ActualizarDireccion")]
+		public int sp_ActualizarDireccion([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID_DIRECCION", DbType="Int")] System.Nullable<int> iD_DIRECCION, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DIRECCION", DbType="VarChar(150)")] string dIRECCION, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CEDULA", DbType="Int")] System.Nullable<int> cEDULA)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iD_DIRECCION, dIRECCION, cEDULA);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_ActualizarOfertaAcademica")]
+		public int sp_ActualizarOfertaAcademica([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID_OFERTA", DbType="Int")] System.Nullable<int> iD_OFERTA, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NOMBREOFERTA", DbType="VarChar(15)")] string nOMBREOFERTA, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID_CURSO", DbType="VarChar(10)")] string iD_CURSO, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID_SEDE", DbType="Int")] System.Nullable<int> iD_SEDE, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID_CUATRIMESTRE", DbType="Int")] System.Nullable<int> iD_CUATRIMESTRE, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CEDULA_DOCENTE", DbType="Int")] System.Nullable<int> cEDULA_DOCENTE, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="AÑO", DbType="DateTime")] System.Nullable<System.DateTime> aÑO, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID_HORARIO", DbType="Int")] System.Nullable<int> iD_HORARIO, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="GRUPO", DbType="Int")] System.Nullable<int> gRUPO, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ESTADO", DbType="Bit")] System.Nullable<bool> eSTADO, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="USUARIO", DbType="Int")] System.Nullable<int> uSUARIO)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iD_OFERTA, nOMBREOFERTA, iD_CURSO, iD_SEDE, iD_CUATRIMESTRE, cEDULA_DOCENTE, aÑO, iD_HORARIO, gRUPO, eSTADO, uSUARIO);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_ActualizarPlanCurso")]
+		public int sp_ActualizarPlanCurso([global::System.Data.Linq.Mapping.ParameterAttribute(Name="CODIGOPLAN", DbType="VarChar(10)")] string cODIGOPLAN, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NOMBREPLAN", DbType="VarChar(10)")] string nOMBREPLAN, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID_CARRERA", DbType="VarChar(15)")] string iD_CARRERA)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), cODIGOPLAN, nOMBREPLAN, iD_CARRERA);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_ActualizarTelefono")]
+		public int sp_ActualizarTelefono([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID_TELEFONO", DbType="Int")] System.Nullable<int> iD_TELEFONO, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NUMERO", DbType="Int")] System.Nullable<int> nUMERO, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CEDULA", DbType="Int")] System.Nullable<int> cEDULA)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iD_TELEFONO, nUMERO, cEDULA);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SP_RELACION_CD")]
+		public int SP_RELACION_CD([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID_RECD", DbType="Int")] System.Nullable<int> iD_RECD, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID_CURSO", DbType="VarChar(1)")] string iD_CURSO, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CEDULA", DbType="Int")] System.Nullable<int> cEDULA)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iD_RECD, iD_CURSO, cEDULA);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.NEWSEDEDOCENTE")]
+		public int NEWSEDEDOCENTE([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID_SEDE", DbType="Int")] System.Nullable<int> iD_SEDE, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CEDULA", DbType="Int")] System.Nullable<int> cEDULA)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iD_SEDE, cEDULA);
+			return ((int)(result.ReturnValue));
 		}
 	}
 }

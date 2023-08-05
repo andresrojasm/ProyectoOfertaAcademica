@@ -52,7 +52,7 @@ namespace BackEndOfertaAcademica.Logic
                         conexionLinqDataContext conexionLinq = new conexionLinqDataContext();
 
                         //Uso del SP 
-                        conexionLinq.NEW_RCP(request.relacionCP.idRecp,
+                        conexionLinq.NEW_RCP(
                             request.relacionCP.idCurso,
                             request.relacionCP.codigoPlan);
 

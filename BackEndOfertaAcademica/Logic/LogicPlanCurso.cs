@@ -50,7 +50,7 @@ namespace BackEndOfertaAcademica.Logic
                         conexionLinqDataContext conexionLinq = new conexionLinqDataContext();
 
                         //Uso del SP 
-                        conexionLinq.NEW_PC(request.planCurso.codigoPlan,
+                        conexionLinq.sp_ActualizarPlanCurso(request.planCurso.codigoPlan,
                             request.planCurso.nombrePlan,
                             request.planCurso.idCarrera);
 
