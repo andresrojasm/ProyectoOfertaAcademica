@@ -9,10 +9,10 @@ using System.Threading.Tasks;
 
 namespace BackEndOfertaAcademica.Logic
 {
-    internal class LogicRelacionCD
+    public class LogicRelacionCD
     {
         //Metodo para la relacion entre la tabla usuario/docente 
-        public ResRelacionCD nuevaRCD(ReqRelacionCD request)
+        public ResRelacionCD nuevaRelacionCD(ReqRelacionCD request)
         {
             ResRelacionCD response = new ResRelacionCD();
             response.errorList = new List<string>();

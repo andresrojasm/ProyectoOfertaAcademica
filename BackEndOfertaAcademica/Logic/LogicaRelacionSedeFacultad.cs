@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BackEndOfertaAcademica.Logic
 {
-    internal class LogicaRelacionSedeFacultad
+    public class LogicaRelacionSedeFacultad
     {
 
         public ResRelacionSedeFacultad nuevaRelacionSedeFacultad (ReqRelacionSedeFAcultad request)

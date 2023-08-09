@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace BackEndOfertaAcademica.Logic
 {
-    internal class LogicTelefono
+    public class LogicTelefono
     {
-        public ResTelefono nuevaT(ReqTelefono request)
+        public ResTelefono nuevoTelefono(ReqTelefono request)
         {
             ResTelefono response = new ResTelefono();
             response.errorList = new List<string>();
