@@ -88,7 +88,7 @@
     <Compile Include="Entities\Response\ResBase.cs" />
     <Compile Include="Entities\Response\ResNuevoUsuario.cs" />
     <Compile Include="Entities\Response\ResSolicitudUsuario.cs" />
-    <Compile Include="Logic\LogicalRelacionCP.cs" />
+    <Compile Include="Logic\LogicRelacionCP.cs" />
     <Compile Include="Entities\Response\ResTelefono.cs" />
     <Compile Include="Logic\LogicaRelacionSedeFacultad.cs" />
     <Compile Include="Entities\Response\ResRelacionSD.cs" />

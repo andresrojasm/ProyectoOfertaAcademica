@@ -13,7 +13,7 @@ namespace BackEndOfertaAcademica.Logic
     public class LogicRelacionCP
     {
         //Metodo para la relacion entre la tabla usuario/docente 
-        public ResRelacionCP nuevaRCP(ReqRelacionCP request)
+        public ResRelacionCP nuevaRelacionCP(ReqRelacionCP request)
         {
             ResRelacionCP response = new ResRelacionCP();
             response.errorList = new List<string>();
