@@ -18,7 +18,7 @@ namespace APISOfertaAcademica.Controllers
         public ResRelacionCD nuevaRelacionCD([FromBody] ReqRelacionCD request)
         {
             LogicRelacionCD logicRelacionCD = new LogicRelacionCD();
-            return LogicRelacionCD.nuevaRelacionCD(request);
+            return logicRelacionCD.nuevaRelacionCD(request);
         }
     }
 
