@@ -89,6 +89,15 @@
     <Compile Include="Entities\Request\ReqRelacionSedeFAcultad.cs" />
     <Compile Include="Entities\Response\ResCurso.cs" />
     <Compile Include="Entities\Response\ResObtenerCurso.cs" />
+    <Compile Include="Entities\Response\ResObtenerNuevoUsuario.cs" />
+    <Compile Include="Entities\Response\ResObtenerOfertaAcademica.cs" />
+    <Compile Include="Entities\Response\ResObtenerPlanCurso.cs" />
+    <Compile Include="Entities\Response\ResObtenerRelacionCD.cs" />
+    <Compile Include="Entities\Response\ResObtenerRelacionCP.cs" />
+    <Compile Include="Entities\Response\ResObtenerRelacionSD.cs" />
+    <Compile Include="Entities\Response\ResObtenerRelacionSF.cs" />
+    <Compile Include="Entities\Response\ResObtenerSolicitudUsuario.cs" />
+    <Compile Include="Entities\Response\ResObtenerTelefono.cs" />
     <Compile Include="Entities\Response\ResOfertaAcademica.cs" />
     <Compile Include="Entities\Response\ResRelacionCP.cs" />
     <Compile Include="Entities\Request\ReqTelefono.cs" />

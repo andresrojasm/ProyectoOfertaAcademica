@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace BackEndOfertaAcademica.Entities.Response
 {
-    public class ResObtenerCurso: ResBase
+    public class ResObtenerSolicitudUsuario: ResBase
     {
-        public Curso curso { get; set; }
+        public Usuario solicitudUsuario { get; set; }
     }
 }
