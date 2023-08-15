@@ -15,6 +15,12 @@ namespace APISOfertaAcademica.Controllers
 {
     public class TelefonoController : ApiController
     {
+        public ResTelefono Get()
+        { 
+            LogicTelefono logicTelefono = new LogicTelefono();
+            ReqTelefono request = new ReqTelefono();
+            return logicTelefono.nuevoTelefono(request);
+        }
         public ResTelefono nuevoTelefono([FromBody] ReqTelefono request)
         {
             LogicTelefono logicTelefono = new LogicTelefono();

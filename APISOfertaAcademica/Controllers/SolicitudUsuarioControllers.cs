@@ -15,6 +15,12 @@ namespace APISOfertaAcademica.Controllers
 {
     public class SolicitudUsuarioControllers : ApiController
     {
+        public ResSolicitudUsuario Get()
+        {
+            LogicSolicitudUsuario logicalSolicitudUsuario = new LogicSolicitudUsuario();
+            ReqSolicitudUsuario request = new ReqSolicitudUsuario();
+            return logicalSolicitudUsuario.nuevoSolicitudUsuario(request);
+        }
         public ResSolicitudUsuario nuevoSolicitudUsuario([FromBody] ReqSolicitudUsuario request)
         {
             LogicSolicitudUsuario logicalSolicitudUsuario = new LogicSolicitudUsuario(); 

@@ -15,6 +15,12 @@ namespace APISOfertaAcademica.Controllers
 {
     public class RelacionSFController : ApiController
     {
+        public ResRelacionSedeFacultad Get()
+        {
+            LogicaRelacionSedeFacultad logicRelacionSF = new LogicaRelacionSedeFacultad();
+            ReqRelacionSedeFAcultad request = new ReqRelacionSedeFAcultad();
+            return logicRelacionSF.nuevaRelacionSedeFacultad(request);
+        }
         public ResRelacionSedeFacultad nuevaRelacionSedeFacultad([FromBody] ReqRelacionSedeFAcultad request)
         {
             LogicaRelacionSedeFacultad logicRelacionSF = new LogicaRelacionSedeFacultad();
