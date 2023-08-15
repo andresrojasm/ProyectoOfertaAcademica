@@ -15,11 +15,11 @@ namespace APISOfertaAcademica.Controllers
 {
     public class CursoController : ApiController
     {
-        public ResCurso Get()
+        public ResObtenerListaCurso Get()
         {
             LogicCurso logicCurso = new LogicCurso();
-            ReqCurso request = new ReqCurso();
-            return logicCurso.nuevoCurso(request);
+            ReqObtenerListaCurso request = new ReqObtenerListaCurso();
+            return logicCurso.obtenerListaCurso(request);
         }
         public ResCurso nuevoCurso([FromBody] ReqCurso request)
         {

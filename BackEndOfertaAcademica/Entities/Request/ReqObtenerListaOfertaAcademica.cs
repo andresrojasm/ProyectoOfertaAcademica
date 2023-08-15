@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BackEndOfertaAcademica.Entities
+namespace BackEndOfertaAcademica.Entities.Request
 {
-    public class ReqBase
+    public class ReqObtenerListaOfertaAcademica
     {
-        public string session { get; set; }
     }
 }

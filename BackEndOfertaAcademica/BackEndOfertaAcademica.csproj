@@ -73,6 +73,10 @@
     <Compile Include="Entities\Request\ReqCurso.cs" />
     <Compile Include="Entities\Request\ReqNuevoUsuario.cs" />
     <Compile Include="Entities\Request\ReqObtenerCurso.cs" />
+    <Compile Include="Entities\Request\ReqObtenerListaCurso.cs" />
+    <Compile Include="Entities\Request\ReqObtenerListaNuevoUsuario.cs" />
+    <Compile Include="Entities\Request\ReqObtenerListaOfertaAcademica.cs" />
+    <Compile Include="Entities\Request\ReqObtenerListaPlanCurso.cs" />
     <Compile Include="Entities\Request\ReqObtenerNuevoUsuario.cs" />
     <Compile Include="Entities\Request\ReqObtenerOfertaAcademica.cs" />
     <Compile Include="Entities\Request\ReqObtenerPlanCurso.cs" />
@@ -89,6 +93,10 @@
     <Compile Include="Entities\Request\ReqRelacionSedeFAcultad.cs" />
     <Compile Include="Entities\Response\ResCurso.cs" />
     <Compile Include="Entities\Response\ResObtenerCurso.cs" />
+    <Compile Include="Entities\Response\ResObtenerListaCurso.cs" />
+    <Compile Include="Entities\Response\ResObtenerListaNuevoUsuario.cs" />
+    <Compile Include="Entities\Response\ResObtenerListaOfertaAcademica.cs" />
+    <Compile Include="Entities\Response\ResObtenerListaPlanCurso.cs" />
     <Compile Include="Entities\Response\ResObtenerNuevoUsuario.cs" />
     <Compile Include="Entities\Response\ResObtenerOfertaAcademica.cs" />
     <Compile Include="Entities\Response\ResObtenerPlanCurso.cs" />
