@@ -8,6 +8,6 @@ namespace BackEndOfertaAcademica.Entities
 {
     public class ResOfertaAcademica : ResBase
     {
-
+        
     }
 }

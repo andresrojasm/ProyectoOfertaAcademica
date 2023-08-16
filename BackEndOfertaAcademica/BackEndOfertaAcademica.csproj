@@ -13,6 +13,8 @@
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
     <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -32,6 +34,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=4.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.4.1.0\lib\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Linq" />
@@ -67,12 +72,40 @@
     <Compile Include="Entities\Request\ReqBase.cs" />
     <Compile Include="Entities\Request\ReqCurso.cs" />
     <Compile Include="Entities\Request\ReqNuevoUsuario.cs" />
+    <Compile Include="Entities\Request\ReqObtenerCurso.cs" />
+    <Compile Include="Entities\Request\ReqObtenerListaCurso.cs" />
+    <Compile Include="Entities\Request\ReqObtenerListaNuevoUsuario.cs" />
+    <Compile Include="Entities\Request\ReqObtenerListaOfertaAcademica.cs" />
+    <Compile Include="Entities\Request\ReqObtenerListaPlanCurso.cs" />
+    <Compile Include="Entities\Request\ReqObtenerNuevoUsuario.cs" />
+    <Compile Include="Entities\Request\ReqObtenerOfertaAcademica.cs" />
+    <Compile Include="Entities\Request\ReqObtenerPlanCurso.cs" />
+    <Compile Include="Entities\Request\ReqObtenerRelacionCD.cs" />
+    <Compile Include="Entities\Request\ReqObtenerRelacionCP.cs" />
+    <Compile Include="Entities\Request\ReqObtenerRelacionSD.cs" />
+    <Compile Include="Entities\Request\ReqObtenerRelacionSedeFacultad.cs" />
+    <Compile Include="Entities\Request\ReqObtenerSolicitudUsuario.cs" />
+    <Compile Include="Entities\Request\ReqObtenerTelefono.cs" />
     <Compile Include="Entities\Request\ReqOfertaAcademica.cs" />
     <Compile Include="Entities\Request\ReqSolicitudUsuario.cs" />
     <Compile Include="Entities\Request\ReqRelacionCP.cs" />
     <Compile Include="Entities\Request\ReqPlanCurso.cs" />
     <Compile Include="Entities\Request\ReqRelacionSedeFAcultad.cs" />
     <Compile Include="Entities\Response\ResCurso.cs" />
+    <Compile Include="Entities\Response\ResObtenerCurso.cs" />
+    <Compile Include="Entities\Response\ResObtenerListaCurso.cs" />
+    <Compile Include="Entities\Response\ResObtenerListaNuevoUsuario.cs" />
+    <Compile Include="Entities\Response\ResObtenerListaOfertaAcademica.cs" />
+    <Compile Include="Entities\Response\ResObtenerListaPlanCurso.cs" />
+    <Compile Include="Entities\Response\ResObtenerNuevoUsuario.cs" />
+    <Compile Include="Entities\Response\ResObtenerOfertaAcademica.cs" />
+    <Compile Include="Entities\Response\ResObtenerPlanCurso.cs" />
+    <Compile Include="Entities\Response\ResObtenerRelacionCD.cs" />
+    <Compile Include="Entities\Response\ResObtenerRelacionCP.cs" />
+    <Compile Include="Entities\Response\ResObtenerRelacionSD.cs" />
+    <Compile Include="Entities\Response\ResObtenerRelacionSF.cs" />
+    <Compile Include="Entities\Response\ResObtenerSolicitudUsuario.cs" />
+    <Compile Include="Entities\Response\ResObtenerTelefono.cs" />
     <Compile Include="Entities\Response\ResOfertaAcademica.cs" />
     <Compile Include="Entities\Response\ResRelacionCP.cs" />
     <Compile Include="Entities\Request\ReqTelefono.cs" />
@@ -83,7 +116,7 @@
     <Compile Include="Entities\Response\ResBase.cs" />
     <Compile Include="Entities\Response\ResNuevoUsuario.cs" />
     <Compile Include="Entities\Response\ResSolicitudUsuario.cs" />
-    <Compile Include="Logic\LogicalRelacionCP.cs" />
+    <Compile Include="Logic\LogicRelacionCP.cs" />
     <Compile Include="Entities\Response\ResTelefono.cs" />
     <Compile Include="Logic\LogicaRelacionSedeFacultad.cs" />
     <Compile Include="Entities\Response\ResRelacionSD.cs" />
@@ -129,4 +162,11 @@
     </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.4.1.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets" Condition="Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.4.1.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Este proyecto hace referencia a los paquetes NuGet que faltan en este equipo. Use la restauración de paquetes NuGet para descargarlos. Para obtener más información, consulte http://go.microsoft.com/fwlink/?LinkID=322105. El archivo que falta es {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.4.1.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.4.1.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets'))" />
+  </Target>
 </Project>

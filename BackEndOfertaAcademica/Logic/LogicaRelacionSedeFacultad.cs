@@ -1,4 +1,6 @@
-﻿using BackEndOfertaAcademica.Entities;
+﻿using BackEndOfertaAcademica.DataAccess;
+using BackEndOfertaAcademica.Entities;
+using BackEndOfertaAcademica.Entities.Response;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace BackEndOfertaAcademica.Logic
 {
-    internal class LogicaRelacionSedeFacultad
+    public class LogicaRelacionSedeFacultad
     {
 
         public ResRelacionSedeFacultad nuevaRelacionSedeFacultad (ReqRelacionSedeFAcultad request)
@@ -37,6 +39,7 @@ namespace BackEndOfertaAcademica.Logic
 
             return response;
         }
-
     }
+
+   
 }

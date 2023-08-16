@@ -1,5 +1,7 @@
 ﻿using BackEndOfertaAcademica.DataAccess;
 using BackEndOfertaAcademica.Entities;
+using BackEndOfertaAcademica.Entities.Request;
+using BackEndOfertaAcademica.Entities.Response;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -50,19 +52,19 @@ namespace BackEndOfertaAcademica.Logic
                     if (!response.errorList.Any())
                     {
                         //Inicializamos las variables necesarias
-                        int? idResdBD = 0;
+                        string idResdBD = null;
                         string listaErroresBD = "";
                         //Instancia LINQ
                         conexionLinqDataContext conexionLinq = new conexionLinqDataContext();
 
                         //Uso del SP
-                        conexionLinq.NEWCURSO(request.curso.idCurso,
+                        conexionLinq.sp_ActualizarCurso(request.curso.idCurso,
                             request.curso.nombreCurso,
                             request.curso.credito,
                             request.curso.bloque);
 
                         //Validacion de las acciones de la BASE DE DATOS
-                        if (idCurso > 0)
+                        if (idResdBD == null)
                         {
                             response.result = true;
                         }
@@ -83,5 +85,61 @@ namespace BackEndOfertaAcademica.Logic
 
             return response;
         }
+
+        public ResObtenerCurso obtenerCurso(ReqObtenerCurso request)
+        {
+            ResObtenerCurso response = new ResObtenerCurso();
+
+            if (request == null)
+            {
+                response.result = false;
+                response.errorList.Add("Request null");
+            }
+            else
+            {
+                if (request.idDelCurso == 0)
+                {
+                    response.result = false;
+                    response.errorList.Add("Id usuario faltante");
+                }
+                if (String.IsNullOrEmpty(request.session))
+                {
+                    response.result = false;
+                    response.errorList.Add("Session faltante");
+                }
+                if (!response.errorList.Any())
+                {
+                    /*
+                    conexionLinqDataContext miLinq = new conexionLinqDataContext();
+                    SP_OBTENER_USUARIOResult miTipoComplejo = (SP_OBTENER_USUARIOResult)miLinq.SP_OBTENER_USUARIO(req.idDelUsuario);
+                    res.elUsuario = Factory.miFactoryDeUsuario(miTipoComplejo);*/
+                }
+            }
+            return response;
+        }
+        public ResObtenerListaCurso obtenerListaCurso(ReqObtenerListaCurso request)
+        {
+            ResObtenerListaCurso response = new ResObtenerListaCurso();
+
+            if (request == null)
+            {
+                response.result = false;
+                response.errorList.Add("Request null");
+            }
+            else
+            {/*
+                conexionLinqDataContext miLinq = new conexionLinqDataContext();
+                List<SP_OBTENER_LISTAUSUARIOSResult> listaTipoComplejo = miLinq.SP_OBTENER_LISTAUSUARIOS().ToList();
+
+                foreach (SP_OBTENER_LISTAUSUARIOSResult cadaTipoComplejo in listaTipoComplejo)
+                {
+                    res.listaDeUsuarios.Add(Factory.miFactoryDeUsuarioParaLista(cadaTipoComplejo));
+                }
+                */
+            }
+            return response;
+        }
     }
+
+
 }

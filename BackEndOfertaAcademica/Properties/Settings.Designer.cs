@@ -54,5 +54,16 @@ namespace BackEndOfertaAcademica.Properties {
                 return ((string)(this["EstebanConnectionString1"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DEADMACHINETWO\\SQLEXPRESS;Initial Catalog=SISTEMA_GESTION_ACADEMICA;I" +
+            "ntegrated Security=True")]
+        public string SISTEMA_GESTION_ACADEMICAConnectionString1 {
+            get {
+                return ((string)(this["SISTEMA_GESTION_ACADEMICAConnectionString1"]));
+            }
+        }
     }
 }

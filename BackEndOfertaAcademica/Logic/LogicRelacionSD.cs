@@ -50,13 +50,13 @@ namespace BackEndOfertaAcademica.Logic
                         conexionLinqDataContext conexionLinq = new conexionLinqDataContext();
 
                         //Uso del SP
-                        conexionLinq.NEWSEDEDOCENTE(request.relacionSD.idResd,
+                        conexionLinq.NEWSEDEDOCENTE(
                             request.relacionSD.idSede,
                             request.relacionSD.cedula);
 
                         //Validacion de las acciones de la BASE DE DATOS
 
-                        if (idResd > 0)
+                        if (idResdBD > 0)
                         {
                             response.result = true;
                         }
@@ -66,7 +66,6 @@ namespace BackEndOfertaAcademica.Logic
                             response.errorList.Add(listaErroresBD);
                         }
                     }
-
                 }
             }
             catch (Exception ex)
