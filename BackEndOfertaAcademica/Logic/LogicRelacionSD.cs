@@ -50,7 +50,7 @@ namespace BackEndOfertaAcademica.Logic
                         conexionLinqDataContext conexionLinq = new conexionLinqDataContext();
 
                         //Uso del SP
-                        conexionLinq.NEWSEDEDOCENTE(
+                        conexionLinq.NEW_SEDE_DOCENTE(
                             request.relacionSD.idSede,
                             request.relacionSD.cedula);
 

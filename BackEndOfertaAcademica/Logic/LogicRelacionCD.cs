@@ -51,7 +51,7 @@ namespace BackEndOfertaAcademica.Logic
                         conexionLinqDataContext conexionLinq = new conexionLinqDataContext();
 
                         //Uso del SP 
-                        conexionLinq.SP_RELACION_CD(request.relacionCD.id,
+                        conexionLinq.NEW_RCD(request.relacionCD.id,
                             request.relacionCD.idCurso,
                             request.relacionCD.cedula);
 
