@@ -15,6 +15,13 @@ namespace APISOfertaAcademica.Controllers
 {
     public class OfertaAcademicaController : ApiController
     {
+
+        public ResObtenerListaOfertaAcademica Get()
+        {
+            LogicOfertaAcademica logicOfertaAcademica = new LogicOfertaAcademica();
+            ReqObtenerListaOfertaAcademica request = new ReqObtenerListaOfertaAcademica();
+            return logicOfertaAcademica.obtenerListaOfertaAcademica(request);
+        }
         public ResOfertaAcademica nuevaOfertaAcademica([FromBody] ReqOfertaAcademica request)
         {
             LogicOfertaAcademica logicOfertaAcademica = new LogicOfertaAcademica();

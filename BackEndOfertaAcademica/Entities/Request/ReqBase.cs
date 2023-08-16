@@ -8,6 +8,6 @@ namespace BackEndOfertaAcademica.Entities
 {
     public class ReqBase
     {
-        private string session { get; set; }
+        public string session { get; set; }
     }
 }

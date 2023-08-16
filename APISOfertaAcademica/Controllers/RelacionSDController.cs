@@ -15,6 +15,12 @@ namespace APISOfertaAcademica.Controllers
 {
     public class RelacionSDController : ApiController
     {
+        public ResRelacionSD Get()
+        {
+            LogicRelacionSD logicRelacionSD = new LogicRelacionSD();
+            ReqRelacionSD request = new ReqRelacionSD();
+            return logicRelacionSD.nuevaRelacionSD(request);
+        }
         public ResRelacionSD nuevaRelacionSD([FromBody] ReqRelacionSD request)
         {
             LogicRelacionSD logicRelacionSD = new LogicRelacionSD();

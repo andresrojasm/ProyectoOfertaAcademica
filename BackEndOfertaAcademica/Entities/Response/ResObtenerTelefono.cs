@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BackEndOfertaAcademica.Entities
+namespace BackEndOfertaAcademica.Entities.Response
 {
-    public class ReqTelefono: ResBase
+    public class ResObtenerTelefono: ResBase
     {
         public Telefono telefono { get; set; }
     }

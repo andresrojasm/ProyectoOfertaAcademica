@@ -15,6 +15,12 @@ namespace APISOfertaAcademica.Controllers
 {
     public class RelacionCPControllers : ApiController
     {
+        public ResRelacionCP Get()
+        {
+            LogicRelacionCP logicRelacionCP = new LogicRelacionCP();
+            ReqRelacionCP request = new ReqRelacionCP();
+            return logicRelacionCP.nuevaRelacionCP(request);
+        }
         public ResRelacionCP nuevaRelacionCP([FromBody] ReqRelacionCP request)
         {
             LogicRelacionCP logicRelacionCP = new LogicRelacionCP();

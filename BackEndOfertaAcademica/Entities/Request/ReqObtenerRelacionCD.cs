@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace BackEndOfertaAcademica.Entities
 {
-    public class ReqTelefono: ResBase
+    internal class ReqObtenerRelacionCD: ReqBase
     {
-        public Telefono telefono { get; set; }
+        public long idDelRCD { get; set; }
     }
 }
