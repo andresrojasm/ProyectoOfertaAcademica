@@ -1,6 +1,5 @@
 ﻿using BackEndOfertaAcademica.DataAccess;
 using BackEndOfertaAcademica.Entities;
-using BackEndOfertaAcademica.Entities.Response;
 using System;
 using System.Collections.Generic;
 using System.Linq;

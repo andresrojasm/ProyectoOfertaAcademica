@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BackEndOfertaAcademica.Entities.Model
+namespace BackEndOfertaAcademica.Entities
 {
     public class RelacionSedeFacultad
     {
