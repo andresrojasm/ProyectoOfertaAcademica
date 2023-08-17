@@ -11,7 +11,6 @@ namespace BackEndOfertaAcademica.Entities
     public class OfertaAcademica
     {
         public int idOferta { get; set; }
-        public string nombreOferta { get; set; }
         public string idCurso { get; set; }
         public int idSede { get; set; }
         public int idCuatrimestre { get; set; }
