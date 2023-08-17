@@ -30,14 +30,12 @@ namespace BackEndOfertaAcademica.DataAccess
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
-    #endregion
-		
-
-		public conexionLinqDataContext():
+        #endregion
+        public conexionLinqDataContext() :
             base(global::System.Configuration.ConfigurationManager.ConnectionStrings["SISTEMA_GESTION_ACADEMICAConnectionString"].ConnectionString, mappingSource)
-		{
-			OnCreated();
-		}
+        {
+            OnCreated();
+        }
         public conexionLinqDataContext(string connection) : 
 				base(connection, mappingSource)
 		{
@@ -60,13 +58,6 @@ namespace BackEndOfertaAcademica.DataAccess
 				base(connection, mappingSource)
 		{
 			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.NEW_ACADEMICOFFER")]
-		public int NEW_ACADEMICOFFER([global::System.Data.Linq.Mapping.ParameterAttribute(Name="NOMBREOFERTA", DbType="VarChar(15)")] string nOMBREOFERTA, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID_CURSO", DbType="Int")] System.Nullable<int> iD_CURSO, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID_SEDE", DbType="Int")] System.Nullable<int> iD_SEDE, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID_CUATRIMESTRE", DbType="Int")] System.Nullable<int> iD_CUATRIMESTRE, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CEDULA_DOCENTE", DbType="Int")] System.Nullable<int> cEDULA_DOCENTE, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="AÑO", DbType="DateTime")] System.Nullable<System.DateTime> aÑO, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID_HORARIO", DbType="Int")] System.Nullable<int> iD_HORARIO, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="GRUPO", DbType="Int")] System.Nullable<int> gRUPO, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ESTADO", DbType="Bit")] System.Nullable<bool> eSTADO, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="USUARIO", DbType="Int")] System.Nullable<int> uSUARIO)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), nOMBREOFERTA, iD_CURSO, iD_SEDE, iD_CUATRIMESTRE, cEDULA_DOCENTE, aÑO, iD_HORARIO, gRUPO, eSTADO, uSUARIO);
-			return ((int)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.NEW_ADDRESS")]
@@ -192,6 +183,13 @@ namespace BackEndOfertaAcademica.DataAccess
 		public int sp_ActualizarTelefono([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID_TELEFONO", DbType="Int")] System.Nullable<int> iD_TELEFONO, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NUMERO", DbType="Int")] System.Nullable<int> nUMERO, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CEDULA", DbType="Int")] System.Nullable<int> cEDULA)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iD_TELEFONO, nUMERO, cEDULA);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.NEW_ACADEMICOFFER")]
+		public int NEW_ACADEMICOFFER([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID_CURSO", DbType="VarChar(10)")] string iD_CURSO, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID_SEDE", DbType="Int")] System.Nullable<int> iD_SEDE, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID_CUATRIMESTRE", DbType="Int")] System.Nullable<int> iD_CUATRIMESTRE, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CEDULA_DOCENTE", DbType="Int")] System.Nullable<int> cEDULA_DOCENTE, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="AÑO", DbType="DateTime")] System.Nullable<System.DateTime> aÑO, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID_HORARIO", DbType="Int")] System.Nullable<int> iD_HORARIO, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="GRUPO", DbType="Int")] System.Nullable<int> gRUPO, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ESTADO", DbType="Bit")] System.Nullable<bool> eSTADO, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="USUARIO", DbType="Int")] System.Nullable<int> uSUARIO)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iD_CURSO, iD_SEDE, iD_CUATRIMESTRE, cEDULA_DOCENTE, aÑO, iD_HORARIO, gRUPO, eSTADO, uSUARIO);
 			return ((int)(result.ReturnValue));
 		}
 	}
