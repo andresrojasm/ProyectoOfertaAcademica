@@ -31,11 +31,6 @@ namespace BackEndOfertaAcademica.Logic
                         response.result = false;
                         response.errorList.Add("ID_OFERTA no ingresado");
                     }
-                    if (String.IsNullOrEmpty(request.ofertaAcademica.nombreOferta))
-                    {
-                        response.result = false;
-                        response.errorList.Add("NOMBREOFERTA no ingresada");
-                    }
                     if (String.IsNullOrEmpty(request.ofertaAcademica.idCurso))
                     {
                         response.result = false;
@@ -80,8 +75,7 @@ namespace BackEndOfertaAcademica.Logic
                         conexionLinqDataContext conexionLinq = new conexionLinqDataContext();
 
                         //Uso del SP
-                        conexionLinq.sp_ActualizarOfertaAcademica(request.ofertaAcademica.idOferta,
-                            request.ofertaAcademica.nombreOferta,
+                        conexionLinq.NEW_ACADEMICOFFER(
                             request.ofertaAcademica.idCurso,
                             request.ofertaAcademica.idSede,
                             request.ofertaAcademica.idCuatrimestre,
