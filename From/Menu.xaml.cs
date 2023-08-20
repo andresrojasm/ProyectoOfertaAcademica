@@ -36,4 +36,8 @@ public partial class Menu : ContentPage
     {
         Navigation.PushAsync(new Acerca());
     }
+    private void AtrasBtn_Clicked(object sender, EventArgs e)
+    {
+        Navigation.PopAsync();
+    }
 }
