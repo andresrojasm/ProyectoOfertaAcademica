@@ -6,4 +6,9 @@ public partial class Acerca : ContentPage
 	{
 		InitializeComponent();
 	}
+
+    private void AtrasBtn_Clicked(object sender, EventArgs e)
+    {
+        Navigation.PopAsync();
+    }
 }
