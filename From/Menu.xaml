@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+<ContentPage Shell.NavBarIsVisible="False"
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="From.Menu"
              BackgroundColor="#4d4d4f"
@@ -13,6 +14,7 @@
         <Color x:Key="Quinto">#000000</Color>        <?para letras botones?>
         <Color x:Key="Sexto">#ffffff</Color>        <?para letras sin fondo?>
         <Color x:Key="Setimo">#5c5c5e</Color>        <?para el fondo?>
+        <Color x:Key="Octabo">#ffc72c</Color>        <?para el fondo?>
     </ContentPage.Resources>
 
     <VerticalStackLayout>
@@ -30,30 +32,42 @@
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
-        </Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
 
             <Border
             StrokeThickness="0" 
             Grid.ColumnSpan="2" 
-            Grid.Row="0" 
+            Grid.Row="1" 
             Grid.Column="0" 
             Margin="5">
-                <Label 
-                Text="Menu Oferta Academica"
-                x:Name="pantalla"
-                VerticalTextAlignment="Center"
-                FontSize="30"
-                HorizontalTextAlignment="Center"
-                TextColor="{StaticResource Cuarto}">
+                <Label
+                    Text="Menu Oferta Academica"
+                    x:Name="pantalla"
+                    VerticalTextAlignment="Center"
+                    FontSize="30"
+                    HorizontalTextAlignment="Center"
+                    BackgroundColor="{StaticResource Primario}"
+                    TextColor="{StaticResource Cuarto}">                    
                 </Label>
             </Border>
+
+            <Button 
+                Grid.Row="0" Grid.Column="0"
+                Text="Atras" 
+                Clicked="AtrasBtn_Clicked" 
+                HorizontalOptions="Center" 
+                VerticalOptions="Center" 
+                Margin="0,7,0,0" 
+                TextColor="{StaticResource Quinto}"
+                BackgroundColor="{StaticResource Octabo}"/>
 
             <Button
             x:Name="UsuarioBtn"
             Text="Usuario"
             SemanticProperties.Hint="Counts the number of times you click"
             Clicked="UsuarioBtn_Clicked"
-            Grid.Row="1"
+            Grid.Row="2"
             Grid.Column="0"
             HorizontalOptions="Center" 
             Margin="0,0,0,7" 
@@ -65,7 +79,7 @@
             Text="Plan Curso"
             SemanticProperties.Hint="Counts the number of times you click"
             Clicked="PlanCursoBtn_Clicked"
-            Grid.Row="2"
+            Grid.Row="3"
             Grid.Column="0"
             HorizontalOptions="Center" 
             Margin="0,0,0,7"
@@ -77,7 +91,7 @@
             Text="Curso"
             SemanticProperties.Hint="Counts the number of times you click"
             Clicked="CursoBtn_Clicked"
-            Grid.Row="3"
+            Grid.Row="4"
             Grid.Column="0"
             HorizontalOptions="Center" 
             Margin="0,0,0,7"
@@ -89,7 +103,7 @@
             Text="Oferta Academica"
             SemanticProperties.Hint="Counts the number of times you click"
             Clicked="OfertaAcademicaBtn_Clicked"
-            Grid.Row="1" 
+            Grid.Row="2" 
             Grid.Column="1"
             HorizontalOptions="Center" 
             TextColor="{StaticResource Quinto}"
@@ -101,7 +115,7 @@
             Text="Carrera"
             SemanticProperties.Hint="Counts the number of times you click"
             Clicked="CarreraBtn_Clicked"
-            Grid.Row="2"
+            Grid.Row="3"
             Grid.Column="1"
             HorizontalOptions="Center" 
             Margin="0,0,0,7"
@@ -113,7 +127,7 @@
             Text="Acerca de..."
             SemanticProperties.Hint="Counts the number of times you click"
             Clicked="AcercaBtn_Clicked"
-            Grid.Row="3"
+            Grid.Row="4"
             Grid.Column="1"
             HorizontalOptions="Center" 
             Margin="0,0,0,7"

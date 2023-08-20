@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+<ContentPage Shell.NavBarIsVisible="False"
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="From.Usuario"
              BackgroundColor="#4d4d4f"
@@ -13,6 +14,7 @@
         <Color x:Key="Quinto">#000000</Color>        <?para letras botones?>
         <Color x:Key="Sexto">#ffffff</Color>        <?para letras sin fondo?>
         <Color x:Key="Setimo">#5c5c5e</Color>        <?para el fondo?>
+        <Color x:Key="Octabo">#ffc72c</Color>        <?para el fondo?>
     </ContentPage.Resources>
 
     <VerticalStackLayout>
@@ -49,6 +51,7 @@
                     VerticalTextAlignment="Start" 
                     FontSize="30" 
                     HorizontalTextAlignment="Center" 
+                    BackgroundColor="{StaticResource Primario}"
                     TextColor="{StaticResource Cuarto}">
                 </Label>
             </Border>
@@ -57,193 +60,206 @@
                 Grid.Row="1" Grid.Column="0"
                 Text="Cédula: "                
                 FontSize="15"
-                VerticalTextAlignment="Start"
-                HorizontalOptions="Center"
-                Margin="0,0,0,0"                
+                VerticalTextAlignment="Center"
+                HorizontalOptions="Start"
+                Margin="5,0,0,0"
                 TextColor="{StaticResource Secundario}"/>
 
             <Label
                 Grid.Row="2" Grid.Column="0"
                 Text="Nombre: "
                 FontSize="15"
-                VerticalTextAlignment="Start"
-                HorizontalOptions="Center"
-                Margin="0,0,0,0"
+                VerticalTextAlignment="Center"
+                HorizontalOptions="Start"
+                Margin="5,0,0,0"
                 TextColor="{StaticResource Secundario}"/>
 
             <Label
                 Grid.Row="3" Grid.Column="0"
                 Text="Apellidos: "
                 FontSize="15"
-                VerticalTextAlignment="Start"
-                HorizontalOptions="Center" 
-                Margin="0,0,0,0"
+                VerticalTextAlignment="Center"
+                HorizontalOptions="Start"
+                Margin="5,0,0,0"
                 TextColor="{StaticResource Secundario}"/>
 
             <Label
                 Grid.Row="4" Grid.Column="0"
                 Text="Edad: "
                 FontSize="15"
-                VerticalTextAlignment="Start"
-                HorizontalOptions="Center" 
-                Margin="0,0,0,0"
+                VerticalTextAlignment="Center"
+                HorizontalOptions="Start" 
+                Margin="5,0,0,0"
                 TextColor="{StaticResource Secundario}"/>
 
             <Label
                 Grid.Row="5" Grid.Column="0"
-                Text="Correo Electroníco: "
+                Text="Correo 
+                Electroníco: "
                 FontSize="15"
-                VerticalTextAlignment="Start"
-                HorizontalOptions="Center" 
-                Margin="0,0,0,0"
+                VerticalTextAlignment="Center"
+                HorizontalOptions="Start" 
+                Margin="5,0,0,0"
                 TextColor="{StaticResource Secundario}"/>
 
             <Label
                 Grid.Row="6" Grid.Column="0"
-                Text="Código Docente: "
+                Text="Código 
+                Docente: "
                 FontSize="15"
-                VerticalTextAlignment="Start"
-                HorizontalOptions="Center" 
-                Margin="0,0,0,0"
+                VerticalTextAlignment="Center"
+                HorizontalOptions="Start" 
+                Margin="5,0,0,0"
                 TextColor="{StaticResource Secundario}"/>
 
             <Label
                 Grid.Row="7" Grid.Column="0"
                 Text="Rol: "
                 FontSize="15"
-                VerticalTextAlignment="Start"
-                HorizontalOptions="Center" 
-                Margin="0,0,0,0"
+                VerticalTextAlignment="Center"
+                HorizontalOptions="Start" 
+                Margin="5,0,0,0"
                 TextColor="{StaticResource Secundario}"/>
 
             <Label
                 Grid.Row="8" Grid.Column="0"
                 Text="Clave: "
                 FontSize="15"
-                VerticalTextAlignment="Start"
-                HorizontalOptions="Center"
-                Margin="0,0,0,0"
+                VerticalTextAlignment="Center"
+                HorizontalOptions="Start"
+                Margin="5,0,0,0"
                 TextColor="{StaticResource Secundario}"/>
 
             <Label
                 Grid.Row="9" Grid.Column="0"
-                Text="Fecha de creación: "
+                Text="Fecha de 
+                creación: "
                 FontSize="15"
-                VerticalTextAlignment="Start"
-                HorizontalOptions="Center" 
-                Margin="0,0,0,0"
+                VerticalTextAlignment="Center"
+                HorizontalOptions="Start" 
+                
                 TextColor="{StaticResource Secundario}"/>
 
             <Label
                 Grid.Row="10" Grid.Column="0"
                 Text="Estado: "
                 FontSize="15"
-                VerticalTextAlignment="Start"
-                HorizontalOptions="Center" 
-                Margin="0,0,0,0"
+                VerticalTextAlignment="Center"
+                HorizontalOptions="Start" 
+                Margin="5,0,0,0"
                 TextColor="{StaticResource Secundario}"/>
 
             <Entry 
                 Grid.Row="1" Grid.Column="1"
                 Placeholder="Cédula" 
                 x:Name="CedulaEntry" 
-                HorizontalOptions="Center"
-                WidthRequest="300"
+                HorizontalOptions="End"
+                WidthRequest="250"
                 Keyboard="Numeric"
                 TextColor="{StaticResource Secundario}"
                 BackgroundColor="{StaticResource Setimo}"
-                Margin="0,0,40,7"/>
+                Margin="10,0,15,7"/>
             
             <Entry 
                 Grid.Row="2" Grid.Column="1"
                 Placeholder="Nombre"
-                HorizontalOptions="Center"
-                WidthRequest="300"
+                HorizontalOptions="End"
+                WidthRequest="250"
                 x:Name="NombreEntry" 
                 TextColor="{StaticResource Secundario}"
                 BackgroundColor="{StaticResource Setimo}"
-                Margin="0,0,40,7"/>
+                Margin="10,0,15,7"/>
             
             <Entry 
                 Grid.Row="3" Grid.Column="1"
                 Placeholder="Apellidos" 
-                HorizontalOptions="Center"
-                WidthRequest="300"
+                HorizontalOptions="End"
+                WidthRequest="250"
                 x:Name="ApellidosEntry" 
                 TextColor="{StaticResource Secundario}"
                 BackgroundColor="{StaticResource Setimo}"
-                Margin="0,0,40,7"/>
+                Margin="10,0,15,7"/>
             
             <Entry 
                 Grid.Row="4" Grid.Column="1"
                 Placeholder="Edad" 
                 x:Name="EdadEntry" 
-                WidthRequest="300"
-                HorizontalOptions="Center"
+                WidthRequest="250"
+                HorizontalOptions="End"
                 Keyboard="Numeric" 
                 TextColor="{StaticResource Secundario}"
                 BackgroundColor="{StaticResource Setimo}"
-                Margin="0,0,40,7"/>
+                Margin="10,0,15,7"/>
             
             <Entry 
                 Grid.Row="5" Grid.Column="1"
                 Placeholder="Correo" 
                 x:Name="CorreoEntry" 
-                HorizontalOptions="Center"
-                WidthRequest="300"
+                HorizontalOptions="End"
+                WidthRequest="250"
                 Keyboard="Email" 
                 TextColor="{StaticResource Secundario}"
                 BackgroundColor="{StaticResource Setimo}"
-                Margin="0,0,40,7"/>
+                Margin="10,0,15,7"/>
             
             <Entry 
                 Grid.Row="6" Grid.Column="1"
                 Placeholder="Código Docente" 
-                HorizontalOptions="Center"
-                WidthRequest="300"
+                HorizontalOptions="End"
+                WidthRequest="250"
                 x:Name="CodigoDocenteEntry" 
                 TextColor="{StaticResource Secundario}"
                 BackgroundColor="{StaticResource Setimo}"
-                Margin="0,0,40,7"/>
+                Margin="10,0,15,7"/>
             
             <Entry 
                 Grid.Row="7" Grid.Column="1"
                 Placeholder="Rol" 
                 x:Name="RolEntry" 
-                HorizontalOptions="Center"
-                WidthRequest="300"
+                HorizontalOptions="End"
+                WidthRequest="250"
                 Keyboard="Numeric" 
                 TextColor="{StaticResource Secundario}"
                 BackgroundColor="{StaticResource Setimo}"
-                Margin="0,0,40,7"/>
+                Margin="10,0,15,7"/>
             
             <Entry 
                 Grid.Row="8" Grid.Column="1"
                 Placeholder="Clave" 
                 x:Name="ClaveEntry" 
-                HorizontalOptions="Center"
-                WidthRequest="300"
+                HorizontalOptions="End"
+                WidthRequest="250"
                 IsPassword="True" 
                 TextColor="{StaticResource Secundario}"
                 BackgroundColor="{StaticResource Setimo}"
-                Margin="0,0,40,7"/>
+                Margin="10,0,15,7"/>
             
             <DatePicker 
                 Grid.Row="9" Grid.Column="1"
-                HorizontalOptions="Center"
-                WidthRequest="300"
+                HorizontalOptions="End"
+                WidthRequest="250"
                 x:Name="Anio" 
                 TextColor="{StaticResource Secundario}"
                 BackgroundColor="{StaticResource Setimo}"
-                Margin="0,0,40,7"/>
+                Margin="10,0,15,7"/>
             
             <Switch 
                 Grid.Row="10" Grid.Column="1"
-                x:Name="Estado" 
-                IsToggled="true" 
+                x:Name="Estado"
+                IsToggled="true"
                 HorizontalOptions="Center"
-                WidthRequest="300"
-                Margin="0,0,40,0"/>
+                WidthRequest="250"
+                Margin="-500,0,15,0"/>
+
+            <Button 
+                Grid.Row="11" Grid.Column="0"
+                Text="Atras" 
+                Clicked="AtrasBtn_Clicked" 
+                HorizontalOptions="Center" 
+                VerticalOptions="Center" 
+                Margin="0,0,0,0" 
+                TextColor="{StaticResource Quinto}"
+                BackgroundColor="{StaticResource Octabo}"/>
 
             <Button 
                 Grid.Row="11" Grid.Column="1"
@@ -251,7 +267,7 @@
                 Clicked="GuardarClicked" 
                 HorizontalOptions="Center" 
                 VerticalOptions="Center" 
-                Margin="150,0,0,0" 
+                Margin="0,0,0,0" 
                 TextColor="{StaticResource Quinto}"
                 BackgroundColor="{StaticResource Cuarto}"/>
 
