@@ -149,6 +149,7 @@
     <Compile Include="Logic\LogicUsuario.cs" />
     <Compile Include="Logic\LogicalSolicitudUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utilities\Factory.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="DataAccess\conexionLinq.dbml">
