@@ -1,26 +1,80 @@
+using From.Entities.Request;
+using From.Entities.Response;
+using From.Entities;
+using Newtonsoft.Json;
+using System.Net.Http;
+using System.Text;
+using System.Text.Json.Serialization;
+using System.Net.Http.Json;
+
 namespace From;
 
 public partial class OfertaAcademica : ContentPage
 {
-	public OfertaAcademica()
-	{
-		InitializeComponent();
-	}
+    //CAMBIAR DIRECCION
+    public String laURL = "https://sistema-oferta-academica.azurewebsites.net/Help/Api/POST-api-OfertaAcademica";
+    public OfertaAcademica()
+    {
+        InitializeComponent();
+    }
     private void GuardarClicked(object sender, EventArgs e)
     {
-        int idOferta = int.Parse(IdOfertaEntry.Text);
-        string idCurso = IdCursoEntry.Text;
-        int idSede = int.Parse(IdSedeEntry.Text);
-        int idCuatrimestre = int.Parse(IdCuatrimestreEntry.Text);
-        int cedulaDocente = int.Parse(CedulaDocenteEntry.Text);
-        DateTime anio = Anio.Date;
-        int idHorario = int.Parse(IdHorarioEntry.Text);
-        int grupo = int.Parse(GrupoEntry.Text);
-        bool estado = Estado.IsToggled;
-        int idUsuario = int.Parse(UsuarioEntry.Text);
-        // Aquí puedes realizar el procesamiento o almacenamiento de los datos de la oferta académica
+        this.enviarOfertaAcademica();
+    }
 
-        // Por ejemplo, mostrar un mensaje
-        DisplayAlert("Guardado", "Los datos de la oferta académica han sido guardados.", "Aceptar");
+    private async Task enviarOfertaAcademica()
+    {
+        try
+        {
+            HttpClient client = new HttpClient();
+            ReqOfertaAcademica request = new ReqOfertaAcademica();
+            request.ofertaAcademica = new Entities.OfertaAcademica();
+
+            request.ofertaAcademica.idOferta = int.Parse(IdOfertaEntry.Text);
+            request.ofertaAcademica.idCurso = IdCursoEntry.Text;
+            request.ofertaAcademica.idSede = int.Parse(IdSedeEntry.Text);
+            request.ofertaAcademica.idCuatrimestre = int.Parse(IdCuatrimestreEntry.Text);
+            request.ofertaAcademica.cedulaDocente = int.Parse(CedulaDocenteEntry.Text);
+            request.ofertaAcademica.año = Anio.Date;
+            request.ofertaAcademica.idHorario = int.Parse(IdHorarioEntry.Text);
+            request.ofertaAcademica.grupo = int.Parse(GrupoEntry.Text);
+            request.ofertaAcademica.estado = Estado.IsToggled;
+            request.ofertaAcademica.usuario = int.Parse(UsuarioEntry.Text);
+
+            //HAY QUE CAMBIAR LA DIRECCION DE LA API
+            var jsonContent = new StringContent(JsonConvert.SerializeObject(request), Encoding.UTF8, "curso/json"); ;
+
+            var response = await client.PostAsync(laURL, jsonContent); //Aqui se envía al API
+
+            if (response.IsSuccessStatusCode)
+            {
+                var responseContent = await response.Content.ReadAsStringAsync(); //aqui recibo del API
+                ResOfertaAcademica res = new ResOfertaAcademica();
+                res = JsonConvert.DeserializeObject<ResOfertaAcademica>(responseContent);
+
+                if (res.result)
+                {
+                    DisplayAlert("Felicidades", "La oferta academica se ingresó con exito!!!", "Aceptar");
+                }
+                else
+                {
+                    DisplayAlert("Error en backend", res.listaDeErrores.ToString(), "Acepto");
+                }
+            }
+            else
+            {
+                //El API esta caido
+                DisplayAlert("Error de conexion", "Intente mas tarde", "Aceptar");
+            }
+        }
+        catch (Exception ex)
+        {
+            DisplayAlert("Error", "Llore", "Aceptar");
+        }
+    }
+
+    private void AtrasBtn_Clicked(object sender, EventArgs e)
+    {
+        Navigation.PopAsync();
     }
 }

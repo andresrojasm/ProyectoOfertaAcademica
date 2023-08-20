@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+<ContentPage Shell.NavBarIsVisible="False"
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="From.PlanCurso"
              BackgroundColor="#4d4d4f"
@@ -13,6 +14,7 @@
         <Color x:Key="Quinto">#000000</Color> <?para letras botones?>
         <Color x:Key="Sexto">#ffffff</Color>        <?para letras sin fondo?>
         <Color x:Key="Setimo">#5c5c5e</Color>        <?para el fondo?>
+        <Color x:Key="Octabo">#ffc72c</Color>        <?para el fondo?>
     </ContentPage.Resources>
 
     <VerticalStackLayout>
@@ -28,7 +30,8 @@
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
-        </Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
 
         <Border
             StrokeThickness="0" 
@@ -42,41 +45,43 @@
                 VerticalTextAlignment="Start"
                 FontSize="30"
                 HorizontalTextAlignment="Center"
+                BackgroundColor="{StaticResource Primario}"
                 TextColor="{StaticResource Cuarto}">
             </Label>
         </Border>
 
         <Label
             Grid.Row="1" Grid.Column="0"
-            Text="Código plan de curso: "
+            Text="Código plan de 
+            curso: "
             FontSize="15"
-            VerticalTextAlignment="Start"
-            HorizontalOptions="Center"
-            Margin="0,0,0,0"
+            VerticalTextAlignment="Center"
+            HorizontalOptions="Start"
+            Margin="5,0,0,0"
             TextColor="{StaticResource Secundario}"/>
         <Label
             Grid.Row="2" Grid.Column="0"
             Text="Nombre: "
             FontSize="15"
-            VerticalTextAlignment="Start"
-            HorizontalOptions="Center"
-            Margin="0,0,0,0"
+            VerticalTextAlignment="Center"
+            HorizontalOptions="Start"
+            Margin="5,0,0,0"
             TextColor="{StaticResource Secundario}"/>
         <Label
             Grid.Row="3" Grid.Column="0"
             Text="Id de carrera: "
             FontSize="15"
-            VerticalTextAlignment="Start"
-            HorizontalOptions="Center" 
-            Margin="0,0,0,0"
+            VerticalTextAlignment="Center"
+            HorizontalOptions="Start" 
+            Margin="5,0,0,0"
             TextColor="{StaticResource Secundario}"/>
         <Entry 
             Grid.Row="1" Grid.Column="1"
             Placeholder="ID del Plan de Curso"
             x:Name="IdPlanCursoEntry"
-            HorizontalOptions="Center"
-            WidthRequest="300"
-            Margin="0,0,40,7"
+            HorizontalOptions="End"
+            WidthRequest="250"
+            Margin="10,0,15,7"
             TextColor="{StaticResource Secundario}"
             BackgroundColor="{StaticResource Setimo}"
             Keyboard="Numeric"/>
@@ -84,28 +89,38 @@
             Grid.Row="2" Grid.Column="1"
             Placeholder="Nombre del Plan" 
             x:Name="NombrePlanEntry"
-            HorizontalOptions="Center"
-            WidthRequest="300"
+            HorizontalOptions="End"
+            WidthRequest="250"
             TextColor="{StaticResource Secundario}"
             BackgroundColor="{StaticResource Setimo}"
-            Margin="0,0,40,7"/>
+            Margin="10,0,15,7"/>
         <Entry 
             Grid.Row="3" Grid.Column="1"
             Placeholder="ID de Carrera" 
             x:Name="IdCarreraEntry"
-            HorizontalOptions="Center"
-            WidthRequest="300"
+            HorizontalOptions="End"
+            WidthRequest="250"
             TextColor="{StaticResource Secundario}"
             BackgroundColor="{StaticResource Setimo}"
-            Margin="0,0,40,7"/>
-
+            Margin="10,0,15,7"/>
+        
         <Button 
+            Grid.Row="4" Grid.Column="0"
+            Text="Atras" 
+            Clicked="AtrasBtn_Clicked" 
+            HorizontalOptions="Center" 
+            VerticalOptions="Center" 
+            Margin="0,0,0,0" 
+            TextColor="{StaticResource Quinto}"
+            BackgroundColor="{StaticResource Octabo}"/>
+
+            <Button 
             Grid.Row="4" Grid.Column="1"
             Text="Guardar"
             Clicked="GuardarClicked"
             HorizontalOptions="Center"
             VerticalOptions="Center"
-            Margin="150,0,0,0"
+            Margin="0,0,0,0"
             TextColor="{StaticResource Quinto}"
             BackgroundColor="{StaticResource Cuarto}"/>
     </Grid>
