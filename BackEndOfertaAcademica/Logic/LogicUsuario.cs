@@ -1,5 +1,6 @@
 ﻿using BackEndOfertaAcademica.DataAccess;
 using BackEndOfertaAcademica.Entities;
+using BackEndOfertaAcademica.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -62,7 +63,7 @@ namespace BackEndOfertaAcademica.Logic
                         response.errorList.Add("Clave no ingresada");
                     }
 
-                    if(request.usuario.rol== 0)
+                    if (request.usuario.rol == 0)
                     {
                         response.result = false;
                         response.errorList.Add("Rol no ingresado");
@@ -104,15 +105,77 @@ namespace BackEndOfertaAcademica.Logic
 
                     }
                 }
-            } 
+            }
             catch (Exception ex)
             {
-                response.result=false;
+                response.result = false;
                 response.errorList.Add(ex.ToString());
             }
             //Iria un finally si hay un log de errores
 
             return response;
+        }
+
+        public ResObtenerNuevoUsuario obtenerNuevoUsuario(ReqObtenerNuevoUsuario req)
+        {
+            ResObtenerNuevoUsuario res = new ResObtenerNuevoUsuario();
+            res.errorList = new List<string>();
+
+            if (req == null)
+            {
+                res.result = false;
+                res.errorList.Add("Request null");
+            }
+            else
+            {
+                if (req.idDelUsuario == 0)
+                {
+                    res.result = false;
+                    res.errorList.Add("Id de usuario faltante");
+                }
+
+                if (!res.errorList.Any())
+                {
+                    conexionLinqDataContext conexionLinq = new conexionLinqDataContext();
+                    List<GET_USUARIOResult> rs = conexionLinq.GET_USUARIO(req.idDelUsuario).ToList();
+
+                    if (!rs.Any())
+                    {
+                        res.result =false;
+                        res.errorList.Add("No hay ninguna coincidencia");
+                    }
+                    else
+                    {
+                        res.usuario = Factory.factoryUsuario(rs[0]);
+                        res.result = true;
+                    }
+                }
+            }
+
+            return res;
+        }
+
+        public ResObtenerListaNuevoUsuario obtenerListaNuevoUsuario(ReqObtenerListaNuevoUsuario req)
+        {
+            ResObtenerListaNuevoUsuario res = new ResObtenerListaNuevoUsuario();
+            res.errorList = new List<string>();
+
+            if ( req == null)
+            {
+                res.result = false;
+                res.errorList.Add("Request Null");
+            }
+            else
+            {
+                conexionLinqDataContext conexionLinq = new conexionLinqDataContext();
+                List<GET_LISTA_USUARIOSResult> rs = new List<GET_LISTA_USUARIOSResult>();
+                rs = conexionLinq.GET_LISTA_USUARIOS().ToList();
+                res.listaUsuario = Factory.factoryListaUsuario(rs);
+
+                res.result = true;
+            }
+
+            return res;
         }
     }
 }
