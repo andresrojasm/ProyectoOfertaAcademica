@@ -40,4 +40,29 @@ public partial class Menu : ContentPage
     {
         Navigation.PopAsync();
     }
+
+    private void ViewUsuario_Clicked(object sender, EventArgs e)
+    {
+        Navigation.PushAsync(new ViewUsuario());
+    }
+
+    private void ViewPlanCurso_Clicked(object sender, EventArgs e)
+    {
+        Navigation.PushAsync(new ViewPlanCurso());
+    }
+
+    private void ViewCurso_Clicked(object sender, EventArgs e)
+    {
+        Navigation.PushAsync(new ViewCurso());
+    }
+
+    private void ViewOfertaAcademica_Clicked(object sender, EventArgs e)
+    {
+        Navigation.PushAsync(new ViewOfertaAcademica());
+    }
+
+    private void ViewCarrera_Clicked(object sender, EventArgs e)
+    {
+        Navigation.PushAsync(new ViewCarrera());
+    }
 }

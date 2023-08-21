@@ -6,17 +6,6 @@
              Shell.NavBarIsVisible="False"
              Title="Carrera">
 
-    <ContentPage.Resources>
-        <Color x:Key="Primario">#4d4d4f</Color>        <?para el fondo?>
-        <Color x:Key="Secundario">#ffffff</Color>        <?para el texto y borde?>
-        <Color x:Key="Terceario">#52504e</Color>        <?para atras?>
-        <Color x:Key="Cuarto">#97d700</Color>        <?para botones?>
-        <Color x:Key="Quinto">#000000</Color>        <?para letras botones?>
-        <Color x:Key="Sexto">#ffffff</Color>        <?para letras sin fondo?>
-        <Color x:Key="Setimo">#5c5c5e</Color>        <?para el fondo?>
-        <Color x:Key="Octabo">#ffc72c</Color>        <?para el fondo?>
-    </ContentPage.Resources>
-
     <VerticalStackLayout>
          <Grid>
             <Grid.ColumnDefinitions>
@@ -45,8 +34,8 @@
                     VerticalTextAlignment="Start" 
                     FontSize="30" 
                     HorizontalTextAlignment="Center" 
-                    BackgroundColor="{StaticResource Primario}"
-                    TextColor="{StaticResource Cuarto}">
+                    BackgroundColor="{x:StaticResource Primario}"
+                    TextColor="{x:StaticResource Cuarto}">
                 </Label>
             </Border>
 
@@ -58,7 +47,7 @@
                 VerticalTextAlignment="Center"
                 HorizontalOptions="Start"
                 Margin="5,0,0,0"
-                TextColor="{StaticResource Secundario}"/>
+                TextColor="{x:StaticResource Secundario}"/>
             <Label
                 Grid.Row="2" Grid.Column="0"
                 Text="Nombre: "
@@ -66,7 +55,7 @@
                 VerticalTextAlignment="Center"
                 HorizontalOptions="Start"
                 Margin="5,0,0,0"
-                TextColor="{StaticResource Secundario}"/>
+                TextColor="{x:StaticResource Secundario}"/>
             <Label
                 Grid.Row="3" Grid.Column="0"
                 Text="Id Facultad: "
@@ -74,7 +63,7 @@
                 VerticalTextAlignment="Center"
                 HorizontalOptions="Start" 
                 Margin="5,0,0,0"
-                TextColor="{StaticResource Secundario}"/>
+                TextColor="{x:StaticResource Secundario}"/>
             <Label
                 Grid.Row="4" Grid.Column="0"
                 Text="Id del Grado: "
@@ -82,7 +71,7 @@
                 VerticalTextAlignment="Center"
                 HorizontalOptions="Start" 
                 Margin="5,0,0,0"
-                TextColor="{StaticResource Secundario}"/>
+                TextColor="{x:StaticResource Secundario}"/>
             <Entry 
                 Grid.Row="1" Grid.Column="1"
                 Placeholder="Id Carrera" 
@@ -90,8 +79,8 @@
                 HorizontalOptions="End"
                 WidthRequest="250"
                 Keyboard="Numeric"
-                TextColor="{StaticResource Secundario}"
-                BackgroundColor="{StaticResource Setimo}"
+                TextColor="{x:StaticResource Secundario}"
+                BackgroundColor="{x:StaticResource Setimo}"
                 Margin="10,0,15,7"/>
             <Entry 
                 Grid.Row="2" Grid.Column="1"
@@ -99,8 +88,8 @@
                 x:Name="NombreEntry"
                 HorizontalOptions="End"
                 WidthRequest="250"
-                TextColor="{StaticResource Secundario}"
-                BackgroundColor="{StaticResource Setimo}"
+                TextColor="{x:StaticResource Secundario}"
+                BackgroundColor="{x:StaticResource Setimo}"
                 Margin="10,0,15,7"/>
             <Entry 
                 Grid.Row="3" Grid.Column="1"
@@ -108,8 +97,8 @@
                 x:Name="IdFacultadEntry"
                 HorizontalOptions="End"
                 WidthRequest="250"
-                TextColor="{StaticResource Secundario}"
-                BackgroundColor="{StaticResource Setimo}"
+                TextColor="{x:StaticResource Secundario}"
+                BackgroundColor="{x:StaticResource Setimo}"
                 Margin="10,0,15,7"/>
             <Entry 
                 Grid.Row="4" Grid.Column="1"
@@ -117,8 +106,8 @@
                 x:Name="IdGradoEntry"
                 HorizontalOptions="End"
                 WidthRequest="250"
-                TextColor="{StaticResource Secundario}"
-                BackgroundColor="{StaticResource Setimo}"
+                TextColor="{x:StaticResource Secundario}"
+                BackgroundColor="{x:StaticResource Setimo}"
                 Margin="10,0,15,7"/>
 
             <Button 
@@ -128,8 +117,8 @@
                 HorizontalOptions="Center" 
                 VerticalOptions="Center" 
                 Margin="0,0,0,0" 
-                TextColor="{StaticResource Quinto}"
-                BackgroundColor="{StaticResource Octabo}"/>
+                TextColor="{x:StaticResource Quinto}"
+                BackgroundColor="{x:StaticResource Octabo}"/>
 
             <Button 
                 Grid.Row="5" Grid.Column="1"
@@ -138,8 +127,8 @@
                 HorizontalOptions="Center" 
                 VerticalOptions="Center" 
                 Margin="0,0,0,0"
-                TextColor="{StaticResource Quinto}"
-            BackgroundColor="{StaticResource Cuarto}"/>
+                TextColor="{x:StaticResource Quinto}"
+            BackgroundColor="{x:StaticResource Cuarto}"/>
         </Grid>
     </VerticalStackLayout>
 </ContentPage>
