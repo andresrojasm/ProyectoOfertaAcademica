@@ -31,6 +31,7 @@ namespace BackEndOfertaAcademica.DataAccess
     #region Extensibility Method Definitions
     partial void OnCreated();
         #endregion
+
         public conexionLinqDataContext() :
             base(global::System.Configuration.ConfigurationManager.ConnectionStrings["SISTEMA_GESTION_ACADEMICAConnectionString"].ConnectionString, mappingSource)
         {
@@ -206,6 +207,13 @@ namespace BackEndOfertaAcademica.DataAccess
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
 			return ((ISingleResult<GET_LISTA_USUARIOSResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.USER_LOGING")]
+		public ISingleResult<USER_LOGINGResult> USER_LOGING([global::System.Data.Linq.Mapping.ParameterAttribute(Name="CORREO", DbType="VarChar(100)")] string cORREO, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CLAVE", DbType="NVarChar(MAX)")] string cLAVE)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), cORREO, cLAVE);
+			return ((ISingleResult<USER_LOGINGResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -562,6 +570,86 @@ namespace BackEndOfertaAcademica.DataAccess
 				if ((this._ACTIVO != value))
 				{
 					this._ACTIVO = value;
+				}
+			}
+		}
+	}
+	
+	public partial class USER_LOGINGResult
+	{
+		
+		private int _CEDULA;
+		
+		private string _NOMBRE;
+		
+		private string _APELLIDOS;
+		
+		private int _ID_ROLLES;
+		
+		public USER_LOGINGResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CEDULA", DbType="Int NOT NULL")]
+		public int CEDULA
+		{
+			get
+			{
+				return this._CEDULA;
+			}
+			set
+			{
+				if ((this._CEDULA != value))
+				{
+					this._CEDULA = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NOMBRE", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
+		public string NOMBRE
+		{
+			get
+			{
+				return this._NOMBRE;
+			}
+			set
+			{
+				if ((this._NOMBRE != value))
+				{
+					this._NOMBRE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_APELLIDOS", DbType="VarChar(30) NOT NULL", CanBeNull=false)]
+		public string APELLIDOS
+		{
+			get
+			{
+				return this._APELLIDOS;
+			}
+			set
+			{
+				if ((this._APELLIDOS != value))
+				{
+					this._APELLIDOS = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_ROLLES", DbType="Int NOT NULL")]
+		public int ID_ROLLES
+		{
+			get
+			{
+				return this._ID_ROLLES;
+			}
+			set
+			{
+				if ((this._ID_ROLLES != value))
+				{
+					this._ID_ROLLES = value;
 				}
 			}
 		}

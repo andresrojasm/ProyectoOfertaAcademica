@@ -4,8 +4,6 @@ using BackEndOfertaAcademica.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BackEndOfertaAcademica.Logic
 {
@@ -173,6 +171,51 @@ namespace BackEndOfertaAcademica.Logic
                 res.listaUsuario = Factory.factoryListaUsuario(rs);
 
                 res.result = true;
+            }
+
+            return res;
+        }
+
+        public ResLogin login(ReqLogin req)
+        {
+            ResLogin res = new ResLogin();
+            res.errorList = new List<string>();
+
+            if( req == null )
+            {
+                res.result = false;
+                res.errorList.Add("Request null");
+            }
+            else
+            {
+                if (string.IsNullOrEmpty(req.correoDelUsuario))
+                {
+                    res.result = false;
+                    res.errorList.Add("Correo faltante");
+                }
+
+                if (string.IsNullOrEmpty(req.claveDelUsuario))
+                {
+                    res.result = false;
+                    res.errorList.Add("Clave faltante");
+                }
+
+                if(!res.errorList.Any())
+                {
+                    conexionLinqDataContext conexionLinq = new conexionLinqDataContext();
+                    List<USER_LOGINGResult> rs = conexionLinq.USER_LOGING(req.correoDelUsuario, req.claveDelUsuario).ToList();
+
+                    if(rs.Any())
+                    {
+                        res.result = true;
+                        res.usuario = Factory.factoryLogin(rs[0]);
+                    }
+                    else
+                    {
+                        res.result = false;
+                        res.errorList.Add("Credenciales no coiniden o se usuario esta inactivo");
+                    }
+                }
             }
 
             return res;

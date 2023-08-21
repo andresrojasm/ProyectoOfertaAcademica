@@ -7,6 +7,10 @@ namespace BackEndOfertaAcademica.Utilities
 {
     public class Factory
     {
+        public static Usuario factoryLogin(USER_LOGINGResult login)
+        {
+            return createUser(login.CEDULA, login.NOMBRE, login.APELLIDOS, 0, "", "", DateTime.Now, login.ID_ROLLES, true);
+        }
         public static Usuario factoryUsuario(GET_USUARIOResult rs)
         {
             return createUser(rs.CEDULA, rs.NOMBRE, rs.NOMBRE, rs.EDAD, rs.CORREO, rs.CODIGODOCENTE, 
