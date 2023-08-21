@@ -53,6 +53,7 @@
                             HeightRequest="25" 
                             WidthRequest="25" />
                         <handless:BorderlessEntry 
+                            x:Name="CorreoEntry"
                             VerticalOptions="Center" 
                             Placeholder="Email" 
                             Grid.Column="1" />
@@ -72,6 +73,7 @@
                             HeightRequest="25" 
                             WidthRequest="25" />
                         <handless:BorderlessEntry 
+                            x:Name="ClaveEntry" 
                             VerticalOptions="Center" 
                             Placeholder="Password" 
                             IsPassword="True" Grid.Column="1" />
