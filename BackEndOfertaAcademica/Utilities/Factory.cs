@@ -11,6 +11,7 @@ namespace BackEndOfertaAcademica.Utilities
         {
             return createUser(login.CEDULA, login.NOMBRE, login.APELLIDOS, 0, "", "", DateTime.Now, login.ID_ROLLES, true);
         }
+
         public static Usuario factoryUsuario(GET_USUARIOResult rs)
         {
             return createUser(rs.CEDULA, rs.NOMBRE, rs.NOMBRE, rs.EDAD, rs.CORREO, rs.CODIGODOCENTE, 
@@ -23,7 +24,7 @@ namespace BackEndOfertaAcademica.Utilities
 
             foreach (GET_LISTA_USUARIOSResult usuario in rs)
             {
-                listaUsuarios.Add(createUser(usuario.CEDULA, usuario.NOMBRE, usuario.NOMBRE, 
+                listaUsuarios.Add(createUser(usuario.CEDULA, usuario.NOMBRE, usuario.APELLIDOS, 
                     usuario.EDAD, usuario.CORREO, usuario.CODIGODOCENTE, usuario.FECHA, 
                     usuario.ID_ROLLES, usuario.ACTIVO));
             }
@@ -46,6 +47,42 @@ namespace BackEndOfertaAcademica.Utilities
             usuario.activo = activo;
 
             return usuario;
+        }
+
+        public static List<Curso> factoryListaCursos(List<GET_LISTA_CURSOSResult> rs)
+        {
+            List<Curso> listaCursos = new List<Curso>();
+
+            foreach (GET_LISTA_CURSOSResult cursos in rs)
+            {
+                Curso curso = new Curso();
+                curso.idCurso = cursos.ID_CURSO;
+                curso.nombreCurso = cursos.NOMBRECURSO;
+                curso.credito = cursos.CREDITO;
+                curso.bloque = cursos.BLOQUE;
+
+                listaCursos.Add(curso);
+            }
+
+            return listaCursos;
+        }
+
+        public static List<Horario> factoryListaHorarios(List<GET_HORARIOSResult> rs)
+        {
+            List<Horario> listaHorarios = new List<Horario>();
+
+            foreach (GET_HORARIOSResult horarios in rs)
+            {
+                Horario horario = new Horario();
+                horario.idHorario = horarios.ID_HORARIO;
+                horario.dia = horarios.DIA;
+                horario.horaInicio = horarios.HORAINICIO;
+                horario.horaFin = horarios.HORAFIN;
+
+                listaHorarios.Add(horario);
+            }
+
+            return listaHorarios;
         }
     }
 }

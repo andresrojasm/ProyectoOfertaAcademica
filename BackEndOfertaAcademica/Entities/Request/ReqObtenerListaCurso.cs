@@ -8,5 +8,6 @@ namespace BackEndOfertaAcademica.Entities
 {
     public class ReqObtenerListaCurso
     {
+        public string idCarrera;
     }
 }
