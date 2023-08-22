@@ -1,27 +1,34 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Http;
-using System.Web.Mvc;
+﻿using BackEndOfertaAcademica.Entities;
 using BackEndOfertaAcademica.Logic;
-using WebGrease.Activities;
-using BackEndOfertaAcademica.Entities;
+using System.Web.Http;
 
 namespace APISOfertaAcademica.Controllers
 {
     public class UsuarioController : ApiController
     {
-        public ResNuevoUsuario Get()
+        // GET api/usuario/5
+        public ResObtenerNuevoUsuario Get(int id)
         {
             LogicUsuario logicUsuario = new LogicUsuario();
-            ReqNuevoUsuario request = new ReqNuevoUsuario();
-            return logicUsuario.nuevoUsuario(request);
+            ReqObtenerNuevoUsuario request = new ReqObtenerNuevoUsuario();
+            request.idDelUsuario = id;
+            return logicUsuario.obtenerNuevoUsuario(request);
         }
-        public ResNuevoUsuario nuevoUsuario([FromBody] ReqNuevoUsuario request)
+
+        // POST api/usuario
+        public ResNuevoUsuario Post([FromBody] ReqNuevoUsuario request)
         {
             LogicUsuario logicUsuario = new LogicUsuario();
             return logicUsuario.nuevoUsuario(request);
         }
+
+        // GET api/usuario
+        public ResObtenerListaNuevoUsuario Get()
+        {
+            LogicUsuario logicUsuario = new LogicUsuario();
+            ReqObtenerListaNuevoUsuario req = new ReqObtenerListaNuevoUsuario();
+            return logicUsuario.obtenerListaNuevoUsuario(req);
+        }
+		
     }
 }

@@ -90,6 +90,7 @@
     <Compile Include="Entities\Model\SolicitudUsuario.cs" />
     <Compile Include="Entities\Request\ReqBase.cs" />
     <Compile Include="Entities\Request\ReqCurso.cs" />
+    <Compile Include="Entities\Request\ReqLogin.cs" />
     <Compile Include="Entities\Request\ReqNuevoUsuario.cs" />
     <Compile Include="Entities\Request\ReqObtenerCurso.cs" />
     <Compile Include="Entities\Request\ReqObtenerListaCurso.cs" />
@@ -111,6 +112,7 @@
     <Compile Include="Entities\Request\ReqPlanCurso.cs" />
     <Compile Include="Entities\Request\ReqRelacionSedeFAcultad.cs" />
     <Compile Include="Entities\Response\ResCurso.cs" />
+    <Compile Include="Entities\Response\ResLogin.cs" />
     <Compile Include="Entities\Response\ResObtenerCurso.cs" />
     <Compile Include="Entities\Response\ResObtenerListaCurso.cs" />
     <Compile Include="Entities\Response\ResObtenerListaNuevoUsuario.cs" />
@@ -149,6 +151,7 @@
     <Compile Include="Logic\LogicUsuario.cs" />
     <Compile Include="Logic\LogicalSolicitudUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utilities\Factory.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="DataAccess\conexionLinq.dbml">
