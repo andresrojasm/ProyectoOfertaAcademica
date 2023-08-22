@@ -50,7 +50,12 @@ public partial class PlanCurso : ContentPage
                 }
                 else
                 {
-                    DisplayAlert("Error en backend", res.errorList.ToString(), "Acepto");
+                    string error = "";
+                    foreach (string e in res.errorList)
+                    {
+                        error += e + "\n";
+                    }
+                    DisplayAlert("Error", error, "Acepto");
                 }
 
             }
