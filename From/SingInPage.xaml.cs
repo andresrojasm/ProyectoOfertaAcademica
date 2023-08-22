@@ -22,11 +22,6 @@ public partial class SingInPage : ContentPage
         await Shell.Current.GoToAsync("//SignUp");
     }
 
-    private void GuardarClicked(object sender, EventArgs e)
-    {
-        this.enviarSingIn();
-    }
-
     private async Task enviarSingIn()
     {
         try
@@ -51,7 +46,7 @@ public partial class SingInPage : ContentPage
 
                 if (res.result)
                 {
-                    DisplayAlert("Felicidades", "El usuario se ingresó con exito!!!", "Aceptar");
+                    Navigation.PushAsync(new Menu());
                 }
                 else
                 {
@@ -71,8 +66,15 @@ public partial class SingInPage : ContentPage
         }
     }
 
-    private void OnCounterClicked(object sender, EventArgs e)
+    private async void OnCounterClicked(object sender, EventArgs e)
     {
-        Navigation.PushAsync(new Menu());
+        if (!string.IsNullOrEmpty(CorreoEntry.Text) && !string.IsNullOrEmpty(ClaveEntry.Text))
+        { 
+            this.enviarSingIn();
+        }
+        else 
+        {
+            await DisplayAlert("Error","Datos faltantes","Aceptar");
+        }
     }
 }
