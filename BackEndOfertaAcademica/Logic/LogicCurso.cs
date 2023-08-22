@@ -135,7 +135,7 @@ namespace BackEndOfertaAcademica.Logic
                     {
                         conexionLinqDataContext conexionLinq = new conexionLinqDataContext();
                         List<GET_LISTA_CURSOSResult> rs = conexionLinq.GET_LISTA_CURSOS(request.idCarrera).ToList();
-                        response.listaCurso = Factory.fatoryListaCursos(rs);
+                        response.listaCurso = Factory.factoryListaCursos(rs);
 
                         response.result = true;
                     }

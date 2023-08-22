@@ -49,7 +49,7 @@ namespace BackEndOfertaAcademica.Utilities
             return usuario;
         }
 
-        public static List<Curso> fatoryListaCursos(List<GET_LISTA_CURSOSResult> rs)
+        public static List<Curso> factoryListaCursos(List<GET_LISTA_CURSOSResult> rs)
         {
             List<Curso> listaCursos = new List<Curso>();
 
@@ -65,6 +65,24 @@ namespace BackEndOfertaAcademica.Utilities
             }
 
             return listaCursos;
+        }
+
+        public static List<Horario> factoryListaHorarios(List<GET_HORARIOSResult> rs)
+        {
+            List<Horario> listaHorarios = new List<Horario>();
+
+            foreach (GET_HORARIOSResult horarios in rs)
+            {
+                Horario horario = new Horario();
+                horario.idHorario = horarios.ID_HORARIO;
+                horario.dia = horarios.DIA;
+                horario.horaInicio = horarios.HORAINICIO;
+                horario.horaFin = horarios.HORAFIN;
+
+                listaHorarios.Add(horario);
+            }
+
+            return listaHorarios;
         }
     }
 }

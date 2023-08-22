@@ -31,7 +31,6 @@ namespace BackEndOfertaAcademica.DataAccess
     #region Extensibility Method Definitions
     partial void OnCreated();
         #endregion
-
         public conexionLinqDataContext() :
             base(global::System.Configuration.ConfigurationManager.ConnectionStrings["SISTEMA_GESTION_ACADEMICAConnectionString"].ConnectionString, mappingSource)
         {
@@ -220,6 +219,13 @@ namespace BackEndOfertaAcademica.DataAccess
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iD_CARRERA);
 			return ((ISingleResult<GET_LISTA_CURSOSResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GET_HORARIOS")]
+		public ISingleResult<GET_HORARIOSResult> GET_HORARIOS()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<GET_HORARIOSResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -736,6 +742,86 @@ namespace BackEndOfertaAcademica.DataAccess
 				if ((this._BLOQUE != value))
 				{
 					this._BLOQUE = value;
+				}
+			}
+		}
+	}
+	
+	public partial class GET_HORARIOSResult
+	{
+		
+		private int _ID_HORARIO;
+		
+		private string _DIA;
+		
+		private string _HORAINICIO;
+		
+		private string _HORAFIN;
+		
+		public GET_HORARIOSResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_HORARIO", DbType="Int NOT NULL")]
+		public int ID_HORARIO
+		{
+			get
+			{
+				return this._ID_HORARIO;
+			}
+			set
+			{
+				if ((this._ID_HORARIO != value))
+				{
+					this._ID_HORARIO = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DIA", DbType="VarChar(9) NOT NULL", CanBeNull=false)]
+		public string DIA
+		{
+			get
+			{
+				return this._DIA;
+			}
+			set
+			{
+				if ((this._DIA != value))
+				{
+					this._DIA = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HORAINICIO", DbType="VarChar(5) NOT NULL", CanBeNull=false)]
+		public string HORAINICIO
+		{
+			get
+			{
+				return this._HORAINICIO;
+			}
+			set
+			{
+				if ((this._HORAINICIO != value))
+				{
+					this._HORAINICIO = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HORAFIN", DbType="VarChar(5) NOT NULL", CanBeNull=false)]
+		public string HORAFIN
+		{
+			get
+			{
+				return this._HORAFIN;
+			}
+			set
+			{
+				if ((this._HORAFIN != value))
+				{
+					this._HORAFIN = value;
 				}
 			}
 		}

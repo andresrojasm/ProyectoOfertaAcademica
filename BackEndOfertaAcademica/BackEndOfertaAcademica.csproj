@@ -79,6 +79,7 @@
       <DependentUpon>conexionLinq.dbml</DependentUpon>
     </Compile>
     <Compile Include="Entities\Model\Curso.cs" />
+    <Compile Include="Entities\Model\Horario.cs" />
     <Compile Include="Entities\Model\OfertaAcademica.cs" />
     <Compile Include="Entities\Model\RelacionCP.cs" />
     <Compile Include="Entities\Model\PlanCurso.cs" />
@@ -94,6 +95,7 @@
     <Compile Include="Entities\Request\ReqNuevoUsuario.cs" />
     <Compile Include="Entities\Request\ReqObtenerCurso.cs" />
     <Compile Include="Entities\Request\ReqObtenerListaCurso.cs" />
+    <Compile Include="Entities\Request\ReqObtenerListaHorarios.cs" />
     <Compile Include="Entities\Request\ReqObtenerListaNuevoUsuario.cs" />
     <Compile Include="Entities\Request\ReqObtenerListaOfertaAcademica.cs" />
     <Compile Include="Entities\Request\ReqObtenerListaPlanCurso.cs" />
@@ -115,6 +117,7 @@
     <Compile Include="Entities\Response\ResLogin.cs" />
     <Compile Include="Entities\Response\ResObtenerCurso.cs" />
     <Compile Include="Entities\Response\ResObtenerListaCurso.cs" />
+    <Compile Include="Entities\Response\ResObtenerListaHorarios.cs" />
     <Compile Include="Entities\Response\ResObtenerListaNuevoUsuario.cs" />
     <Compile Include="Entities\Response\ResObtenerListaOfertaAcademica.cs" />
     <Compile Include="Entities\Response\ResObtenerListaPlanCurso.cs" />
@@ -137,6 +140,7 @@
     <Compile Include="Entities\Response\ResBase.cs" />
     <Compile Include="Entities\Response\ResNuevoUsuario.cs" />
     <Compile Include="Entities\Response\ResSolicitudUsuario.cs" />
+    <Compile Include="Logic\LogicHorario.cs" />
     <Compile Include="Logic\LogicRelacionCP.cs" />
     <Compile Include="Entities\Response\ResTelefono.cs" />
     <Compile Include="Logic\LogicaRelacionSedeFacultad.cs" />

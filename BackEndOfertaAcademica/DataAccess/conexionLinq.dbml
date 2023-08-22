@@ -196,4 +196,12 @@
       <Column Name="BLOQUE" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
+  <Function Name="dbo.GET_HORARIOS" Method="GET_HORARIOS">
+    <ElementType Name="GET_HORARIOSResult">
+      <Column Name="ID_HORARIO" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DIA" Type="System.String" DbType="VarChar(9) NOT NULL" CanBeNull="false" />
+      <Column Name="HORAINICIO" Type="System.String" DbType="VarChar(5) NOT NULL" CanBeNull="false" />
+      <Column Name="HORAFIN" Type="System.String" DbType="VarChar(5) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
 </Database>
