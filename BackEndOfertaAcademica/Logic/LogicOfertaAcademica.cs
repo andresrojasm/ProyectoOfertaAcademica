@@ -108,7 +108,6 @@ namespace BackEndOfertaAcademica.Logic
 
             return response;
         }
-
         public ResObtenerOfertaAcademica obtenerOfertaAcademica(ReqObtenerOfertaAcademica request)
         {
             ResObtenerOfertaAcademica response = new ResObtenerOfertaAcademica();

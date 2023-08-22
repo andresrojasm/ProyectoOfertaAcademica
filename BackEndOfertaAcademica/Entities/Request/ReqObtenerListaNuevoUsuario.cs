@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BackEndOfertaAcademica.Entities
 {
-    public class ReqObtenerListaNuevoUsuario
+    public class ReqObtenerListaNuevoUsuario : ReqBase
     {
     }
 }

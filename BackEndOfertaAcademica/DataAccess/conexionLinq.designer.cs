@@ -37,7 +37,6 @@ namespace BackEndOfertaAcademica.DataAccess
         {
             OnCreated();
         }
-
         public conexionLinqDataContext(string connection) : 
 				base(connection, mappingSource)
 		{
@@ -214,6 +213,13 @@ namespace BackEndOfertaAcademica.DataAccess
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), cORREO, cLAVE);
 			return ((ISingleResult<USER_LOGINGResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GET_LISTA_CURSOS")]
+		public ISingleResult<GET_LISTA_CURSOSResult> GET_LISTA_CURSOS([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID_CARRERA", DbType="VarChar(15)")] string iD_CARRERA)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iD_CARRERA);
+			return ((ISingleResult<GET_LISTA_CURSOSResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -650,6 +656,86 @@ namespace BackEndOfertaAcademica.DataAccess
 				if ((this._ID_ROLLES != value))
 				{
 					this._ID_ROLLES = value;
+				}
+			}
+		}
+	}
+	
+	public partial class GET_LISTA_CURSOSResult
+	{
+		
+		private string _ID_CURSO;
+		
+		private string _NOMBRECURSO;
+		
+		private int _CREDITO;
+		
+		private int _BLOQUE;
+		
+		public GET_LISTA_CURSOSResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_CURSO", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
+		public string ID_CURSO
+		{
+			get
+			{
+				return this._ID_CURSO;
+			}
+			set
+			{
+				if ((this._ID_CURSO != value))
+				{
+					this._ID_CURSO = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NOMBRECURSO", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+		public string NOMBRECURSO
+		{
+			get
+			{
+				return this._NOMBRECURSO;
+			}
+			set
+			{
+				if ((this._NOMBRECURSO != value))
+				{
+					this._NOMBRECURSO = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREDITO", DbType="Int NOT NULL")]
+		public int CREDITO
+		{
+			get
+			{
+				return this._CREDITO;
+			}
+			set
+			{
+				if ((this._CREDITO != value))
+				{
+					this._CREDITO = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BLOQUE", DbType="Int NOT NULL")]
+		public int BLOQUE
+		{
+			get
+			{
+				return this._BLOQUE;
+			}
+			set
+			{
+				if ((this._BLOQUE != value))
+				{
+					this._BLOQUE = value;
 				}
 			}
 		}

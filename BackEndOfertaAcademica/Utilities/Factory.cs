@@ -51,14 +51,13 @@ namespace BackEndOfertaAcademica.Utilities
 
         public static List<Curso> fatoryListaCursos(List<GET_LISTA_CURSOSResult> rs)
         {
-            Curso curso = new Curso();
             List<Curso> listaCursos = new List<Curso>();
 
             foreach (GET_LISTA_CURSOSResult cursos in rs)
             {
-                
+                Curso curso = new Curso();
                 curso.idCurso = cursos.ID_CURSO;
-                cursos.NOMBRECURSO = cursos.NOMBRECURSO;
+                curso.nombreCurso = cursos.NOMBRECURSO;
                 curso.credito = cursos.CREDITO;
                 curso.bloque = cursos.BLOQUE;
 
