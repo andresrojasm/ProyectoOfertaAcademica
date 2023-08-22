@@ -6,12 +6,10 @@ using System.Threading.Tasks;
 
 namespace From.Entities
 {
-    public class SingIn
+    public class Login
     {
         public string correo { get; set; }
 
         public string clave { get; set; }
-
-        public int rol { get; set; }
     }
 }

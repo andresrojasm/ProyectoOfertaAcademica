@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace From.Entities.Request
 {
-    public class ReqSingIn
+    public class ReqBase
     {
-        public SingIn singIn { get; set; }
+        public string session { get; set; }
     }
 }

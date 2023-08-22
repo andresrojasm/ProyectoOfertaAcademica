@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace BackEndOfertaAcademica.Entities
 {
-    internal class ReqObtenerNuevoUsuario: ReqBase
+    public class ReqObtenerNuevoUsuario: ReqBase
     {
-        public long idDelUsuario { get; set; }
+        public int idDelUsuario { get; set; }
     }
 }

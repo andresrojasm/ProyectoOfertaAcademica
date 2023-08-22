@@ -11,7 +11,7 @@ namespace From;
 
 public partial class Curso : ContentPage
 {
-    public String laURL = "https://sistema-oferta-academica.azurewebsites.net/Help/Api/POST-api-Curso";
+    public String laURL = "https://sistema-oferta-academica.azurewebsites.net/api/Curso";
 
     public Curso()
     {
@@ -36,7 +36,7 @@ public partial class Curso : ContentPage
             request.curso.credito = int.Parse(CreditoEntry.Text);
             request.curso.bloque = int.Parse(BloqueEntry.Text);
 
-            var jsonContent = new StringContent(JsonConvert.SerializeObject(request), Encoding.UTF8, "Curso/json"); ;
+            var jsonContent = new StringContent(JsonConvert.SerializeObject(request), Encoding.UTF8, "application/json"); ;
 
             var response = await client.PostAsync(laURL, jsonContent); //Aqui se envía al API
 
@@ -52,7 +52,7 @@ public partial class Curso : ContentPage
                 }
                 else
                 {
-                    DisplayAlert("Error en backend", res.listaDeErrores.ToString(), "Acepto");
+                    DisplayAlert("Error en backend", res.errorList.ToString(), "Acepto");
                 }
 
             }
@@ -62,9 +62,9 @@ public partial class Curso : ContentPage
                 DisplayAlert("Error de conexion", "Intente mas tarde", "Aceptar");
             }
         }
-        catch (Exception ex) { }
+        catch (Exception ex)
         {
-            DisplayAlert("Error", "Llore", "Aceptar");
+            DisplayAlert("Error", "Contactar a soporte", "Aceptar");
         }
     }
 

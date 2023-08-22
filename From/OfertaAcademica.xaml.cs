@@ -12,7 +12,7 @@ namespace From;
 public partial class OfertaAcademica : ContentPage
 {
     //CAMBIAR DIRECCION
-    public String laURL = "https://sistema-oferta-academica.azurewebsites.net/Help/Api/POST-api-OfertaAcademica";
+    public String laURL = "https://sistema-oferta-academica.azurewebsites.net/api/OfertaAcademica";
     public OfertaAcademica()
     {
         InitializeComponent();
@@ -42,7 +42,7 @@ public partial class OfertaAcademica : ContentPage
             request.ofertaAcademica.usuario = int.Parse(UsuarioEntry.Text);
 
             //HAY QUE CAMBIAR LA DIRECCION DE LA API
-            var jsonContent = new StringContent(JsonConvert.SerializeObject(request), Encoding.UTF8, "curso/json"); ;
+            var jsonContent = new StringContent(JsonConvert.SerializeObject(request), Encoding.UTF8, "application/json"); ;
 
             var response = await client.PostAsync(laURL, jsonContent); //Aqui se envía al API
 
@@ -58,7 +58,7 @@ public partial class OfertaAcademica : ContentPage
                 }
                 else
                 {
-                    DisplayAlert("Error en backend", res.listaDeErrores.ToString(), "Acepto");
+                    DisplayAlert("Error en backend", res.errorList.ToString(), "Acepto");
                 }
             }
             else
@@ -69,7 +69,7 @@ public partial class OfertaAcademica : ContentPage
         }
         catch (Exception ex)
         {
-            DisplayAlert("Error", "Llore", "Aceptar");
+            DisplayAlert("Error", "Contactar a soporte", "Aceptar");
         }
     }
 

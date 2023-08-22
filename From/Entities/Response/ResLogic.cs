@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace From.Entities.Response
 {
-    internal class ResSingIn : ResBase
+    public class ResLogic : ResBase
     {
+        public Usuario usuario { get; set; }
     }
 }

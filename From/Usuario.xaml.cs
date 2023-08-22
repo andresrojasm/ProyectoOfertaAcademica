@@ -11,7 +11,7 @@ namespace From;
 
 public partial class Usuario : ContentPage
 {
-    public String laURL = "https://sistema-oferta-academica.azurewebsites.net/Help/Api/POST-api-Usuario";
+    public String laURL = "https://sistema-oferta-academica.azurewebsites.net/api/Usuario";
     public Usuario()
     {
         InitializeComponent();
@@ -41,7 +41,7 @@ public partial class Usuario : ContentPage
             request.usuario.activo = Estado.IsToggled;
 
 
-            var jsonContent = new StringContent(JsonConvert.SerializeObject(request), Encoding.UTF8, "curso/json"); ;
+            var jsonContent = new StringContent(JsonConvert.SerializeObject(request), Encoding.UTF8, "application/json"); ;
 
             var response = await client.PostAsync(laURL, jsonContent); //Aqui se envía al API
 
@@ -53,11 +53,11 @@ public partial class Usuario : ContentPage
 
                 if (res.result)
                 {
-                    DisplayAlert("Felicidades", "El curso se ingresó con exito!!!", "Aceptar");
+                    DisplayAlert("Felicidades", "El usuario se ingresó con exito!!!", "Aceptar");
                 }
                 else
                 {
-                    DisplayAlert("Error en backend", res.listaDeErrores.ToString(), "Acepto");
+                    DisplayAlert("Error en backend", res.errorList.ToString(), "Acepto");
                 }
 
             }
@@ -67,9 +67,9 @@ public partial class Usuario : ContentPage
                 DisplayAlert("Error de conexion", "Intente mas tarde", "Aceptar");
             }
         }
-        catch (Exception ex) { }
+        catch (Exception ex)
         {
-            DisplayAlert("Error", "Llore", "Aceptar");
+            DisplayAlert("Error", "Contactar a soporte", "Aceptar");
         }
     }
     private void AtrasBtn_Clicked(object sender, EventArgs e)

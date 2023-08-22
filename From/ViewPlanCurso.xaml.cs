@@ -6,4 +6,8 @@ public partial class ViewPlanCurso : ContentPage
 	{
 		InitializeComponent();
 	}
+    private void AtrasBtn_Clicked(object sender, EventArgs e)
+    {
+        Navigation.PopAsync();
+    }
 }
