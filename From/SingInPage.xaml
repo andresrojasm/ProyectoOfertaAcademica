@@ -75,7 +75,7 @@
                         <handless:BorderlessEntry 
                             x:Name="ClaveEntry" 
                             VerticalOptions="Center" 
-                            Placeholder="Password" 
+                            Placeholder="Password"                             
                             IsPassword="True" Grid.Column="1" />
                     </Grid>
                 </Frame>
@@ -87,12 +87,12 @@
                     FontSize="20" 
                     FontAttributes="Bold" 
                     Clicked="OnCounterClicked"/>
-               <Label
+               <!-- <Label
                     FontAttributes="Bold" 
                     Text="Forgot Password?" 
                     TextColor="Gray" 
-                    HorizontalTextAlignment="Center" />
-               <HorizontalStackLayout 
+                    HorizontalTextAlignment="Center" /> 
+                  <HorizontalStackLayout 
                     HorizontalOptions="Center" 
                     Spacing="10">
                     <Label  
@@ -106,10 +106,10 @@
                         FontAttributes="Bold"
                         TextColor="{x:StaticResource Primary}" />
                     <HorizontalStackLayout.GestureRecognizers>
-                       <TapGestureRecognizer 
+                        <TapGestureRecognizer 
                             Tapped="TapGestureRecognizer_Tapped_For_SignUP" />
                     </HorizontalStackLayout.GestureRecognizers>
-                </HorizontalStackLayout>
+                </HorizontalStackLayout>-->
 
             </VerticalStackLayout>
         </Frame>
