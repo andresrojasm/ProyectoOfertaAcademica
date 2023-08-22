@@ -36,6 +36,7 @@ public partial class Usuario : ContentPage
             request.usuario.edad = int.Parse(EdadEntry.Text);
             request.usuario.correo = CorreoEntry.Text;
             request.usuario.clave = ClaveEntry.Text;
+            request.usuario.fechaCreacion = Anio.Date;
             request.usuario.codigoDocente = CodigoDocenteEntry.Text;
             request.usuario.rol = int.Parse(RolEntry.Text);
             request.usuario.activo = Estado.IsToggled;
@@ -57,7 +58,12 @@ public partial class Usuario : ContentPage
                 }
                 else
                 {
-                    DisplayAlert("Error en backend", res.errorList.ToString(), "Acepto");
+                    string error = "";
+                    foreach (string e in res.errorList)
+                    {
+                        error += e + "\n";
+                    }
+                    DisplayAlert("Error", error, "Acepto");
                 }
 
             }
