@@ -1,5 +1,6 @@
 ﻿using BackEndOfertaAcademica.DataAccess;
 using BackEndOfertaAcademica.Entities;
+using BackEndOfertaAcademica.Entities.Model;
 using System;
 using System.Collections.Generic;
 
@@ -83,6 +84,24 @@ namespace BackEndOfertaAcademica.Utilities
             }
 
             return listaHorarios;
+        }
+
+        public static List<Carrera> factoryListaCarreras(List<GET_LISTA_CARRERASResult> rs)
+        {
+            List<Carrera> listaCarreras = new List<Carrera>();
+
+            foreach (GET_LISTA_CARRERASResult carreras in rs)
+            {
+                Carrera carrera =   new Carrera();
+                carrera.idCarrera = carreras.ID_CARRERA;
+                carrera.nombreCarrera = carreras.NOMBRECARRERA;
+                carrera.idFacultad = carreras.ID_GRADO;
+                carrera.idGrado = carreras.ID_GRADO;
+
+                listaCarreras.Add(carrera);
+            }
+
+            return listaCarreras;
         }
     }
 }

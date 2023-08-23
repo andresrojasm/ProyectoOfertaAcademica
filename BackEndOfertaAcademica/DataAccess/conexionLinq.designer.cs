@@ -227,6 +227,13 @@ namespace BackEndOfertaAcademica.DataAccess
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
 			return ((ISingleResult<GET_HORARIOSResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GET_LISTA_CARRERAS")]
+		public ISingleResult<GET_LISTA_CARRERASResult> GET_LISTA_CARRERAS()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<GET_LISTA_CARRERASResult>)(result.ReturnValue));
+		}
 	}
 	
 	public partial class GET_USUARIOResult
@@ -822,6 +829,86 @@ namespace BackEndOfertaAcademica.DataAccess
 				if ((this._HORAFIN != value))
 				{
 					this._HORAFIN = value;
+				}
+			}
+		}
+	}
+	
+	public partial class GET_LISTA_CARRERASResult
+	{
+		
+		private string _ID_CARRERA;
+		
+		private string _NOMBRECARRERA;
+		
+		private int _ID_FACULTAD;
+		
+		private int _ID_GRADO;
+		
+		public GET_LISTA_CARRERASResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_CARRERA", DbType="VarChar(15) NOT NULL", CanBeNull=false)]
+		public string ID_CARRERA
+		{
+			get
+			{
+				return this._ID_CARRERA;
+			}
+			set
+			{
+				if ((this._ID_CARRERA != value))
+				{
+					this._ID_CARRERA = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NOMBRECARRERA", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string NOMBRECARRERA
+		{
+			get
+			{
+				return this._NOMBRECARRERA;
+			}
+			set
+			{
+				if ((this._NOMBRECARRERA != value))
+				{
+					this._NOMBRECARRERA = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_FACULTAD", DbType="Int NOT NULL")]
+		public int ID_FACULTAD
+		{
+			get
+			{
+				return this._ID_FACULTAD;
+			}
+			set
+			{
+				if ((this._ID_FACULTAD != value))
+				{
+					this._ID_FACULTAD = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_GRADO", DbType="Int NOT NULL")]
+		public int ID_GRADO
+		{
+			get
+			{
+				return this._ID_GRADO;
+			}
+			set
+			{
+				if ((this._ID_GRADO != value))
+				{
+					this._ID_GRADO = value;
 				}
 			}
 		}
