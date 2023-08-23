@@ -8,6 +8,7 @@ namespace From
         public Menu(Entities.Usuario u)
         {
             InitializeComponent();
+            
             switch (u.rol)
             {
                 case 1:
@@ -24,7 +25,25 @@ namespace From
                     ViewCursoBtn.IsVisible = false;
                     ViewCarreraBtn.IsVisible = false;
                     break;
+                default:
+                    OfertaAcademicaBtn.IsVisible = false;
+                    ViewOfertaAcademicaBtn.IsVisible = false;
+                    UsuarioBtn.IsVisible = false;
+                    PlanCursoBtn.IsVisible = false;
+                    CursoBtn.IsVisible = false;
+                    CarreraBtn.IsVisible = false;
+                    ViewUsuarioBtn.IsVisible = false;
+                    ViewPlanCursoBtn.IsVisible = false;
+                    ViewCursoBtn.IsVisible = false;
+                    ViewCarreraBtn.IsVisible = false;
+                    break;
             }
+
+            DisplayAlert(""
+                ,"Bienvenido/a "
+                    + u.nombre + " "
+                    + u.apellidos + "\n"
+                ,"Aceptar");
         }
 
         private void UsuarioBtn_Clicked(object sender, EventArgs e)
