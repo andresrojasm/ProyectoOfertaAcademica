@@ -104,5 +104,20 @@ namespace BackEndOfertaAcademica.Utilities
 
             return listaHorarios;
         }
+        public static List<PlanCurso> factoryListaPlanCurso(List<GET_LISTA_PLAN_CURSOResult> rs)
+        {
+            List<PlanCurso> listaPlanCurso = new List<PlanCurso>();
+
+            foreach (GET_LISTA_PLAN_CURSOResult planesCursos in rs)
+            {
+                PlanCurso plan = new PlanCurso();
+                plan.codigoPlan = plan.codigoPlan;
+                plan.nombrePlan = plan.nombrePlan;
+                plan.idCarrera = plan.idCarrera;
+
+                listaPlanCurso.Add(plan);
+            }
+            return listaPlanCurso;
+        }
     }
 }

@@ -28,8 +28,8 @@
 
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <TextCell Text="{Binding idOferta}"
-                               Detail="{Binding cedulaDocente}"></TextCell>
+                        <TextCell Text="{Binding idOferta, StringFormat='idOferta: {0}'}"
+                               Detail="{Binding usuario}"></TextCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
