@@ -67,6 +67,26 @@ namespace BackEndOfertaAcademica.Utilities
             return listaCursos;
         }
 
+        public static List<OfertaAcademica> factoryListaOfertaAcademica(List<GET_LISTA_OFERTA_ACADEMICAResult> rs) {
+            List<OfertaAcademica> listaOfertaAcademica = new List<OfertaAcademica>();
+            foreach (GET_LISTA_OFERTA_ACADEMICAResult oferta in rs)
+            {
+                OfertaAcademica ofertaAcademica = new OfertaAcademica();
+                ofertaAcademica.idOferta = oferta.ID_OFERTA;
+                ofertaAcademica.idCurso = oferta.ID_CURSO;
+                ofertaAcademica.idSede = oferta.ID_SEDE;
+                ofertaAcademica.idCuatrimestre = oferta.ID_CUATRIMESTRE;
+                ofertaAcademica.cedulaDocente = oferta.CEDULA_DOCENTE;
+                ofertaAcademica.año = oferta.AÑO;
+                ofertaAcademica.idHorario = oferta.ID_HORARIO;
+                ofertaAcademica.grupo = oferta.GRUPO;
+                ofertaAcademica.estado = oferta.ESTADO;
+                ofertaAcademica.usuario = oferta.USUARIO;
+
+                listaOfertaAcademica.Add(ofertaAcademica);
+            }
+            return listaOfertaAcademica;
+        }
         public static List<Horario> factoryListaHorarios(List<GET_HORARIOSResult> rs)
         {
             List<Horario> listaHorarios = new List<Horario>();
