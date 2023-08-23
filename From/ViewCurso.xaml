@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage Shell.NavBarIsVisible="False"
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="From.ViewCurso"
+             BackgroundColor="{x:StaticResource Primario}"
+             Title="ViewCurso">
+
+    <VerticalStackLayout>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Label
+                Grid.Row="0" Grid.Column="0"
+                Text="Código Carrera: "
+                FontSize="15"
+                VerticalTextAlignment="Center"                
+                Margin="10,0,0,0"
+                TextColor="{x:StaticResource Secundario}"/>
+
+            <Entry 
+                Grid.Row="0" Grid.Column="1"
+                Placeholder="BISC"
+                HorizontalOptions="Center"
+                WidthRequest="200"
+                HorizontalTextAlignment="Center"
+                x:Name="BuscarCarreraEntry" 
+                TextColor="{x:StaticResource Secundario}"
+                BackgroundColor="{x:StaticResource Setimo}"
+                Margin="5,5,30,0"/>
+
+            <Button 
+                Grid.ColumnSpan="2"
+                Grid.Row="2" Grid.Column="0"
+                Text="Buscar Carrera" 
+                Clicked="BuscarCarreraBtn_Clicked" 
+                HorizontalOptions="Center" 
+                VerticalOptions="Center"
+                Margin="0,5,0,0" 
+                TextColor="{x:StaticResource Quinto}"
+                BackgroundColor="{x:StaticResource Cuarto}"/>
+
+            <ListView
+                x:Name="DatosViewCurso"
+                Grid.ColumnSpan="2"
+                Grid.Row="3"
+                Grid.Column="0"
+                Margin="5,5,5,0"
+                BackgroundColor="{x:StaticResource Secundario}"
+                SeparatorColor="{x:StaticResource Cyan100Accent}"
+                RowHeight="60">
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding nombreCurso}"
+                               Detail="{Binding idCurso}"></TextCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <Button 
+                Grid.Row="4" Grid.Column="0"
+                Grid.ColumnSpan="2"
+                Text="Atras" 
+                Clicked="AtrasBtn_Clicked" 
+                HorizontalOptions="Center" 
+                VerticalOptions="Center" 
+                Margin="0,5,0,0" 
+                TextColor="{x:StaticResource Quinto}"
+                BackgroundColor="{x:StaticResource Octabo}"/>
+        </Grid>
+    </VerticalStackLayout>
+</ContentPage>

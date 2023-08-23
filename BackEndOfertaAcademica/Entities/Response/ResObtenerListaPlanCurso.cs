@@ -8,6 +8,6 @@ namespace BackEndOfertaAcademica.Entities
 {
     public class ResObtenerListaPlanCurso: ResBase
     {
-        public PlanCurso planCurso { get; set; }
+        public List<PlanCurso> listaPlanCurso = new List<PlanCurso>();
     }
 }

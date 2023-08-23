@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage Shell.NavBarIsVisible="False"
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="From.Acerca"
+             BackgroundColor="#4d4d4f"
+             Title="Acerca">
+
+    <ContentPage.Resources>
+        <Color x:Key="Primario">#4d4d4f</Color>        <?para el fondo?>
+        <Color x:Key="Secundario">#ffffff</Color>        <?para el texto y borde?>
+        <Color x:Key="Terceario">#52504e</Color>        <?para atras?>
+        <Color x:Key="Cuarto">#97d700</Color>        <?para botones?>
+        <Color x:Key="Quinto">#000000</Color>        <?para letras botones?>
+        <Color x:Key="Sexto">#ffffff</Color>        <?para letras sin fondo?>
+        <Color x:Key="Setimo">#5c5c5e</Color>        <?para el fondo?>
+        <Color x:Key="Octabo">#ffc72c</Color>        <?para el fondo?>
+    </ContentPage.Resources>
+
+    <VerticalStackLayout>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Border
+            StrokeThickness="0" 
+            Grid.ColumnSpan="2" 
+            Grid.Row="0" 
+            Grid.Column="0" 
+            Margin="5">
+                <Label 
+                    Text="Acerca de..."
+                    x:Name="pantalla" 
+                    VerticalTextAlignment="Start" 
+                    FontSize="30" 
+                    HorizontalTextAlignment="Center" 
+                    BackgroundColor="{StaticResource Primario}"
+                    TextColor="{StaticResource Cuarto}">
+                </Label>
+            </Border>
+
+            <Label
+                Grid.ColumnSpan="2"
+                Grid.Row="1" Grid.Column="0"
+                Text="Elaborado por:"
+                FontSize="15"
+                VerticalTextAlignment="Center"
+                HorizontalOptions="Center"
+                Margin="5,50,0,0"
+                TextColor="{StaticResource Secundario}"/>
+
+            <Label
+                Grid.ColumnSpan="2"
+                Grid.Row="2" Grid.Column="0"
+                Text="Ana Belén Calvo Calderon"
+                FontSize="15"
+                VerticalTextAlignment="Center"
+                HorizontalOptions="Center"
+                Margin="5,0,0,0"
+                TextColor="{StaticResource Secundario}"/>
+
+            <Label
+                Grid.ColumnSpan="2"
+                Grid.Row="3" Grid.Column="0"
+                Text="Andrés Enrique Rojas Madrigal"
+                FontSize="15"
+                VerticalTextAlignment="Center"
+                HorizontalOptions="Center"
+                Margin="5,0,0,0"
+                TextColor="{StaticResource Secundario}"/>
+
+            <Label
+                Grid.ColumnSpan="2"
+                Grid.Row="4" Grid.Column="0"
+                Text="Esteban Jose Mora Avellan"
+                FontSize="15"
+                VerticalTextAlignment="Center"
+                HorizontalOptions="Center"
+                Margin="5,0,0,0"
+                TextColor="{StaticResource Secundario}"/>
+
+            <Label
+                Grid.ColumnSpan="2"
+                Grid.Row="5" Grid.Column="0"
+                Text="William Andrés Herrera Araya"
+                FontSize="15"
+                VerticalTextAlignment="Center"
+                HorizontalOptions="Center"
+                Margin="5,0,0,0"
+                TextColor="{StaticResource Secundario}"/>
+
+            <Button 
+                Grid.ColumnSpan="2"
+                Grid.Row="6" Grid.Column="0"
+                Text="Atras" 
+                Clicked="AtrasBtn_Clicked" 
+                HorizontalOptions="Center" 
+                VerticalOptions="Center" 
+                Margin="0,50,0,0" 
+                TextColor="{StaticResource Quinto}"
+                BackgroundColor="{StaticResource Octabo}"/>
+        </Grid>
+    </VerticalStackLayout>
+</ContentPage>

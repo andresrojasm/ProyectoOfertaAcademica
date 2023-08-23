@@ -12,13 +12,13 @@ namespace APISOfertaAcademica.Controllers
 {
     public class PlanCursoControllers : ApiController
     {
-        public ResObtenerListaPlanCurso Get()
+        public ResObtenerListaPlanCurso GET()
         {
             LogicPlanCurso logicPlanCurso = new LogicPlanCurso();   
             ReqObtenerListaPlanCurso request = new ReqObtenerListaPlanCurso();
             return logicPlanCurso.obtenerListaPlanCurso(request);
         }
-        public ResPlanCurso nuevoPlanCurso([FromBody] ReqPlanCurso request)
+        public ResPlanCurso POST([FromBody] ReqPlanCurso request)
         {
             LogicPlanCurso logicPlanCurso = new LogicPlanCurso();
             return logicPlanCurso.nuevaPC(request);

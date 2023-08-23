@@ -212,4 +212,25 @@
       <Column Name="ID_GRADO" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
+  <Function Name="dbo.GET_LISTA_OFERTA_ACADEMICA" Method="GET_LISTA_OFERTA_ACADEMICA">
+    <ElementType Name="GET_LISTA_OFERTA_ACADEMICAResult">
+      <Column Name="ID_OFERTA" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ID_CURSO" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="ID_SEDE" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ID_CUATRIMESTRE" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CEDULA_DOCENTE" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AÑO" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ID_HORARIO" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="GRUPO" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ESTADO" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="USUARIO" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.GET_LISTA_PLAN_CURSO" Method="GET_LISTA_PLAN_CURSO">
+    <ElementType Name="GET_LISTA_PLAN_CURSOResult">
+      <Column Name="CODIGOPLAN" Type="System.String" DbType="VarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="NOMBREPLAN" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ID_CARRERA" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
 </Database>
