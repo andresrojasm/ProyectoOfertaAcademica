@@ -88,7 +88,8 @@
                     FontAttributes="Bold" 
                     IsVisible="true"
                     Clicked="OnCounterClicked"/>
-               <!-- <Label
+
+                <!-- <Label
                     FontAttributes="Bold" 
                     Text="Forgot Password?" 
                     TextColor="Gray" 

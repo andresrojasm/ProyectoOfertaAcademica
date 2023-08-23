@@ -19,14 +19,6 @@ public partial class SingInPage : ContentPage
 
     private async void OnCounterClicked(object sender, EventArgs e)
     {
-        /*if (!string.IsNullOrEmpty(CorreoEntry.Text) && !string.IsNullOrEmpty(ClaveEntry.Text))
-        {
-            this.enviarSingIn();
-        }
-        else
-        {
-            await DisplayAlert("Error", "Datos faltantes", "Aceptar");
-        }*/
         this.enviarSingIn();
     }
 
@@ -65,9 +57,9 @@ public partial class SingInPage : ContentPage
                     string error = "";
                     foreach (string e in res.errorList)
                     {
-                        error += e + "\n"; 
+                        error += e + "\n";
                     }
-                    DisplayAlert("Error",error, "Acepto");
+                    DisplayAlert("Error", error, "Acepto");
                 }
             }
             else
