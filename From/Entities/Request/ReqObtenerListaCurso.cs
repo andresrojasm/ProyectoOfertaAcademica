@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BackEndOfertaAcademica.Entities
+namespace From.Entities.Request
 {
-    public class ReqObtenerListaNuevoUsuario : ReqBase
+    public class ReqObtenerListaCurso : ReqBase
     {
     }
 }

@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace From.Entities.Response
 {
-    public class ResBase
+    public class ResObtenerListaCarrera : ResBase
     {
-        public bool result { get; set; }
-
-        public List<string> errorList { get; set; }
+        public List<Carrera> listaCarrera = new List<Carrera>();
     }
 }

@@ -5,6 +5,7 @@
 * Esteban Mora
 * William Herrera*/
 
+
 /** SE SELECCIONA LA BASE DE DATOS CREADA**/
 USE SISTEMA_GESTION_ACADEMICA
 GO
@@ -64,7 +65,6 @@ BEGIN
     BEGIN
         UPDATE OFERTA_ACADEMICA
         SET
-            NOMBREOFERTA = @NOMBREOFERTA,
             ID_CURSO = @ID_CURSO,
             ID_SEDE = @ID_SEDE,
             ID_CUATRIMESTRE = @ID_CUATRIMESTRE,

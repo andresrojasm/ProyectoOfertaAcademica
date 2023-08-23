@@ -12,7 +12,7 @@ namespace From;
 public partial class Carrera : ContentPage
 {
     //CAMBIAR LA URL
-    public String laURL = "https://apilatina.azurewebsites.net/api/Curso"; //falta este json
+    public String laURL = "https://sistema-oferta-academica.azurewebsites.net/api/Carrera";
     public Carrera()
     {
         InitializeComponent();
@@ -36,7 +36,7 @@ public partial class Carrera : ContentPage
             request.carrera.idGrado = int.Parse(IdGradoEntry.Text);
 
             //CAMBIAR DIRECCION
-            var jsonContent = new StringContent(JsonConvert.SerializeObject(request), Encoding.UTF8, "curso/json"); ;
+            var jsonContent = new StringContent(JsonConvert.SerializeObject(request), Encoding.UTF8, "application/json"); ;
 
             var response = await client.PostAsync(laURL, jsonContent); //Aqui se envía al API
 
@@ -52,7 +52,12 @@ public partial class Carrera : ContentPage
                 }
                 else
                 {
-                    DisplayAlert("Error en backend", res.listaDeErrores.ToString(), "Acepto");
+                    string error = "";
+                    foreach (string e in res.errorList)
+                    {
+                        error += e + "\n";
+                    }
+                    DisplayAlert("Error", error, "Acepto");
                 }
 
             }
@@ -64,7 +69,7 @@ public partial class Carrera : ContentPage
         }
         catch (Exception ex)
         {
-            DisplayAlert("Error", "Llore", "Aceptar");
+            DisplayAlert("Error", "Contactar a soporte", "Aceptar");
         }
     }
 

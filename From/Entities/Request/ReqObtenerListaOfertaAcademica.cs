@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace From.Entities.Request
 {
-    public class ReqSingIn
+    public class ReqObtenerListaOfertaAcademica : ReqBase
     {
-        public SingIn singIn { get; set; }
     }
 }

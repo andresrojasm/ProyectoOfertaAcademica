@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace From.Entities.Response
 {
-    public class ResBase
+    public class ResLogic : ResBase
     {
-        public bool result { get; set; }
-
-        public List<string> errorList { get; set; }
+        public Usuario usuario { get; set; }
     }
 }

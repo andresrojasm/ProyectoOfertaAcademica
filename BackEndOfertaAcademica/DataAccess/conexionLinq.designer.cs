@@ -192,6 +192,639 @@ namespace BackEndOfertaAcademica.DataAccess
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iD_CURSO, iD_SEDE, iD_CUATRIMESTRE, cEDULA_DOCENTE, aÑO, iD_HORARIO, gRUPO, eSTADO, uSUARIO);
 			return ((int)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GET_USUARIO")]
+		public ISingleResult<GET_USUARIOResult> GET_USUARIO([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID_USUARIO", DbType="Int")] System.Nullable<int> iD_USUARIO)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iD_USUARIO);
+			return ((ISingleResult<GET_USUARIOResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GET_LISTA_USUARIOS")]
+		public ISingleResult<GET_LISTA_USUARIOSResult> GET_LISTA_USUARIOS()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<GET_LISTA_USUARIOSResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.USER_LOGING")]
+		public ISingleResult<USER_LOGINGResult> USER_LOGING([global::System.Data.Linq.Mapping.ParameterAttribute(Name="CORREO", DbType="VarChar(100)")] string cORREO, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CLAVE", DbType="NVarChar(MAX)")] string cLAVE)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), cORREO, cLAVE);
+			return ((ISingleResult<USER_LOGINGResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GET_LISTA_CURSOS")]
+		public ISingleResult<GET_LISTA_CURSOSResult> GET_LISTA_CURSOS([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID_CARRERA", DbType="VarChar(15)")] string iD_CARRERA)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iD_CARRERA);
+			return ((ISingleResult<GET_LISTA_CURSOSResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GET_HORARIOS")]
+		public ISingleResult<GET_HORARIOSResult> GET_HORARIOS()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<GET_HORARIOSResult>)(result.ReturnValue));
+		}
+	}
+	
+	public partial class GET_USUARIOResult
+	{
+		
+		private int _CEDULA;
+		
+		private string _NOMBRE;
+		
+		private string _APELLIDOS;
+		
+		private int _EDAD;
+		
+		private string _CORREO;
+		
+		private string _CLAVE;
+		
+		private string _CODIGODOCENTE;
+		
+		private System.DateTime _FECHA;
+		
+		private int _ID_ROLLES;
+		
+		private bool _ACTIVO;
+		
+		public GET_USUARIOResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CEDULA", DbType="Int NOT NULL")]
+		public int CEDULA
+		{
+			get
+			{
+				return this._CEDULA;
+			}
+			set
+			{
+				if ((this._CEDULA != value))
+				{
+					this._CEDULA = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NOMBRE", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
+		public string NOMBRE
+		{
+			get
+			{
+				return this._NOMBRE;
+			}
+			set
+			{
+				if ((this._NOMBRE != value))
+				{
+					this._NOMBRE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_APELLIDOS", DbType="VarChar(30) NOT NULL", CanBeNull=false)]
+		public string APELLIDOS
+		{
+			get
+			{
+				return this._APELLIDOS;
+			}
+			set
+			{
+				if ((this._APELLIDOS != value))
+				{
+					this._APELLIDOS = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EDAD", DbType="Int NOT NULL")]
+		public int EDAD
+		{
+			get
+			{
+				return this._EDAD;
+			}
+			set
+			{
+				if ((this._EDAD != value))
+				{
+					this._EDAD = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CORREO", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+		public string CORREO
+		{
+			get
+			{
+				return this._CORREO;
+			}
+			set
+			{
+				if ((this._CORREO != value))
+				{
+					this._CORREO = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CLAVE", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string CLAVE
+		{
+			get
+			{
+				return this._CLAVE;
+			}
+			set
+			{
+				if ((this._CLAVE != value))
+				{
+					this._CLAVE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CODIGODOCENTE", DbType="VarChar(10)")]
+		public string CODIGODOCENTE
+		{
+			get
+			{
+				return this._CODIGODOCENTE;
+			}
+			set
+			{
+				if ((this._CODIGODOCENTE != value))
+				{
+					this._CODIGODOCENTE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FECHA", DbType="DateTime NOT NULL")]
+		public System.DateTime FECHA
+		{
+			get
+			{
+				return this._FECHA;
+			}
+			set
+			{
+				if ((this._FECHA != value))
+				{
+					this._FECHA = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_ROLLES", DbType="Int NOT NULL")]
+		public int ID_ROLLES
+		{
+			get
+			{
+				return this._ID_ROLLES;
+			}
+			set
+			{
+				if ((this._ID_ROLLES != value))
+				{
+					this._ID_ROLLES = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ACTIVO", DbType="Bit NOT NULL")]
+		public bool ACTIVO
+		{
+			get
+			{
+				return this._ACTIVO;
+			}
+			set
+			{
+				if ((this._ACTIVO != value))
+				{
+					this._ACTIVO = value;
+				}
+			}
+		}
+	}
+	
+	public partial class GET_LISTA_USUARIOSResult
+	{
+		
+		private int _CEDULA;
+		
+		private string _NOMBRE;
+		
+		private string _APELLIDOS;
+		
+		private int _EDAD;
+		
+		private string _CORREO;
+		
+		private string _CODIGODOCENTE;
+		
+		private System.DateTime _FECHA;
+		
+		private int _ID_ROLLES;
+		
+		private bool _ACTIVO;
+		
+		public GET_LISTA_USUARIOSResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CEDULA", DbType="Int NOT NULL")]
+		public int CEDULA
+		{
+			get
+			{
+				return this._CEDULA;
+			}
+			set
+			{
+				if ((this._CEDULA != value))
+				{
+					this._CEDULA = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NOMBRE", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
+		public string NOMBRE
+		{
+			get
+			{
+				return this._NOMBRE;
+			}
+			set
+			{
+				if ((this._NOMBRE != value))
+				{
+					this._NOMBRE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_APELLIDOS", DbType="VarChar(30) NOT NULL", CanBeNull=false)]
+		public string APELLIDOS
+		{
+			get
+			{
+				return this._APELLIDOS;
+			}
+			set
+			{
+				if ((this._APELLIDOS != value))
+				{
+					this._APELLIDOS = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EDAD", DbType="Int NOT NULL")]
+		public int EDAD
+		{
+			get
+			{
+				return this._EDAD;
+			}
+			set
+			{
+				if ((this._EDAD != value))
+				{
+					this._EDAD = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CORREO", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+		public string CORREO
+		{
+			get
+			{
+				return this._CORREO;
+			}
+			set
+			{
+				if ((this._CORREO != value))
+				{
+					this._CORREO = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CODIGODOCENTE", DbType="VarChar(10)")]
+		public string CODIGODOCENTE
+		{
+			get
+			{
+				return this._CODIGODOCENTE;
+			}
+			set
+			{
+				if ((this._CODIGODOCENTE != value))
+				{
+					this._CODIGODOCENTE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FECHA", DbType="DateTime NOT NULL")]
+		public System.DateTime FECHA
+		{
+			get
+			{
+				return this._FECHA;
+			}
+			set
+			{
+				if ((this._FECHA != value))
+				{
+					this._FECHA = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_ROLLES", DbType="Int NOT NULL")]
+		public int ID_ROLLES
+		{
+			get
+			{
+				return this._ID_ROLLES;
+			}
+			set
+			{
+				if ((this._ID_ROLLES != value))
+				{
+					this._ID_ROLLES = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ACTIVO", DbType="Bit NOT NULL")]
+		public bool ACTIVO
+		{
+			get
+			{
+				return this._ACTIVO;
+			}
+			set
+			{
+				if ((this._ACTIVO != value))
+				{
+					this._ACTIVO = value;
+				}
+			}
+		}
+	}
+	
+	public partial class USER_LOGINGResult
+	{
+		
+		private int _CEDULA;
+		
+		private string _NOMBRE;
+		
+		private string _APELLIDOS;
+		
+		private int _ID_ROLLES;
+		
+		public USER_LOGINGResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CEDULA", DbType="Int NOT NULL")]
+		public int CEDULA
+		{
+			get
+			{
+				return this._CEDULA;
+			}
+			set
+			{
+				if ((this._CEDULA != value))
+				{
+					this._CEDULA = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NOMBRE", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
+		public string NOMBRE
+		{
+			get
+			{
+				return this._NOMBRE;
+			}
+			set
+			{
+				if ((this._NOMBRE != value))
+				{
+					this._NOMBRE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_APELLIDOS", DbType="VarChar(30) NOT NULL", CanBeNull=false)]
+		public string APELLIDOS
+		{
+			get
+			{
+				return this._APELLIDOS;
+			}
+			set
+			{
+				if ((this._APELLIDOS != value))
+				{
+					this._APELLIDOS = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_ROLLES", DbType="Int NOT NULL")]
+		public int ID_ROLLES
+		{
+			get
+			{
+				return this._ID_ROLLES;
+			}
+			set
+			{
+				if ((this._ID_ROLLES != value))
+				{
+					this._ID_ROLLES = value;
+				}
+			}
+		}
+	}
+	
+	public partial class GET_LISTA_CURSOSResult
+	{
+		
+		private string _ID_CURSO;
+		
+		private string _NOMBRECURSO;
+		
+		private int _CREDITO;
+		
+		private int _BLOQUE;
+		
+		public GET_LISTA_CURSOSResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_CURSO", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
+		public string ID_CURSO
+		{
+			get
+			{
+				return this._ID_CURSO;
+			}
+			set
+			{
+				if ((this._ID_CURSO != value))
+				{
+					this._ID_CURSO = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NOMBRECURSO", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+		public string NOMBRECURSO
+		{
+			get
+			{
+				return this._NOMBRECURSO;
+			}
+			set
+			{
+				if ((this._NOMBRECURSO != value))
+				{
+					this._NOMBRECURSO = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREDITO", DbType="Int NOT NULL")]
+		public int CREDITO
+		{
+			get
+			{
+				return this._CREDITO;
+			}
+			set
+			{
+				if ((this._CREDITO != value))
+				{
+					this._CREDITO = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BLOQUE", DbType="Int NOT NULL")]
+		public int BLOQUE
+		{
+			get
+			{
+				return this._BLOQUE;
+			}
+			set
+			{
+				if ((this._BLOQUE != value))
+				{
+					this._BLOQUE = value;
+				}
+			}
+		}
+	}
+	
+	public partial class GET_HORARIOSResult
+	{
+		
+		private int _ID_HORARIO;
+		
+		private string _DIA;
+		
+		private string _HORAINICIO;
+		
+		private string _HORAFIN;
+		
+		public GET_HORARIOSResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_HORARIO", DbType="Int NOT NULL")]
+		public int ID_HORARIO
+		{
+			get
+			{
+				return this._ID_HORARIO;
+			}
+			set
+			{
+				if ((this._ID_HORARIO != value))
+				{
+					this._ID_HORARIO = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DIA", DbType="VarChar(9) NOT NULL", CanBeNull=false)]
+		public string DIA
+		{
+			get
+			{
+				return this._DIA;
+			}
+			set
+			{
+				if ((this._DIA != value))
+				{
+					this._DIA = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HORAINICIO", DbType="VarChar(5) NOT NULL", CanBeNull=false)]
+		public string HORAINICIO
+		{
+			get
+			{
+				return this._HORAINICIO;
+			}
+			set
+			{
+				if ((this._HORAINICIO != value))
+				{
+					this._HORAINICIO = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HORAFIN", DbType="VarChar(5) NOT NULL", CanBeNull=false)]
+		public string HORAFIN
+		{
+			get
+			{
+				return this._HORAFIN;
+			}
+			set
+			{
+				if ((this._HORAFIN != value))
+				{
+					this._HORAFIN = value;
+				}
+			}
+		}
 	}
 }
 #pragma warning restore 1591

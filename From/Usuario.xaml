@@ -3,7 +3,7 @@
              xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="From.Usuario"
-             BackgroundColor="#4d4d4f"
+             BackgroundColor="{x:StaticResource Primario}"
              Title="Usuario">
 
     <VerticalStackLayout>
@@ -148,7 +148,7 @@
                 TextColor="{x:StaticResource Secundario}"
                 BackgroundColor="{x:StaticResource Setimo}"
                 Margin="10,0,15,7"/>
-            
+
             <Entry 
                 Grid.Row="2" Grid.Column="1"
                 Placeholder="Nombre"
@@ -158,7 +158,7 @@
                 TextColor="{x:StaticResource Secundario}"
                 BackgroundColor="{x:StaticResource Setimo}"
                 Margin="10,0,15,7"/>
-            
+
             <Entry 
                 Grid.Row="3" Grid.Column="1"
                 Placeholder="Apellidos" 
@@ -168,7 +168,7 @@
                 TextColor="{x:StaticResource Secundario}"
                 BackgroundColor="{x:StaticResource Setimo}"
                 Margin="10,0,15,7"/>
-            
+
             <Entry 
                 Grid.Row="4" Grid.Column="1"
                 Placeholder="Edad" 
@@ -179,7 +179,7 @@
                 TextColor="{x:StaticResource Secundario}"
                 BackgroundColor="{x:StaticResource Setimo}"
                 Margin="10,0,15,7"/>
-            
+
             <Entry 
                 Grid.Row="5" Grid.Column="1"
                 Placeholder="Correo" 
@@ -190,7 +190,7 @@
                 TextColor="{x:StaticResource Secundario}"
                 BackgroundColor="{x:StaticResource Setimo}"
                 Margin="10,0,15,7"/>
-            
+
             <Entry 
                 Grid.Row="6" Grid.Column="1"
                 Placeholder="Código Docente" 
@@ -200,7 +200,7 @@
                 TextColor="{x:StaticResource Secundario}"
                 BackgroundColor="{x:StaticResource Setimo}"
                 Margin="10,0,15,7"/>
-            
+
             <Entry 
                 Grid.Row="7" Grid.Column="1"
                 Placeholder="Rol" 
@@ -211,7 +211,7 @@
                 TextColor="{x:StaticResource Secundario}"
                 BackgroundColor="{x:StaticResource Setimo}"
                 Margin="10,0,15,7"/>
-            
+
             <Entry 
                 Grid.Row="8" Grid.Column="1"
                 Placeholder="Clave" 
@@ -222,7 +222,7 @@
                 TextColor="{x:StaticResource Secundario}"
                 BackgroundColor="{x:StaticResource Setimo}"
                 Margin="10,0,15,7"/>
-            
+
             <DatePicker 
                 Grid.Row="9" Grid.Column="1"
                 HorizontalOptions="End"
@@ -231,7 +231,7 @@
                 TextColor="{x:StaticResource Secundario}"
                 BackgroundColor="{x:StaticResource Setimo}"
                 Margin="10,0,15,7"/>
-            
+
             <Switch 
                 Grid.Row="10" Grid.Column="1"
                 x:Name="Estado"
@@ -262,4 +262,4 @@
 
         </Grid>
     </VerticalStackLayout>
- </ContentPage>
+</ContentPage>

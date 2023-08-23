@@ -11,20 +11,20 @@ namespace From;
 
 public partial class SingInPage : ContentPage
 {
-    public String laURL = "https://sistema-oferta-academica.azurewebsites.net/Help/Api/POST-api-Usuario";
+    public String laURL = "https://sistema-oferta-academica.azurewebsites.net/api/Login";
     public SingInPage()
-	{
-		InitializeComponent();
-	}
+    {
+        InitializeComponent();
+    }
+
+    private async void OnCounterClicked(object sender, EventArgs e)
+    {
+        this.enviarSingIn();
+    }
 
     private async void TapGestureRecognizer_Tapped_For_SignUP(object sender, EventArgs e)
     {
         await Shell.Current.GoToAsync("//SignUp");
-    }
-
-    private void GuardarClicked(object sender, EventArgs e)
-    {
-        this.enviarSingIn();
     }
 
     private async Task enviarSingIn()
@@ -32,32 +32,35 @@ public partial class SingInPage : ContentPage
         try
         {
             HttpClient client = new HttpClient();
-            ReqSingIn request = new ReqSingIn();
-            request.singIn = new Entities.SingIn();
+            ReqLogin request = new ReqLogin();
+            // request.Login = new Entities.Login();
 
-            request.singIn.correo = CorreoEntry.Text;
-            request.singIn.clave = ClaveEntry.Text;
-            //request.singIn.rol = int.Parse(RolEntry.Text);
+            request.correoDelUsuario = CorreoEntry.Text;
+            request.claveDelUsuario = ClaveEntry.Text;
 
-            var jsonContent = new StringContent(JsonConvert.SerializeObject(request), Encoding.UTF8, "singIn/json"); ;
+            var jsonContent = new StringContent(JsonConvert.SerializeObject(request), Encoding.UTF8, "application/json"); ;
 
             var response = await client.PostAsync(laURL, jsonContent); //Aqui se envía al API
 
             if (response.IsSuccessStatusCode)
             {
                 var responseContent = await response.Content.ReadAsStringAsync(); //aqui recibo del API
-                ResNuevoUsuario res = new ResNuevoUsuario();
-                res = JsonConvert.DeserializeObject<ResNuevoUsuario>(responseContent);
+                ResLogic res = new ResLogic();
+                res = JsonConvert.DeserializeObject<ResLogic>(responseContent);
 
                 if (res.result)
                 {
-                    DisplayAlert("Felicidades", "El usuario se ingresó con exito!!!", "Aceptar");
+                    Navigation.PushAsync(new Menu(res.usuario));
                 }
                 else
                 {
-                    DisplayAlert("Error en backend", res.listaDeErrores.ToString(), "Acepto");
+                    string error = "";
+                    foreach (string e in res.errorList)
+                    {
+                        error += e + "\n";
+                    }
+                    DisplayAlert("Error", error, "Acepto");
                 }
-
             }
             else
             {
@@ -65,14 +68,9 @@ public partial class SingInPage : ContentPage
                 DisplayAlert("Error de conexion", "Intente mas tarde", "Aceptar");
             }
         }
-        catch (Exception ex) { }
+        catch (Exception ex)
         {
-            DisplayAlert("Error", "Llore", "Aceptar");
+            DisplayAlert("Error", "Contactar a soporte", "Aceptar");
         }
-    }
-
-    private void OnCounterClicked(object sender, EventArgs e)
-    {
-        Navigation.PushAsync(new Menu());
     }
 }

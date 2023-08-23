@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace From.Entities.Response
+namespace From.Entities.Request
 {
-    internal class ResSingIn : ResBase
+    public class ReqObtenerListaCarrera : ReqBase
     {
     }
 }
