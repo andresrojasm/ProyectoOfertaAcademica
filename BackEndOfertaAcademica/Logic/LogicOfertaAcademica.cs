@@ -1,5 +1,6 @@
 ﻿using BackEndOfertaAcademica.DataAccess;
 using BackEndOfertaAcademica.Entities;
+using BackEndOfertaAcademica.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -108,40 +109,10 @@ namespace BackEndOfertaAcademica.Logic
 
             return response;
         }
-        public ResObtenerOfertaAcademica obtenerOfertaAcademica(ReqObtenerOfertaAcademica request)
-        {
-            ResObtenerOfertaAcademica response = new ResObtenerOfertaAcademica();
-
-            if (request == null)
-            {
-                response.result = false;
-                response.errorList.Add("Request null");
-            }
-            else
-            {
-                if (request.idDeOfertaAcademica == 0)
-                {
-                    response.result = false;
-                    response.errorList.Add("Id usuario faltante");
-                }
-                if (String.IsNullOrEmpty(request.session))
-                {
-                    response.result = false;
-                    response.errorList.Add("Session faltante");
-                }
-                if (!response.errorList.Any())
-                {
-                    /*
-                    conexionLinqDataContext miLinq = new conexionLinqDataContext();
-                    SP_OBTENER_USUARIOResult miTipoComplejo = (SP_OBTENER_USUARIOResult)miLinq.SP_OBTENER_USUARIO(req.idDelUsuario);
-                    res.elUsuario = Factory.miFactoryDeUsuario(miTipoComplejo);*/
-                }
-            }
-            return response;
-        }
         public ResObtenerListaOfertaAcademica obtenerListaOfertaAcademica(ReqObtenerListaOfertaAcademica request)
         {
             ResObtenerListaOfertaAcademica response = new ResObtenerListaOfertaAcademica();
+            response.errorList = new List<string>();
 
             if (request == null)
             {
@@ -149,15 +120,12 @@ namespace BackEndOfertaAcademica.Logic
                 response.errorList.Add("Request null");
             }
             else
-            {/*
-                conexionLinqDataContext miLinq = new conexionLinqDataContext();
-                List<SP_OBTENER_LISTAUSUARIOSResult> listaTipoComplejo = miLinq.SP_OBTENER_LISTAUSUARIOS().ToList();
-
-                foreach (SP_OBTENER_LISTAUSUARIOSResult cadaTipoComplejo in listaTipoComplejo)
-                {
-                    res.listaDeUsuarios.Add(Factory.miFactoryDeUsuarioParaLista(cadaTipoComplejo));
-                }
-                */
+            {
+                conexionLinqDataContext conexionLinq = new conexionLinqDataContext();
+                List<GET_LISTA_OFERTA_ACADEMICAResult> rs;
+                rs = conexionLinq.GET_LISTA_OFERTA_ACADEMICA().ToList();
+                response.listaOfertaAcademica = Factory.factoryListaOfertaAcademica(rs);
+                response.result = true;
             }
             return response;
         }

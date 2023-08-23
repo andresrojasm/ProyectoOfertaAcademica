@@ -19,7 +19,7 @@ namespace APISOfertaAcademica.Controllers
             ReqObtenerListaOfertaAcademica request = new ReqObtenerListaOfertaAcademica();
             return logicOfertaAcademica.obtenerListaOfertaAcademica(request);
         }
-        public ResOfertaAcademica nuevaOfertaAcademica([FromBody] ReqOfertaAcademica request)
+        public ResOfertaAcademica Post([FromBody] ReqOfertaAcademica request)
         {
             LogicOfertaAcademica logicOfertaAcademica = new LogicOfertaAcademica();
             return logicOfertaAcademica.nuevaOfertaAcademica(request);
