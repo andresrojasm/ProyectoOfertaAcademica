@@ -22,6 +22,7 @@
                 x:Name="DatosViewCarrera"
                 Grid.Row="0"
                 Grid.Column="0"
+                Margin="5,5,5,0"
                 BackgroundColor="{x:StaticResource Secundario}"
                 SeparatorColor="{x:StaticResource Cyan100Accent}"
                 RowHeight="60">

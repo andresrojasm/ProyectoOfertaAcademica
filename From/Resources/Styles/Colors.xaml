@@ -23,11 +23,13 @@
     <Color x:Key="Primario">#4d4d4f</Color>    <?para el fondo?>
     <Color x:Key="Secundario">#ffffff</Color>    <?para el texto y borde?>
     <Color x:Key="Terceario">#52504e</Color>    <?para atras?>
-    <Color x:Key="Cuarto">#97d700</Color>    <?para botones?>
+    <Color x:Key="Cuarto">#97d700</Color>    <?para botones?>    
     <Color x:Key="Quinto">#000000</Color>    <?para letras botones?>
     <Color x:Key="Sexto">#ffffff</Color>    <?para letras sin fondo?>
     <Color x:Key="Setimo">#5c5c5e</Color>    <?para el fondo?>
     <Color x:Key="Octabo">#ffc72c</Color>    <?para el fondo?>
+    <Color x:Key="Noveno">#d1ce02</Color>    <?para botones2?>
+    <Color x:Key="Decimo">#02d17b</Color>    <?para botones2?>
 
     <SolidColorBrush x:Key="PrimaryBrush" Color="{StaticResource Primary}"/>
     <SolidColorBrush x:Key="SecondaryBrush" Color="{StaticResource Secondary}"/>
