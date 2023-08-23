@@ -40,7 +40,7 @@ public partial class ViewCarrera : ContentPage
 
                 if (res.result)
                 {
-                    DisplayAlert("Felicidades", "Se mostraron los datos del usuario !!!", "Aceptar");
+                    DisplayAlert("Felicidades", "Se mostraron los datos de la carrera !!!", "Aceptar");
                     carrera = res.listaCarrera;
                     DatosViewCarrera.ItemsSource = carrera;
                 }

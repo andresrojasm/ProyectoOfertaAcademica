@@ -132,9 +132,9 @@ namespace BackEndOfertaAcademica.Utilities
             foreach (GET_LISTA_PLAN_CURSOResult planesCursos in rs)
             {
                 PlanCurso plan = new PlanCurso();
-                plan.codigoPlan = plan.codigoPlan;
-                plan.nombrePlan = plan.nombrePlan;
-                plan.idCarrera = plan.idCarrera;
+                plan.codigoPlan = planesCursos.CODIGOPLAN;
+                plan.nombrePlan = planesCursos.NOMBREPLAN;
+                plan.idCarrera = planesCursos.ID_CARRERA;
 
                 listaPlanCurso.Add(plan);
             }

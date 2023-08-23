@@ -41,7 +41,7 @@ public partial class ViewPlanCurso : ContentPage
 
                 if (res.result)
                 {
-                    DisplayAlert("Felicidades", "Se mostraron los datos del usuario !!!", "Aceptar");
+                    DisplayAlert("Felicidades", "Se mostraron los datos del Plan Curso !!!", "Aceptar");
                     plancurso = res.listaPlanCurso;
                     DatosViewPlanCurso.ItemsSource = plancurso;
                 }
