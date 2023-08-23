@@ -21,7 +21,7 @@ namespace BackEndOfertaAcademica.Logic
                 if (request == null)
                 {
                     response.result = false;
-                    response.errorList.Add("re");
+                    response.errorList.Add("Request null");
                 }
                 else
                 {
