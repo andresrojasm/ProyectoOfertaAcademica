@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace From.Entities.Response
 {
-    public class ResObtenerListaPlanCurso : ResBase
+    public class ResObtenerListaCurso : ResBase
     {
-        public List<PlanCurso> listaPlanCurso = new List<PlanCurso>();
+        public List<Curso> listaCurso = new List<Curso>();
     }
 }
