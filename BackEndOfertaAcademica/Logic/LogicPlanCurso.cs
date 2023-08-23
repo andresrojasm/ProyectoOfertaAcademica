@@ -81,19 +81,24 @@ namespace BackEndOfertaAcademica.Logic
         {
             ResObtenerListaPlanCurso response = new ResObtenerListaPlanCurso();
             response.errorList = new List<string>();
-
-            if (request == null)
+            try
             {
-                response.result = false;
-                response.errorList.Add("Request null");
-            }
-            else
-            {
-                conexionLinqDataContext miLinq = new conexionLinqDataContext();
-                List<GET_LISTA_PLAN_CURSOResult> rs;
-                rs = miLinq.GET_LISTA_PLAN_CURSO().ToList();
-                response.listaPlanCurso = Factory.factoryListaPlanCurso(rs);
-                response.result = true;
+                if (request == null)
+                {
+                    response.result = false;
+                    response.errorList.Add("Request null");
+                }
+                else
+                {
+                    conexionLinqDataContext miLinq = new conexionLinqDataContext();
+                    List<GET_LISTA_PLAN_CURSOResult> rs;
+                    rs = miLinq.GET_LISTA_PLAN_CURSO().ToList();
+                    response.listaPlanCurso = Factory.factoryListaPlanCurso(rs);
+                    response.result = true;
+                }
+            }catch (Exception ex) { 
+                response.result = false; 
+                response.errorList.Add(ex.ToString());
             }
             return response;
         }

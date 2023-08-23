@@ -85,31 +85,37 @@ namespace BackEndOfertaAcademica.Logic
         public ResObtenerCurso obtenerCurso(ReqObtenerCurso request)
         {
             ResObtenerCurso response = new ResObtenerCurso();
-
-            if (request == null)
+            response.errorList = new List<string>();
+            try
             {
-                response.result = false;
-                response.errorList.Add("Request null");
-            }
-            else
-            {
-                if (request.idDelCurso == 0)
+                if (request == null)
                 {
                     response.result = false;
-                    response.errorList.Add("Id usuario faltante");
+                    response.errorList.Add("Request null");
                 }
-                if (String.IsNullOrEmpty(request.session))
+                else
                 {
-                    response.result = false;
-                    response.errorList.Add("Session faltante");
+                    if (request.idDelCurso == 0)
+                    {
+                        response.result = false;
+                        response.errorList.Add("Id usuario faltante");
+                    }
+                    if (String.IsNullOrEmpty(request.session))
+                    {
+                        response.result = false;
+                        response.errorList.Add("Session faltante");
+                    }
+                    if (!response.errorList.Any())
+                    {
+                        /*
+                        conexionLinqDataContext miLinq = new conexionLinqDataContext();
+                        SP_OBTENER_USUARIOResult miTipoComplejo = (SP_OBTENER_USUARIOResult)miLinq.SP_OBTENER_USUARIO(req.idDelUsuario);
+                        res.elUsuario = Factory.miFactoryDeUsuario(miTipoComplejo);*/
+                    }
                 }
-                if (!response.errorList.Any())
-                {
-                    /*
-                    conexionLinqDataContext miLinq = new conexionLinqDataContext();
-                    SP_OBTENER_USUARIOResult miTipoComplejo = (SP_OBTENER_USUARIOResult)miLinq.SP_OBTENER_USUARIO(req.idDelUsuario);
-                    res.elUsuario = Factory.miFactoryDeUsuario(miTipoComplejo);*/
-                }
+            }catch (Exception ex) { 
+                response.result = false; 
+                response.errorList.Add(ex.ToString());
             }
             return response;
         }
@@ -148,6 +154,4 @@ namespace BackEndOfertaAcademica.Logic
             return response;
         }
     }
-
-
 }

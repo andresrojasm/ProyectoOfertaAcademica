@@ -31,9 +31,10 @@ namespace BackEndOfertaAcademica.Logic
                         response.errorList.Add("");
                     }
                 }
-            }catch (Exception)
+            }catch (Exception ex)
             {
-
+                response.errorList.Add(ex.Message);
+                response.result=false;
             }
 
             return response;
