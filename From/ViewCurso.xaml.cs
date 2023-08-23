@@ -11,17 +11,16 @@ namespace From;
 
 public partial class ViewCurso : ContentPage
 {
-    public String laURL = "https://sistema-oferta-academica.azurewebsites.net/api/Curso";
+    public String laURL = "https://sistema-oferta-academica.azurewebsites.net/api/Curso?idCarrera=";
 
     public List<Entities.Curso> curso;
 
     public ViewCurso()
 	{
 		InitializeComponent();
-        this.consulta();
     }
 
-    private async Task consulta()
+    private async Task consulta(string carrera)
     {
         try
         {
@@ -30,7 +29,7 @@ public partial class ViewCurso : ContentPage
 
             var jsonContent = new HttpCompletionOption();
 
-            var response = await client.GetAsync(laURL, jsonContent); //Aqui se envía al API
+            var response = await client.GetAsync(laURL+carrera, jsonContent); //Aqui se envía al API
 
             if (response.IsSuccessStatusCode)
             {
@@ -40,7 +39,7 @@ public partial class ViewCurso : ContentPage
 
                 if (res.result)
                 {
-                    DisplayAlert("Felicidades", "Se mostraron los datos del usuario !!!", "Aceptar");
+                    DisplayAlert("Mensaje","Mostrando resultado...", "Aceptar");
                     curso = res.listaCurso;
                     DatosViewCurso.ItemsSource = curso;
                 }
@@ -68,5 +67,10 @@ public partial class ViewCurso : ContentPage
     private void AtrasBtn_Clicked(object sender, EventArgs e)
     {
         Navigation.PopAsync();
+    }
+
+    private void BuscarCarreraBtn_Clicked(object sender, EventArgs e)
+    {
+        this.consulta(BuscarCarreraEntry.Text);
     }
 }
