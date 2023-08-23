@@ -1,11 +1,9 @@
 ﻿using BackEndOfertaAcademica.DataAccess;
 using BackEndOfertaAcademica.Entities;
+using BackEndOfertaAcademica.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.Remoting.Messaging;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BackEndOfertaAcademica.Logic
 {
@@ -118,22 +116,34 @@ namespace BackEndOfertaAcademica.Logic
         public ResObtenerListaCurso obtenerListaCurso(ReqObtenerListaCurso request)
         {
             ResObtenerListaCurso response = new ResObtenerListaCurso();
+            response.errorList = new List<string>();
+            try
+            {
+                if (request == null)
+                {
+                    response.result = false;
+                    response.errorList.Add("Request null");
+                }
+                else
+                {
+                    if (string.IsNullOrEmpty(request.idCarrera))
+                    {
+                        response.result = false;
+                        response.errorList.Add("No se indico la Carrera correspondiente");
+                    }
+                    if (!response.errorList.Any())
+                    {
+                        conexionLinqDataContext conexionLinq = new conexionLinqDataContext();
+                        List<GET_LISTA_CURSOSResult> rs = conexionLinq.GET_LISTA_CURSOS(request.idCarrera).ToList();
+                        response.listaCurso = Factory.factoryListaCursos(rs);
 
-            if (request == null)
+                        response.result = true;
+                    }
+                }
+            } catch (Exception ex)
             {
                 response.result = false;
-                response.errorList.Add("Request null");
-            }
-            else
-            {/*
-                conexionLinqDataContext miLinq = new conexionLinqDataContext();
-                List<SP_OBTENER_LISTAUSUARIOSResult> listaTipoComplejo = miLinq.SP_OBTENER_LISTAUSUARIOS().ToList();
-
-                foreach (SP_OBTENER_LISTAUSUARIOSResult cadaTipoComplejo in listaTipoComplejo)
-                {
-                    res.listaDeUsuarios.Add(Factory.miFactoryDeUsuarioParaLista(cadaTipoComplejo));
-                }
-                */
+                response.errorList.Add($"{ex.Message}");
             }
             return response;
         }

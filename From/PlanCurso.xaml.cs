@@ -11,7 +11,7 @@ namespace From;
 
 public partial class PlanCurso : ContentPage
 {
-    public String laURL = "https://sistema-oferta-academica.azurewebsites.net/Help/Api/POST-api-Curso"; //falta este json
+    public String laURL = "https://sistema-oferta-academica.azurewebsites.net/api/";
     public PlanCurso()
     {
         InitializeComponent();
@@ -34,7 +34,7 @@ public partial class PlanCurso : ContentPage
             request.planCurso.nombrePlan = NombrePlanEntry.Text;
             request.planCurso.idCarrera = IdCarreraEntry.Text;
 
-            var jsonContent = new StringContent(JsonConvert.SerializeObject(request), Encoding.UTF8, "curso/json"); ;
+            var jsonContent = new StringContent(JsonConvert.SerializeObject(request), Encoding.UTF8, "application/json"); ;
 
             var response = await client.PostAsync(laURL, jsonContent); //Aqui se envía al API
 
@@ -46,11 +46,16 @@ public partial class PlanCurso : ContentPage
 
                 if (res.result)
                 {
-                    DisplayAlert("Felicidades", "El curso se ingresó con exito!!!", "Aceptar");
+                    DisplayAlert("Felicidades", "El plan curso se ingresó con exito!!!", "Aceptar");
                 }
                 else
                 {
-                    DisplayAlert("Error en backend", res.listaDeErrores.ToString(), "Acepto");
+                    string error = "";
+                    foreach (string e in res.errorList)
+                    {
+                        error += e + "\n";
+                    }
+                    DisplayAlert("Error", error, "Acepto");
                 }
 
             }
@@ -60,9 +65,9 @@ public partial class PlanCurso : ContentPage
                 DisplayAlert("Error de conexion", "Intente mas tarde", "Aceptar");
             }
         }
-        catch (Exception ex) { }
+        catch (Exception ex)
         {
-            DisplayAlert("Error", "Llore", "Aceptar");
+            DisplayAlert("Error", "Contactar a soporte", "Aceptar");
         }
     }
 

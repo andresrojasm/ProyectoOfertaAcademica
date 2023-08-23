@@ -149,4 +149,59 @@
     <Parameter Name="USUARIO" Parameter="uSUARIO" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
   </Function>
+  <Function Name="dbo.GET_USUARIO" Method="GET_USUARIO">
+    <Parameter Name="ID_USUARIO" Parameter="iD_USUARIO" Type="System.Int32" DbType="Int" />
+    <ElementType Name="GET_USUARIOResult">
+      <Column Name="CEDULA" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NOMBRE" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="APELLIDOS" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="EDAD" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CORREO" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="CLAVE" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="CODIGODOCENTE" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="FECHA" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ID_ROLLES" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ACTIVO" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.GET_LISTA_USUARIOS" Method="GET_LISTA_USUARIOS">
+    <ElementType Name="GET_LISTA_USUARIOSResult">
+      <Column Name="CEDULA" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NOMBRE" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="APELLIDOS" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="EDAD" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CORREO" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="CODIGODOCENTE" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="FECHA" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ID_ROLLES" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ACTIVO" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.USER_LOGING" Method="USER_LOGING">
+    <Parameter Name="CORREO" Parameter="cORREO" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="CLAVE" Parameter="cLAVE" Type="System.String" DbType="NVarChar(MAX)" />
+    <ElementType Name="USER_LOGINGResult">
+      <Column Name="CEDULA" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NOMBRE" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="APELLIDOS" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="ID_ROLLES" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.GET_LISTA_CURSOS" Method="GET_LISTA_CURSOS">
+    <Parameter Name="ID_CARRERA" Parameter="iD_CARRERA" Type="System.String" DbType="VarChar(15)" />
+    <ElementType Name="GET_LISTA_CURSOSResult">
+      <Column Name="ID_CURSO" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="NOMBRECURSO" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="CREDITO" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="BLOQUE" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.GET_HORARIOS" Method="GET_HORARIOS">
+    <ElementType Name="GET_HORARIOSResult">
+      <Column Name="ID_HORARIO" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DIA" Type="System.String" DbType="VarChar(9) NOT NULL" CanBeNull="false" />
+      <Column Name="HORAINICIO" Type="System.String" DbType="VarChar(5) NOT NULL" CanBeNull="false" />
+      <Column Name="HORAFIN" Type="System.String" DbType="VarChar(5) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
 </Database>

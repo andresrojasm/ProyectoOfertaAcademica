@@ -3,19 +3,8 @@
              xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="From.Menu"
-             BackgroundColor="#4d4d4f"
+             BackgroundColor="{x:StaticResource Primario}"
              Title="Menu">
-
-    <ContentPage.Resources>
-        <Color x:Key="Primario">#4d4d4f</Color>        <?para el fondo?>
-        <Color x:Key="Secundario">#ffffff</Color>        <?para el texto y borde?>
-        <Color x:Key="Terceario">#52504e</Color>        <?para atras?>
-        <Color x:Key="Cuarto">#97d700</Color>        <?para botones?>
-        <Color x:Key="Quinto">#000000</Color>        <?para letras botones?>
-        <Color x:Key="Sexto">#ffffff</Color>        <?para letras sin fondo?>
-        <Color x:Key="Setimo">#5c5c5e</Color>        <?para el fondo?>
-        <Color x:Key="Octabo">#ffc72c</Color>        <?para el fondo?>
-    </ContentPage.Resources>
 
     <VerticalStackLayout>
         <Grid>
@@ -47,8 +36,8 @@
                     VerticalTextAlignment="Center"
                     FontSize="30"
                     HorizontalTextAlignment="Center"
-                    BackgroundColor="{StaticResource Primario}"
-                    TextColor="{StaticResource Cuarto}">                    
+                    BackgroundColor="{x:StaticResource Primario}"
+                    TextColor="{x:StaticResource Cuarto}">                    
                 </Label>
             </Border>
 
@@ -59,8 +48,8 @@
                 HorizontalOptions="Center" 
                 VerticalOptions="Center" 
                 Margin="0,7,0,0" 
-                TextColor="{StaticResource Quinto}"
-                BackgroundColor="{StaticResource Octabo}"/>
+                TextColor="{x:StaticResource Quinto}"
+                BackgroundColor="{x:StaticResource Octabo}"/>
 
             <Button
             x:Name="UsuarioBtn"
@@ -71,8 +60,8 @@
             Grid.Column="0"
             HorizontalOptions="Center" 
             Margin="0,0,0,7" 
-            TextColor="{StaticResource Quinto}"
-            BackgroundColor="{StaticResource Cuarto}"/>
+            TextColor="{x:StaticResource Quinto}"
+            BackgroundColor="{x:StaticResource Cuarto}"/>
 
         <Button
             x:Name="PlanCursoBtn"
@@ -83,8 +72,8 @@
             Grid.Column="0"
             HorizontalOptions="Center" 
             Margin="0,0,0,7"
-            TextColor="{StaticResource Quinto}"
-            BackgroundColor="{StaticResource Cuarto}"/>
+            TextColor="{x:StaticResource Quinto}"
+            BackgroundColor="{x:StaticResource Cuarto}"/>
         
         <Button
             x:Name="CursoBtn"
@@ -95,45 +84,105 @@
             Grid.Column="0"
             HorizontalOptions="Center" 
             Margin="0,0,0,7"
-            TextColor="{StaticResource Quinto}"
-            BackgroundColor="{StaticResource Cuarto}"/>
+            TextColor="{x:StaticResource Quinto}"
+            BackgroundColor="{x:StaticResource Cuarto}"/>
 
         <Button
             x:Name="OfertaAcademicaBtn"
             Text="Oferta Academica"
             SemanticProperties.Hint="Counts the number of times you click"
             Clicked="OfertaAcademicaBtn_Clicked"
-            Grid.Row="2" 
-            Grid.Column="1"
+            Grid.Row="5" 
+            Grid.Column="0"
             HorizontalOptions="Center" 
-            TextColor="{StaticResource Quinto}"
+            TextColor="{x:StaticResource Quinto}"
             Margin="0,0,0,7"
-            BackgroundColor="{StaticResource Cuarto}"/>
+            BackgroundColor="{x:StaticResource Cuarto}"/>
 
         <Button
             x:Name="CarreraBtn"
             Text="Carrera"
             SemanticProperties.Hint="Counts the number of times you click"
             Clicked="CarreraBtn_Clicked"
-            Grid.Row="3"
-            Grid.Column="1"
+            Grid.Row="6"
+            Grid.Column="0"
             HorizontalOptions="Center" 
             Margin="0,0,0,7"
-            TextColor="{StaticResource Quinto}"
-            BackgroundColor="{StaticResource Cuarto}"/>
+            TextColor="{x:StaticResource Quinto}"
+            BackgroundColor="{x:StaticResource Cuarto}"/>
 
-        <Button
+            <Button
             x:Name="AcercaBtn"
             Text="Acerca de..."
             SemanticProperties.Hint="Counts the number of times you click"
             Clicked="AcercaBtn_Clicked"
-            Grid.Row="4"
-            Grid.Column="1"
+            Grid.Row="7"
+            Grid.Column="0"
             HorizontalOptions="Center" 
             Margin="0,0,0,7"
-            TextColor="{StaticResource Quinto}"
-            BackgroundColor="{StaticResource Cuarto}"/>
+            TextColor="{x:StaticResource Quinto}"
+            BackgroundColor="{x:StaticResource Cuarto}"/>
 
-    </Grid>
+            <Button 
+                x:Name="ViewUsuarioBtn"
+                Text="View Usuario"
+                SemanticProperties.Hint="Counts the number of times you click"
+                Clicked="ViewUsuarioBtn_Clicked"
+                Grid.Row="2"
+                Grid.Column="1"
+                HorizontalOptions="Center" 
+                Margin="0,0,0,7"
+                TextColor="{x:StaticResource Quinto}"
+                BackgroundColor="{x:StaticResource Cuarto}"/>
+
+            <Button 
+                x:Name="ViewPlanCursoBtn"
+                Text="View PlanCurso"
+                SemanticProperties.Hint="Counts the number of times you click"
+                Clicked="ViewPlanCursoBtn_Clicked"
+                Grid.Row="3"
+                Grid.Column="1"
+                HorizontalOptions="Center" 
+                Margin="0,0,0,7"
+                TextColor="{x:StaticResource Quinto}"
+                BackgroundColor="{x:StaticResource Cuarto}"/>
+
+            <Button 
+                x:Name="ViewCursoBtn"
+                Text="View Curso"
+                SemanticProperties.Hint="Counts the number of times you click"
+                Clicked="ViewCursoBtn_Clicked"
+                Grid.Row="4"
+                Grid.Column="1"
+                HorizontalOptions="Center" 
+                Margin="0,0,0,7"
+                TextColor="{x:StaticResource Quinto}"
+                BackgroundColor="{x:StaticResource Cuarto}"/>
+
+            <Button 
+                x:Name="ViewOfertaAcademicaBtn"
+                Text="View OfertaAcademica"
+                SemanticProperties.Hint="Counts the number of times you click"
+                Clicked="ViewOfertaAcademicaBtn_Clicked"
+                Grid.Row="5"
+                Grid.Column="1"
+                HorizontalOptions="Center" 
+                Margin="0,0,0,7"
+                TextColor="{x:StaticResource Quinto}"
+                BackgroundColor="{x:StaticResource Cuarto}"/>
+
+            <Button 
+                x:Name="ViewCarreraBtn"
+                Text="View Carrera"
+                SemanticProperties.Hint="Counts the number of times you click"
+                Clicked="ViewCarreraBtn_Clicked"
+                Grid.Row="6"
+                Grid.Column="1"
+                HorizontalOptions="Center" 
+                Margin="0,0,0,7"
+                TextColor="{x:StaticResource Quinto}"
+                BackgroundColor="{x:StaticResource Cuarto}"/>
+
+        </Grid>
     </VerticalStackLayout>
 </ContentPage>

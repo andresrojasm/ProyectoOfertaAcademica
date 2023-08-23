@@ -159,6 +159,8 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\CursoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\HorarioController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\OfertaAcademicaController.cs" />
     <Compile Include="Controllers\PlanCursoControllers.cs" />
     <Compile Include="Controllers\RelacionCPControllers.cs" />
@@ -268,6 +270,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\Horario\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
