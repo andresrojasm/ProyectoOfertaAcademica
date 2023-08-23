@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -163,7 +163,7 @@
     <Compile Include="Controllers\HorarioController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\OfertaAcademicaController.cs" />
-    <Compile Include="Controllers\PlanCursoControllers.cs" />
+    <Compile Include="Controllers\PlanCursoController.cs" />
     <Compile Include="Controllers\RelacionCPControllers.cs" />
     <Compile Include="Controllers\SolicitudUsuarioControllers.cs" />
     <Compile Include="Controllers\RelacionCDController.cs" />
