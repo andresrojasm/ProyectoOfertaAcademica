@@ -4,6 +4,7 @@ using BackEndOfertaAcademica.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 
 namespace BackEndOfertaAcademica.Logic
 {
@@ -21,7 +22,7 @@ namespace BackEndOfertaAcademica.Logic
                 if (request == null)
                 {
                     response.result = false;
-                    response.errorList.Add("re");
+                    response.errorList.Add("Request null");
                 }
                 else
                 {
@@ -107,7 +108,7 @@ namespace BackEndOfertaAcademica.Logic
             catch (Exception ex)
             {
                 response.result = false;
-                response.errorList.Add(ex.ToString());
+                response.errorList.Add(ex.Message);
             }
             //Iria un finally si hay un log de errores
 
@@ -119,35 +120,42 @@ namespace BackEndOfertaAcademica.Logic
             ResObtenerNuevoUsuario res = new ResObtenerNuevoUsuario();
             res.errorList = new List<string>();
 
-            if (req == null)
+            try 
             {
-                res.result = false;
-                res.errorList.Add("Request null");
-            }
-            else
-            {
-                if (req.idDelUsuario == 0)
+                if (req == null)
                 {
                     res.result = false;
-                    res.errorList.Add("Id de usuario faltante");
+                    res.errorList.Add("Request null");
                 }
-
-                if (!res.errorList.Any())
+                else
                 {
-                    conexionLinqDataContext conexionLinq = new conexionLinqDataContext();
-                    List<GET_USUARIOResult> rs = conexionLinq.GET_USUARIO(req.idDelUsuario).ToList();
-
-                    if (!rs.Any())
+                    if (req.idDelUsuario == 0)
                     {
-                        res.result =false;
-                        res.errorList.Add("No hay ninguna coincidencia");
+                        res.result = false;
+                        res.errorList.Add("Id de usuario faltante");
                     }
-                    else
+
+                    if (!res.errorList.Any())
                     {
-                        res.usuario = Factory.factoryUsuario(rs[0]);
-                        res.result = true;
+                        conexionLinqDataContext conexionLinq = new conexionLinqDataContext();
+                        List<GET_USUARIOResult> rs = conexionLinq.GET_USUARIO(req.idDelUsuario).ToList();
+
+                        if (!rs.Any())
+                        {
+                            res.result = false;
+                            res.errorList.Add("No hay ninguna coincidencia");
+                        }
+                        else
+                        {
+                            res.usuario = Factory.factoryUsuario(rs[0]);
+                            res.result = true;
+                        }
                     }
                 }
+            } catch (Exception ex)
+            {
+                res.result=false;
+                res.errorList.Add(ex.Message);
             }
 
             return res;
@@ -157,22 +165,27 @@ namespace BackEndOfertaAcademica.Logic
         {
             ResObtenerListaNuevoUsuario res = new ResObtenerListaNuevoUsuario();
             res.errorList = new List<string>();
-
-            if ( req == null)
+            try
             {
+                if (req == null)
+                {
+                    res.result = false;
+                    res.errorList.Add("Request Null");
+                }
+                else
+                {
+                    conexionLinqDataContext conexionLinq = new conexionLinqDataContext();
+                    List<GET_LISTA_USUARIOSResult> rs = new List<GET_LISTA_USUARIOSResult>();
+                    rs = conexionLinq.GET_LISTA_USUARIOS().ToList();
+                    res.listaUsuario = Factory.factoryListaUsuario(rs);
+
+                    res.result = true;
+                }
+            }  catch(Exception ex)
+            {
+                res.errorList.Add($"{ex.Message}");
                 res.result = false;
-                res.errorList.Add("Request Null");
             }
-            else
-            {
-                conexionLinqDataContext conexionLinq = new conexionLinqDataContext();
-                List<GET_LISTA_USUARIOSResult> rs = new List<GET_LISTA_USUARIOSResult>();
-                rs = conexionLinq.GET_LISTA_USUARIOS().ToList();
-                res.listaUsuario = Factory.factoryListaUsuario(rs);
-
-                res.result = true;
-            }
-
             return res;
         }
 
@@ -181,41 +194,50 @@ namespace BackEndOfertaAcademica.Logic
             ResLogin res = new ResLogin();
             res.errorList = new List<string>();
 
-            if( req == null )
+            try
             {
-                res.result = false;
-                res.errorList.Add("Request null");
-            }
-            else
-            {
-                if (string.IsNullOrEmpty(req.correoDelUsuario))
+
+
+                if (req == null)
                 {
                     res.result = false;
-                    res.errorList.Add("Correo faltante");
+                    res.errorList.Add("Request null");
                 }
-
-                if (string.IsNullOrEmpty(req.claveDelUsuario))
+                else
                 {
-                    res.result = false;
-                    res.errorList.Add("Clave faltante");
-                }
-
-                if(!res.errorList.Any())
-                {
-                    conexionLinqDataContext conexionLinq = new conexionLinqDataContext();
-                    List<USER_LOGINGResult> rs = conexionLinq.USER_LOGING(req.correoDelUsuario, req.claveDelUsuario).ToList();
-
-                    if(rs.Any())
-                    {
-                        res.result = true;
-                        res.usuario = Factory.factoryLogin(rs[0]);
-                    }
-                    else
+                    if (string.IsNullOrEmpty(req.correoDelUsuario))
                     {
                         res.result = false;
-                        res.errorList.Add("Credenciales no coiniden o se usuario esta inactivo");
+                        res.errorList.Add("Correo faltante");
+                    }
+
+                    if (string.IsNullOrEmpty(req.claveDelUsuario))
+                    {
+                        res.result = false;
+                        res.errorList.Add("Clave faltante");
+                    }
+
+                    if (!res.errorList.Any())
+                    {
+                        conexionLinqDataContext conexionLinq = new conexionLinqDataContext();
+                        List<USER_LOGINGResult> rs = conexionLinq.USER_LOGING(req.correoDelUsuario, req.claveDelUsuario).ToList();
+
+                        if (rs.Any())
+                        {
+                            res.result = true;
+                            res.usuario = Factory.factoryLogin(rs[0]);
+                        }
+                        else
+                        {
+                            res.result = false;
+                            res.errorList.Add("Credenciales no coiniden o se usuario esta inactivo");
+                        }
                     }
                 }
+            }catch(Exception ex)
+            {
+                res.result = false;
+                res.errorList.Add($"{ ex.Message}");
             }
 
             return res;

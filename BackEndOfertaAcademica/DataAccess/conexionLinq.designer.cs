@@ -36,6 +36,7 @@ namespace BackEndOfertaAcademica.DataAccess
         {
             OnCreated();
         }
+
         public conexionLinqDataContext(string connection) : 
 				base(connection, mappingSource)
 		{
@@ -228,11 +229,25 @@ namespace BackEndOfertaAcademica.DataAccess
 			return ((ISingleResult<GET_HORARIOSResult>)(result.ReturnValue));
 		}
 		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GET_LISTA_CARRERAS")]
+		public ISingleResult<GET_LISTA_CARRERASResult> GET_LISTA_CARRERAS()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<GET_LISTA_CARRERASResult>)(result.ReturnValue));
+    }
+    
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GET_LISTA_OFERTA_ACADEMICA")]
 		public ISingleResult<GET_LISTA_OFERTA_ACADEMICAResult> GET_LISTA_OFERTA_ACADEMICA()
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
 			return ((ISingleResult<GET_LISTA_OFERTA_ACADEMICAResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GET_LISTA_PLAN_CURSO")]
+		public ISingleResult<GET_LISTA_PLAN_CURSOResult> GET_LISTA_PLAN_CURSO()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<GET_LISTA_PLAN_CURSOResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -834,6 +849,86 @@ namespace BackEndOfertaAcademica.DataAccess
 		}
 	}
 	
+	public partial class GET_LISTA_CARRERASResult
+	{
+		
+		private string _ID_CARRERA;
+		
+		private string _NOMBRECARRERA;
+		
+		private int _ID_FACULTAD;
+		
+		private int _ID_GRADO;
+		
+		public GET_LISTA_CARRERASResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_CARRERA", DbType="VarChar(15) NOT NULL", CanBeNull=false)]
+		public string ID_CARRERA
+		{
+			get
+			{
+				return this._ID_CARRERA;
+			}
+			set
+			{
+				if ((this._ID_CARRERA != value))
+				{
+					this._ID_CARRERA = value;
+        }
+      }
+    }
+    
+    [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NOMBRECARRERA", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string NOMBRECARRERA
+		{
+			get
+			{
+				return this._NOMBRECARRERA;
+			}
+			set
+			{
+				if ((this._NOMBRECARRERA != value))
+				{
+					this._NOMBRECARRERA = value;
+         }
+       }
+    }
+    
+    [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_FACULTAD", DbType="Int NOT NULL")]
+		public int ID_FACULTAD
+		{
+			get
+			{
+				return this._ID_FACULTAD;
+			}
+			set
+			{
+				if ((this._ID_FACULTAD != value))
+				{
+					this._ID_FACULTAD = value;
+        }
+      }
+    }
+    
+    [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_GRADO", DbType="Int NOT NULL")]
+		public int ID_GRADO
+		{
+			get
+			{
+				return this._ID_GRADO;
+			}
+			set
+			{
+				if ((this._ID_GRADO != value))
+				{
+					this._ID_GRADO = value;
+        }
+			}
+		}
+  }
+	
 	public partial class GET_LISTA_OFERTA_ACADEMICAResult
 	{
 		
@@ -988,7 +1083,7 @@ namespace BackEndOfertaAcademica.DataAccess
 				}
 			}
 		}
-		
+
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ESTADO", DbType="Bit NOT NULL")]
 		public bool ESTADO
 		{
@@ -1017,6 +1112,68 @@ namespace BackEndOfertaAcademica.DataAccess
 				if ((this._USUARIO != value))
 				{
 					this._USUARIO = value;
+				}
+			}
+		}
+	}
+	
+	public partial class GET_LISTA_PLAN_CURSOResult
+	{
+		
+		private string _CODIGOPLAN;
+		
+		private string _NOMBREPLAN;
+		
+		private string _ID_CARRERA;
+		
+		public GET_LISTA_PLAN_CURSOResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CODIGOPLAN", DbType="VarChar(25) NOT NULL", CanBeNull=false)]
+		public string CODIGOPLAN
+		{
+			get
+			{
+				return this._CODIGOPLAN;
+			}
+			set
+			{
+				if ((this._CODIGOPLAN != value))
+				{
+					this._CODIGOPLAN = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NOMBREPLAN", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string NOMBREPLAN
+		{
+			get
+			{
+				return this._NOMBREPLAN;
+			}
+			set
+			{
+				if ((this._NOMBREPLAN != value))
+				{
+					this._NOMBREPLAN = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_CARRERA", DbType="VarChar(15) NOT NULL", CanBeNull=false)]
+		public string ID_CARRERA
+		{
+			get
+			{
+				return this._ID_CARRERA;
+			}
+			set
+			{
+				if ((this._ID_CARRERA != value))
+				{
+					this._ID_CARRERA = value;
 				}
 			}
 		}

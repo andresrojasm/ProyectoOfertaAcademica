@@ -114,18 +114,26 @@ namespace BackEndOfertaAcademica.Logic
             ResObtenerListaOfertaAcademica response = new ResObtenerListaOfertaAcademica();
             response.errorList = new List<string>();
 
-            if (request == null)
+            try
+            {
+                if (request == null)
+                {
+                    response.result = false;
+                    response.errorList.Add("Request null");
+                }
+                else
+                {
+                    conexionLinqDataContext conexionLinq = new conexionLinqDataContext();
+                    List<GET_LISTA_OFERTA_ACADEMICAResult> rs;
+                    rs = conexionLinq.GET_LISTA_OFERTA_ACADEMICA().ToList();
+                    response.listaOfertaAcademica = Factory.factoryListaOfertaAcademica(rs);
+                    response.result = true;
+                }
+            }
+            catch (Exception ex)
             {
                 response.result = false;
-                response.errorList.Add("Request null");
-            }
-            else
-            {
-                conexionLinqDataContext conexionLinq = new conexionLinqDataContext();
-                List<GET_LISTA_OFERTA_ACADEMICAResult> rs;
-                rs = conexionLinq.GET_LISTA_OFERTA_ACADEMICA().ToList();
-                response.listaOfertaAcademica = Factory.factoryListaOfertaAcademica(rs);
-                response.result = true;
+                response.errorList.Add(ex.ToString());
             }
             return response;
         }

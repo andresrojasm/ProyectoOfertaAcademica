@@ -78,6 +78,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>conexionLinq.dbml</DependentUpon>
     </Compile>
+    <Compile Include="Entities\Model\Carrera.cs" />
     <Compile Include="Entities\Model\Curso.cs" />
     <Compile Include="Entities\Model\Horario.cs" />
     <Compile Include="Entities\Model\OfertaAcademica.cs" />
@@ -90,10 +91,12 @@
     <Compile Include="Entities\Model\Usuario.cs" />
     <Compile Include="Entities\Model\SolicitudUsuario.cs" />
     <Compile Include="Entities\Request\ReqBase.cs" />
+    <Compile Include="Entities\Request\ReqCarrera.cs" />
     <Compile Include="Entities\Request\ReqCurso.cs" />
     <Compile Include="Entities\Request\ReqLogin.cs" />
     <Compile Include="Entities\Request\ReqNuevoUsuario.cs" />
     <Compile Include="Entities\Request\ReqObtenerCurso.cs" />
+    <Compile Include="Entities\Request\ReqObtenerListaCarreras.cs" />
     <Compile Include="Entities\Request\ReqObtenerListaCurso.cs" />
     <Compile Include="Entities\Request\ReqObtenerListaHorarios.cs" />
     <Compile Include="Entities\Request\ReqObtenerListaNuevoUsuario.cs" />
@@ -113,9 +116,11 @@
     <Compile Include="Entities\Request\ReqRelacionCP.cs" />
     <Compile Include="Entities\Request\ReqPlanCurso.cs" />
     <Compile Include="Entities\Request\ReqRelacionSedeFAcultad.cs" />
+    <Compile Include="Entities\Response\ResCarrera.cs" />
     <Compile Include="Entities\Response\ResCurso.cs" />
     <Compile Include="Entities\Response\ResLogin.cs" />
     <Compile Include="Entities\Response\ResObtenerCurso.cs" />
+    <Compile Include="Entities\Response\ResObtenerListaCarreras.cs" />
     <Compile Include="Entities\Response\ResObtenerListaCurso.cs" />
     <Compile Include="Entities\Response\ResObtenerListaHorarios.cs" />
     <Compile Include="Entities\Response\ResObtenerListaNuevoUsuario.cs" />
@@ -140,6 +145,7 @@
     <Compile Include="Entities\Response\ResBase.cs" />
     <Compile Include="Entities\Response\ResNuevoUsuario.cs" />
     <Compile Include="Entities\Response\ResSolicitudUsuario.cs" />
+    <Compile Include="Logic\LogicCarrera.cs" />
     <Compile Include="Logic\LogicHorario.cs" />
     <Compile Include="Logic\LogicRelacionCP.cs" />
     <Compile Include="Entities\Response\ResTelefono.cs" />

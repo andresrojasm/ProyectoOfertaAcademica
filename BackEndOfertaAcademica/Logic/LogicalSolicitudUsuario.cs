@@ -50,33 +50,8 @@ namespace BackEndOfertaAcademica.Logic
                             request.solicitudUsuario.clave,
                             request.solicitudUsuario.codigoDocente,
                             request.solicitudUsuario.rol);
-
-                        /*
-                         --STORE PROCEDURE PARA SOLICITUD USUARIO
-CREATE PROCEDURE NEW_USUARIO_SOLICITUD
-    @CEDULA INT,
-    @FECHA_SOLICITUD DATETIME,
-    @ID_ESTADO INT
-AS
-BEGIN
-    SET NOCOUNT ON;
-
-    IF NOT EXISTS(SELECT 1 FROM SOLICITUD_USUARIO WHERE CEDULA = @CEDULA AND FECHA_SOLICITUD = @FECHA_SOLICITUD)
-    BEGIN
-        INSERT INTO SOLICITUD_USUARIO (CEDULA, FECHA_SOLICITUD, ID_ESTADO)
-        VALUES (@CEDULA, @FECHA_SOLICITUD, @ID_ESTADO);
-    END
-    ELSE
-    BEGIN
-        PRINT 'LA SOLICITUD DE USUARIO YA EXISTE';
-    END
-END
-GO
-                         
-                         
-                         */
-                        // ref cedulaBD,
-                        // ref listaErroresBD)
+                            // ref cedulaBD,
+                            // ref listaErroresBD)
 
                         //Validacion de las acciones de la BASE DE DATOS
 

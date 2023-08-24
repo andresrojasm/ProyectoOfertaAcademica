@@ -39,7 +39,7 @@ public partial class ViewOfertaAcademica : ContentPage
 
                 if (res.result)
                 {
-                    DisplayAlert("Felicidades", "Se mostraron los datos del usuario !!!", "Aceptar");
+                    DisplayAlert("Felicidades", "Se mostraron los datos de la Oferta Academica !!!", "Aceptar");
                     ofertaacademica = res.listaOfertaAcademica;
                     DatosViewOfertaAcademica.ItemsSource = ofertaacademica;
                 }
